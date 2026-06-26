@@ -7,8 +7,8 @@ independently. Every endpoint here has been tested against a live database.
 ## What's inside
 
 ```
-democracy-reform/
-├── schema.sql            # database structure — the single source of truth
+Playbook-Project/
+├── create.sql            # database structure — the single source of truth
 ├── seed.sql              # sample data so the app renders against real rows
 ├── run.py                # local dev entry point (python run.py)
 ├── requirements.txt      # dependencies
@@ -41,7 +41,7 @@ and `seed.sql` are shared — change those together and tell each other.
 2. **Clone the repo and enter it:**
    ```bash
    git clone <your-repo-url>
-   cd democracy-reform
+   cd Playbook-Project
    ```
 
 3. **Create a Python virtual environment and install dependencies:**
@@ -53,9 +53,9 @@ and `seed.sql` are shared — change those together and tell each other.
 
 4. **Create your local database and load schema + seed:**
    ```bash
-   createdb democracy
-   psql democracy < schema.sql
-   psql democracy < seed.sql
+   createdb playbook
+   psql playbook < create.sql (or psql playbook -e -f create.sql)
+   psql playbook < seed.sql
    ```
 
 5. **Create your own `.env`** (this holds YOUR local secrets; it is never committed):
@@ -64,7 +64,7 @@ and `seed.sql` are shared — change those together and tell each other.
    ```
    Then edit `.env` and set `DATABASE_URL` to your local connection string, e.g.:
    ```
-   DATABASE_URL=postgresql://YOUR_USERNAME@localhost:5432/democracy
+   DATABASE_URL=postgresql+psycopg://milishah@localhost:5432/playbook
    ```
    Generate a SECRET_KEY with:
    `python -c "import secrets; print(secrets.token_hex(32))"`
