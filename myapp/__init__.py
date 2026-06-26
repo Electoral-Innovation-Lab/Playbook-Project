@@ -35,6 +35,10 @@ def create_app():
     from .news import bp as news_bp
     app.register_blueprint(news_bp)
     
+    from .about import bp as about_bp
+    app.register_blueprint(about_bp)
+    
+    
     # A tiny health-check so you can confirm the server is up.
     @app.route("/api/health")
     def health():

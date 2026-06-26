@@ -78,6 +78,18 @@ CREATE TABLE news_state_updates ( --
     UNIQUE(score_id)
 );
 
+"""
+-- temporary? relation for data to populate about page
+CREATE TABLE about_playbook (
+    page_title  VARCHAR(500) NOT NULL,
+    body_text   TEXT,
+    directions_title VARCHAR(500) NOT NULL,
+    map_instr TEXT,
+    score_instr TEXT,
+    state_instr TEXT,
+    news_instr TEXT
+);
+"""
 -- INDEXES
 -- for the queries the app runs most
 CREATE INDEX idx_reform_scores_state ON reform_scores(state_id);

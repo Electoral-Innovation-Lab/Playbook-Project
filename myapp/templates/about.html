@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="view">
+    <section class="section" style="border-top:0">
+      <div class="wrap">
+        <div class="sec-head"><div>
+          <div class="sec-kick">About</div>
+          <h2 class="sec-title">Why this exists</h2>
+        </div></div>
+        <div class="about-grid">
+          <div">
+            <p>American elections aren't run by one set of rules — they're run by <strong>fifty-one of them</strong>. Each state decides who draws its district maps, how people register, how money flows into campaigns, and how results get checked. Those choices quietly shape every election that follows.</p>
+            <p>This tool turns that scattered landscape into something you can actually read. We grade each state's <strong>democratic health</strong>, map where reform has the most room to move, and track the news that nudges those scores up or down — so you can see not just where things stand, but where to push.</p>
+            <p>The scores and headlines shown here are <strong>illustrative sample data</strong> for a prototype. The structure is built to plug into live indices, legislative trackers, and original reporting.</p>
+          </div>
+          <div class="about-card">
+            <h4>How to read the index</h4>
+            <ul>
+              <li><span>Map</span> Color-codes every state by health score. Hover for a snapshot, click for the full profile.</li>
+              <li><span>Score</span> A 0–100 composite of access, map fairness, finance transparency, security, and participation.</li>
+              <li><span>State</span> Two panels — the story in words on the left, the numbers and charts on the right.</li>
+              <li><span>News</span> Each item shows the score change it triggers, with a link to our analysis.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
