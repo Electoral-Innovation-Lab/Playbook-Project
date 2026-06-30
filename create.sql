@@ -15,9 +15,9 @@ CREATE TABLE states (
 CREATE TABLE reform_scores (
     score_id  SERIAL PRIMARY KEY,
     state_id  INTEGER NOT NULL REFERENCES states(state_id),
-    scored_at TIMESTAMPTZ    NOT NULL DEFAULT NOW(),
-    score     NUMERIC(5,2) NOT NULL CHECK (score BETWEEN 0 AND 100),
-    grade     CHAR(2) NOT NULL CHECK (grade IN
+    scored_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    score     NUMERIC(5,2) NOT NULL, -- CHECK (score BETWEEN 0 AND 100)
+    grade     CHAR(2) CHECK (grade IN
                   ('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F')),
     UNIQUE (state_id, scored_at)
 );
@@ -25,8 +25,10 @@ CREATE TABLE reform_scores (
 -- reform categories (the dimensions that make up a composite score)
 CREATE TABLE reform_categories (
     category_id SERIAL PRIMARY KEY,
-    category    VARCHAR(100) NOT NULL UNIQUE,   -- e.g. 'Voter Access'
-    description TEXT,
+    category    VARCHAR(100) NOT NULL UNIQUE CHECK(category IN
+                    ('Electoral Participation', 'Fair Representation', 'Political Accountability',
+                    'Campaign Finance', 'Civil Society', 'Political and Institutional Factors')),   -- e.g. 'electoral participation'
+    description TEXT, -- description of each category
     weight      NUMERIC(4,2) NOT NULL DEFAULT 1.0
 );
 
@@ -34,10 +36,30 @@ CREATE TABLE reform_categories (
 CREATE TABLE category_scores (
     cat_score_id SERIAL PRIMARY KEY,
     score_id     INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
-    category_id  INTEGER NOT NULL REFERENCES reform_categories(category_id),
-    score        NUMERIC(5,2) NOT NULL CHECK (score BETWEEN 0 AND 100),
+    category_id  INTEGER NOT NULL REFERENCES reform_categories(category_id) ON DELETE CASCADE,
+    score        NUMERIC(5,2),
     notes        TEXT,
     UNIQUE (score_id, category_id)
+);
+
+-- reform specific variables. these make up the reform categories
+CREATE TABLE reform_category_variables (
+    var_id SERIAL PRIMARY KEY,
+    var_name VARCHAR(500) UNIQUE NOT NULL CHECK (var_name IN 
+                            ('voter_turnout', 'voter_registration', 'partisan_fairness', 'competitiveness',
+                            'compactness', 'count_splits', 'elected_supreme_justice', 'retention_election_justice',
+                            'partisan_justice_election', 'court_curbing_bill', 'statutory_initiative', 'constitutional_initiative',
+                            'popular_referendum', 'lobbyist_money', 'campaign_finance_index', 'partisan_leaning', 'divided_government', 'divided_legislatures')),
+    description TEXT,
+    category_id INTEGER NOT NULL REFERENCES reform_categories(category_id)
+);
+
+-- values of the reform specific vars
+CREATE TABLE category_variable_values (
+    value_id SERIAL PRIMARY KEY,
+    value NUMERIC(7,4),
+    score_id INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
+    var_id INTEGER NOT NULL REFERENCES reform_category_variables(var_id) ON DELETE CASCADE
 );
 
 -- reform action pathways (concrete reforms in progress per state)
@@ -78,18 +100,6 @@ CREATE TABLE news_state_updates ( --
     UNIQUE(score_id)
 );
 
-"""
--- temporary? relation for data to populate about page
-CREATE TABLE about_playbook (
-    page_title  VARCHAR(500) NOT NULL,
-    body_text   TEXT,
-    directions_title VARCHAR(500) NOT NULL,
-    map_instr TEXT,
-    score_instr TEXT,
-    state_instr TEXT,
-    news_instr TEXT
-);
-"""
 -- INDEXES
 -- for the queries the app runs most
 CREATE INDEX idx_reform_scores_state ON reform_scores(state_id);
