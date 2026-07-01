@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ state_name }} — 50 States Playbook{% endblock %}
+
+{% block content %}
+<main class="state-page">
+  <section class="section">
+    <div class="wrap">
+      <a href="/#map" class="back-link">← Back to map</a>
+
+      <div class="sec-kick">State profile</div>
+      <h1 class="sec-title">{{ state_name }}</h1>
+
+      <p class="sec-lead">
+        This is a placeholder state page. State-specific data will be added later.
+      </p>
+    </div>
+  </section>
+</main>
+{% endblock %}

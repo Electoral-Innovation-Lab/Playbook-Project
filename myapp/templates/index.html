@@ -3,7 +3,158 @@
 {% block title %}Home — 50 States Playbook{% endblock %}
 
 {% block content %}
-<h1>50 States Playbook</h1>
-<p>Made by the EIL</p>
-<button class="btn btn-pill">Explore the States</button>
+
+<main id="view-home" class="view active">
+  <section class="hero wrap">
+    <div class="sticker-ring" id="stickerRing">
+      <div class="hero-center">
+        <div class="eyebrow">A field guide to fixing the rules</div>
+        <h1 class="hero-title">Democracy<br> <em>Playbook</em>.</h1>
+        <div class="counters">
+          <div class="counter"><div class="num" data-count="50">0</div><div class="lbl">States graded</div></div>
+          <div class="counter"><div class="num" data-count="487">0</div><div class="lbl">Reforms tracked</div></div>
+          <div class="counter"><div class="num" data-count="66" data-suffix="">0</div><div class="lbl">Avg health score</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="hero-sub">Find out where yours stands in the landscape of democratic reform, and what you can do about it.</p>
+    <div class="scrollcue">Scroll to the map<div class="arr"></div></div>
+  </section>
+
+<!-- MAP -->
+<section class="section" id="map">
+  <div class="wrap">
+
+    <div class="sec-head">
+      <div>
+        <div class="sec-kick">The national picture</div>
+        <h2 class="sec-title">Reform potential, state by state</h2>
+      </div>
+
+      <p class="sec-lead">
+        Hover a state for a snapshot. Click to open its full reform profile.
+        Color shows democratic-health score.
+      </p>
+    </div>
+
+    <div class="map-box">
+  <div id="svgMapSlot"></div>
+</div>
+
+    <div class="legend">
+      <span>Weaker</span>
+      <div class="scale" id="legendScale"></div>
+      <span>Stronger</span>
+      <span style="margin-left:auto" class="mono">Sample index · 0–100</span>
+    </div>
+
+  </div>
+</section>
+
+  <!-- 50 STATES TABLE -->
+ <section class="section" id="table">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kick">Reform in all 50 states</div>
+          <h2 class="sec-title">Compare the whole country</h2>
+        </div>
+        <p class="sec-lead">Prefer a list to a map? Search, sort, and scan every state. Each name links to its full profile.</p>
+      </div>
+      <div class="table-controls">
+        <label class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="tblSearch" type="search" placeholder="Search a state…" aria-label="Search states">
+        </label>
+        <span class="mono" style="font-size:12px;color:var(--ink-soft)" id="tblCount"></span>
+      </div>
+      <div class="tbl-wrap">
+        <table id="stateTable">
+          <thead><tr>
+            <th data-sort="name">State <span class="ar">↕</span></th>
+            <th data-sort="grade">Grade <span class="ar">↕</span></th>
+            <th data-sort="score">Health score <span class="ar">↕</span></th>
+            <th data-sort="reform">Leading reforms <span class="ar">↕</span></th>
+          </tr></thead>
+          <tbody id="stateTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/usMapPath.js') }}"></script>
+
+<script>
+  function buildSvgMap() {
+    const slot = document.getElementById("svgMapSlot");
+    const mapData = window.US_MAP;
+    if (!slot) {
+      console.error("Could not find #svgMapSlot in the HTML.");
+      return;}
+    if (!mapData || !mapData.paths) {
+      console.error("Map path data not found. Check usMapPath.js and variable name.");
+      return;}
+    let paths = "";
+    for (const [abbr, d] of Object.entries(mapData.paths)) {
+      paths += `
+        <path
+          d="${d}"
+          fill="#FED7AA"
+          data-abbr="${abbr}"
+          tabindex="0"
+          role="button"
+          aria-label="${abbr}">
+        </path>
+      `;}
+    slot.innerHTML = `
+      <svg class="usmap" viewBox="${mapData.viewBox}" xmlns="http://www.w3.org/2000/svg">
+        ${paths}
+      </svg>`;}
+  buildSvgMap();
+
+  /* ---------- STICKER RING (PLACEHOLDER) ---------- */
+
+function buildRing() {
+  const ring = document.getElementById("stickerRing");
+  if (!ring) {
+    console.error("Could not find #stickerRing.");
+    return;}
+
+  const N = 50;      // number of stickers
+  const R = 52;      // circle radius, as percentage of stickerRing width
+  const colors = [
+    "#F97316",
+    "#EA580C",
+    "#FB923C",
+    "#FDBA74",
+    "#C2410C"
+  ];
+
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const x = 50 + Math.cos(angle) * R;
+    const y = 50 + Math.sin(angle) * R;
+    const el = document.createElement("div");
+    el.className = "sticker";
+    const color = colors[i % colors.length];
+    const rotation = (Math.random() * 24 - 12).toFixed(1);
+    const delay = (i * 0.025).toFixed(2);
+
+    el.style.cssText = `
+      left: ${x}%;
+      top: ${y}%;
+      color: ${color};
+      --rot: ${rotation}deg;
+      animation-delay: ${delay}s;
+    `;
+
+    el.innerHTML = "I&nbsp;Voted";
+    ring.appendChild(el);
+  }
+}
+buildRing();
+</script>
 {% endblock %}
