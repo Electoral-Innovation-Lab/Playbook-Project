@@ -1,28 +1,97 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main class = "view">
+<main class="view">
     <section class="section" style="border-top:0">
         <div class="wrap">
-            <div class="sec-head"><div>
-                <div class="sec-kick"> News </div>
-                <h2 class="sec-title">Democracy reform in the news</h2>
-            </div></div>
+            <div class="sec-head">
+                <div>
+                    <div class="sec-kick">News</div>
+                    <h2 class="sec-title">Democracy reform in the news</h2>
+
+                    <div class="table-controls" style="margin-top: 1rem;">
+                        <label class="search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="7"/>
+                                <path d="m20 20-3.5-3.5"/>
+                            </svg>
+                            <input
+                                id="tableSearch"
+                                type="search"
+                                placeholder="Search headlines or keyword…"
+                                onkeyup="filterTable()"
+                                aria-label="search articles"
+                            >
+                        </label>
+                        <span class="mono" style="font-size:12px;color:var(--ink-soft)" id="tableCount"></span>
+                    </div>
+                </div>
+            </div>
             {% if articles %}
+            <div id="articleList">
                 {% for article in articles %}
-                    <h2>{{ article.headline }}</h2>
+                <article class="news-item"
+                         data-search="{{ article.headline|lower }} {{ article.summary|lower }} {{ article.source_name|lower }}">
+                         <!-- ^ used in the javascript search query -->
+                    <h3>
+                        <a class="headline-link"
+                           href="{{ article.source_url }}"
+                           target="_blank" 
+                           rel="noopener">
+                            {{ article.headline }}
+                        </a>
+                    </h3>
+            
                     <p>{{ article.summary }}</p>
-                    <p>{{ article.source_name }}</p>
-                    <p>{{ article.published_at.strftime("%B %d, %Y")}}</p>
-                    <a href="{{ article.source_url }}">Read Article</a>
+            
+                    <p class="news-meta">
+                        {{ article.published_at.strftime("%B %d, %Y") }}
+                    </p>
+            
                     <hr>
+                </article>
                 {% endfor %}
+            </div>
+            
+            <p id="noResults" style="display:none;">
+                No matching articles found.
+            </p>
+            
             {% else %}
-                <p>No news articles are available yet.</p>
-            {% endif %}  
+            <p>No news articles are available yet.</p>
+            {% endif %}
+            </table>
         </div>
-    </section> 
+    </section>
 </main>
 
-{% endblock %}
+<!-- when i search , it should create a view and just display that. 
+count then becomes the size of the view and all the articles are formatted as normal -->
 
+<script>
+    function filterTable(){
+        const searchInput = document.getElementById("tableSearch");
+        const articles = document.querySelectorAll(".news-item");
+        const count = document.getElementById("tableCount");
+        const noResults = document.getElementById("noResults");
+
+        const query = searchInput.value.toLowerCase().trim();
+        let visible = 0;
+
+        articles.forEach(article => {
+            const text = article.dataset.search;
+            const match = text.includes(query);
+
+            article.style.display = match ? "":"none";
+            if (match) visibile++;
+        });
+
+        count.textContent = `${visible} article${visible === 1 ? "" : "s"}`;
+        noResults.style.display = visible ? "none" : "block";
+    }
+
+    searchInput.addEventListener("input", filterArticles);
+    filterArticles();
+</script>
+
+{% endblock %}
