@@ -179,3 +179,5 @@ CREATE TRIGGER fill_score_delta
 BEFORE INSERT OR UPDATE ON news_state_updates
 FOR EACH ROW
 EXECUTE FUNCTION calc_score_delta();
+
+-- hi im editing
