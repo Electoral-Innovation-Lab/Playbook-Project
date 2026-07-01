@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Home — 50 States Playbook{% endblock %}
-
 {% block content %}
-<h1>Democracy reform in the news</h1>
-<p>Made by the EIL</p>
-
-{% for article in articles %}
-    <h2>{{ article.headline }}</h2>
-    <p>{{ article.summary }}</p>
-    <p>{{ article.source_name }}</p>
-    <p>{{ article.published_at }}</p>
-    <a href="{{ article.source_url }}">Read Article</a>
-    <hr>
-{% endfor %}
-
+<main class = "view">
+    <section class="section" style="border-top:0">
+        <div class="wrap">
+            <div class="sec-head"><div>
+                <div class="sec-kick"> News </div>
+                <h2 class="sec-title">Democracy reform in the news</h2>
+            </div></div>
+            {% if articles %}
+                {% for article in articles %}
+                    <h2>{{ article.headline }}</h2>
+                    <p>{{ article.summary }}</p>
+                    <p>{{ article.source_name }}</p>
+                    <p>{{ article.published_at.strftime("%B %d, %Y")}}</p>
+                    <a href="{{ article.source_url }}">Read Article</a>
+                    <hr>
+                {% endfor %}
+            {% else %}
+                <p>No news articles are available yet.</p>
+            {% endif %}  
+        </div>
+    </section> 
+</main>
 
 {% endblock %}
+

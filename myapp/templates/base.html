@@ -6,7 +6,7 @@
   <title>{% block title %}50 States Playbook{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Bebas+Neue&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--white);
+      background: var(--orange-bg);
       color: var(--black);
       min-height: 100vh;
       display: flex;
@@ -67,6 +67,11 @@
   box-shadow: 0 4px 10px -6px rgba(16, 35, 63, 0.5);
   animation: pop 0.5s backwards;
   cursor: default;
+}
+
+.page-content {
+  padding: 1cm;
+  width: 100%;
 }
 
 .sticker small {
@@ -197,7 +202,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.8rem 2.5rem;
+      background: var(--orange-bg);
       border-bottom: 1px solid #F3F4F6;
+      
     }
 
     .nav-logo {
@@ -595,9 +602,10 @@ tbody tr:hover {
     </div>
   </nav>
   
-  {% block content %}{% endblock %}
+  <main class="page-content">
+    {% block content %}{% endblock %}
+  </main>
 
-  <!-- later add link to eil website attached to footer -->
   <footer>
   Made by the
   <a href="https://www.electoral-lab.org/" target="_blank" rel="noopener noreferrer">

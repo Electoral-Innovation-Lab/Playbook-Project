@@ -4,10 +4,6 @@ create_app() builds and configures the Flask app, then registers each
 developer's blueprint. Keeping setup in a factory function (rather than a
 module-level `app = Flask(...)`) makes testing and deployment cleaner.
 
-Ownership split:
-  - public/  -> states, scores, categories  (the map + 50-state table)
-  - content/ -> action pathways + news feed
-Each person works almost entirely inside their own blueprint file.
 """
 import os
 from flask import Flask, jsonify

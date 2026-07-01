@@ -15,7 +15,7 @@ class News_Headline:
         self.published_at = published_at
         self.is_national = is_national
         self.created_at = created_at
-
+        
     # just displaying news stories for now -- will add in state connection later
     @staticmethod
     def get_news_stories():
@@ -32,7 +32,7 @@ class News_Headline:
             FROM news_articles
             ORDER BY published_at DESC, article_id DESC
         """)
-
+        
         return [
             News_Headline(
                 row.article_id,
