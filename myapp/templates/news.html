@@ -19,7 +19,6 @@
                                 id="tableSearch"
                                 type="search"
                                 placeholder="Search headlines or keyword…"
-                                onkeyup="filterTable()"
                                 aria-label="search articles"
                             >
                         </label>
@@ -31,23 +30,44 @@
             <div id="articleList">
                 {% for article in articles %}
                 <article class="news-item"
-                         data-search="{{ article.headline|lower }} {{ article.summary|lower }} {{ article.source_name|lower }}">
-                         <!-- ^ used in the javascript search query -->
-                    <h3>
-                        <a class="headline-link"
-                           href="{{ article.source_url }}"
-                           target="_blank" 
-                           rel="noopener">
-                            {{ article.headline }}
-                        </a>
-                    </h3>
-            
-                    <p>{{ article.summary }}</p>
-            
-                    <p class="news-meta">
-                        {{ article.published_at.strftime("%B %d, %Y") }}
-                    </p>
-            
+                         data-search="{{ article.headline|lower }} {{ article.summary|lower }} {{ article.published_at.strftime("%B %d, %Y")|lower }}{% for state in article.states %}{{ state.abbreviation|lower}}{%endfor%}">
+                         <!-- ^ used in the javascript search query: search by headline, summary, date -->
+                    <div class="news-row">
+                        <div class="news-content">
+                            <h3>
+                                <a class="headline-link"
+                                   href="{{ article.source_url }}"
+                                   target="_blank" 
+                                   rel="noopener">
+                                    {{ article.headline }}
+                                </a>
+                            </h3>
+
+                            <p>{{ article.summary }}</p>
+
+                            <p class="news-meta">
+                                {{ article.published_at.strftime("%B %d, %Y") }}
+                            </p>
+                        </div>
+                        <div class="news-states">
+                            {%if article.is_national%}
+                                <span class="badge badge-national">National</span>
+                            {% elif article.states %}
+                                {% for state in article.states %}
+                                    <span class="badge badge-state" title="{{state.name}}">
+                                        {{ state.abbreviation }}
+                                        {% if state.score_delta is not none %}
+                                            <span class="delta {{ 'up' if state.score_delta > 0 else 'down' }}">
+                                                {{ '+' if state.score_delta >= 0 else '-' }}{{ state.score_delta }}
+                                            </span>
+                                        {% endif %}
+                                    </span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    
                     <hr>
                 </article>
                 {% endfor %}
@@ -60,7 +80,6 @@
             {% else %}
             <p>No news articles are available yet.</p>
             {% endif %}
-            </table>
         </div>
     </section>
 </main>
@@ -69,8 +88,8 @@
 count then becomes the size of the view and all the articles are formatted as normal -->
 
 <script>
+    const searchInput = document.getElementById("tableSearch");
     function filterTable(){
-        const searchInput = document.getElementById("tableSearch");
         const articles = document.querySelectorAll(".news-item");
         const count = document.getElementById("tableCount");
         const noResults = document.getElementById("noResults");
@@ -83,15 +102,57 @@ count then becomes the size of the view and all the articles are formatted as no
             const match = text.includes(query);
 
             article.style.display = match ? "":"none";
-            if (match) visibile++;
+            if (match) visible++;
         });
 
         count.textContent = `${visible} article${visible === 1 ? "" : "s"}`;
         noResults.style.display = visible ? "none" : "block";
     }
 
-    searchInput.addEventListener("input", filterArticles);
-    filterArticles();
+    searchInput.addEventListener("input", filterTable);
+    filterTable();
 </script>
+
+<style>
+    .news-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .news-content {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .news-states {
+        flex: 0 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-content: flex-start;
+        gap: 6px;
+        max-width: 240px;
+        margin-top: 0.35rem;
+    }
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid var(--ink-soft, #999);
+        color: var(--ink-soft, #666);
+    }
+    .badge-national {
+        border-color: currentColor;
+    }
+    .badge-state .delta {
+        font-weight: 700;
+    }
+    .badge-state .delta.up { color: #1a7f37; }
+    .badge-state .delta.down { color: #cf222e; }
+</style>
 
 {% endblock %}

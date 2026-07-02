@@ -91,12 +91,11 @@ CREATE TABLE news_articles ( -- one article can update multiple states
 -- states affected by each news article. stories that affect specific states. national news stories not included
 -- the only time a state is given a new reform score and updated category scores is when there is a news update article to cite
 CREATE TABLE news_state_updates ( -- 
-    update_id    SERIAL PRIMARY KEY,
     article_id   INTEGER NOT NULL REFERENCES news_articles(article_id) ON DELETE CASCADE,
     state_id     INTEGER REFERENCES states(state_id) ON DELETE CASCADE,  
     score_id     INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
     score_delta  NUMERIC(5,2),
-    UNIQUE(article_id, state_id),
+    PRIMARY KEY (article_id, state_id),
     UNIQUE(score_id)
 );
 
