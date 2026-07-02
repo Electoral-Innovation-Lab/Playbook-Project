@@ -15,13 +15,42 @@ INSERT INTO states (name, abbreviation) VALUES
 
 -- 2) Reform categories
 INSERT INTO reform_categories (category, description, weight) VALUES
-    ('Voter Access',          'Ease of registration and casting a ballot.',          1.5),
-    ('Map Fairness',          'Independence and fairness of district map-drawing.',   1.5),
-    ('Finance Transparency',  'Disclosure and limits on campaign money.',             1.0),
-    ('Election Security',     'Integrity and auditability of results.',               1.0),
-    ('Participation',         'Turnout and civic engagement.',                        1.0);
+    ('Electoral Participation', 'Voting access, registration, turnout, and ballot participation.', 1.50),
+    ('Fair Representation', 'District fairness, competitiveness, compactness, and split minimization.', 1.50),
+    ('Political Accountability', 'Judicial selection, direct democracy, and institutional accountability.', 1.00),
+    ('Campaign Finance', 'Lobbying influence, campaign finance transparency, and donation rules.', 1.00),
+    ('Civil Society', 'Public civic engagement and civil society strength.', 1.00),
+    ('Political and Institutional Factors', 'Partisan leaning, divided government, and institutional context.', 1.00);
+-- 3) Reform category variables
+INSERT INTO reform_category_variables (var_name, description, category_id)
+SELECT v.var_name, v.description, rc.category_id
+FROM (VALUES
+    ('voter_turnout', 'Voter turnout level or index.', 'Electoral Participation'),
+    ('voter_registration', 'Voter registration access or rate.', 'Electoral Participation'),
 
--- 3) Baseline composite scores
+    ('partisan_fairness', 'Partisan fairness of district maps.', 'Fair Representation'),
+    ('competitiveness', 'Electoral competitiveness.', 'Fair Representation'),
+    ('compactness', 'District compactness.', 'Fair Representation'),
+    ('count_splits', 'Number or severity of jurisdictional splits.', 'Fair Representation'),
+
+    ('elected_supreme_justice', 'Whether supreme court justices are elected.', 'Political Accountability'),
+    ('retention_election_justice', 'Whether justices face retention elections.', 'Political Accountability'),
+    ('partisan_justice_election', 'Whether judicial elections are partisan.', 'Political Accountability'),
+    ('court_curbing_bill', 'Presence or severity of court-curbing legislation.', 'Political Accountability'),
+    ('statutory_initiative', 'Availability of statutory initiatives.', 'Political Accountability'),
+    ('constitutional_initiative', 'Availability of constitutional initiatives.', 'Political Accountability'),
+    ('popular_referendum', 'Availability of popular referendum.', 'Political Accountability'),
+
+    ('lobbyist_money', 'Lobbyist money influence indicator.', 'Campaign Finance'),
+    ('campaign_finance_index', 'Campaign finance strength or transparency index.', 'Campaign Finance'),
+
+    ('partisan_leaning', 'State partisan leaning indicator.', 'Political and Institutional Factors'),
+    ('divided_government', 'Whether state government is divided.', 'Political and Institutional Factors'),
+    ('divided_legislatures', 'Whether legislative chambers are divided.', 'Political and Institutional Factors')
+) AS v(var_name, description, category)
+JOIN reform_categories rc ON rc.category = v.category;
+
+-- 4) Baseline composite scores
 INSERT INTO reform_scores (state_id, scored_at, score, grade)
 SELECT s.state_id, NOW() - INTERVAL '30 days', v.score, v.grade
 FROM states s
@@ -37,34 +66,52 @@ JOIN (VALUES
 ) AS v(abbr, score, grade)
 ON s.abbreviation = v.abbr;
 
--- 4) Category scores for California baseline
+-- 5) Category scores for California baseline
 INSERT INTO category_scores (score_id, category_id, score, notes)
 SELECT rs.score_id, rc.category_id, v.score, v.notes
 FROM reform_scores rs
 JOIN states s ON s.state_id = rs.state_id
 JOIN (VALUES
-    ('Voter Access',         88.0, 'Automatic and same-day registration.'),
-    ('Map Fairness',         90.0, 'Independent citizen redistricting commission.'),
-    ('Finance Transparency', 70.0, 'Strong disclosure, moderate limits.')
+    ('Electoral Participation', 88.0, 'Strong registration and turnout environment.'),
+    ('Fair Representation', 90.0, 'Independent redistricting strengthens map fairness.'),
+    ('Campaign Finance', 70.0, 'Strong disclosure with moderate limits.')
 ) AS v(category, score, notes) ON TRUE
 JOIN reform_categories rc ON rc.category = v.category
 WHERE s.abbreviation = 'CA';
 
--- 5) Sample action pathways
+-- 6) Sample variable values for California baseline
+INSERT INTO category_variable_values (value, score_id, var_id)
+SELECT v.value, rs.score_id, rcv.var_id
+FROM reform_scores rs
+JOIN states s ON s.state_id = rs.state_id
+JOIN (VALUES
+    ('voter_turnout', 0.8200),
+    ('voter_registration', 0.8800),
+    ('partisan_fairness', 0.9100),
+    ('competitiveness', 0.7400),
+    ('compactness', 0.8600),
+    ('campaign_finance_index', 0.7000)
+) AS v(var_name, value) ON TRUE
+JOIN reform_category_variables rcv ON rcv.var_name = v.var_name
+WHERE s.abbreviation = 'CA'
+ORDER BY rs.scored_at DESC
+LIMIT 6;
+
+-- 7) Sample action pathways
 INSERT INTO action_pathways (state_id, category_id, title, description, status, started_at)
 SELECT s.state_id, rc.category_id, v.title, v.descr, v.status, CURRENT_DATE - 90
 FROM (VALUES
-    ('WI', 'Map Fairness', 'Independent redistricting commission',
+    ('WI', 'Fair Representation', 'Independent redistricting commission',
         'Ballot initiative to remove map-drawing from the legislature.', 'pending'),
-    ('AZ', 'Voter Access', 'Expand early voting hours',
+    ('AZ', 'Electoral Participation', 'Expand early voting hours',
         'Bill to standardize early-voting windows statewide.', 'active'),
-    ('GA', 'Election Security', 'Risk-limiting audits',
+    ('GA', 'Political Accountability', 'Risk-limiting audits',
         'Mandate statistical post-election audits for all federal races.', 'active')
 ) AS v(abbr, category, title, descr, status)
 JOIN states s ON s.abbreviation = v.abbr
 JOIN reform_categories rc ON rc.category = v.category;
 
--- 6) News articles
+-- 8) News articles
 INSERT INTO news_articles
     (headline, summary, source_name, source_url, published_at, is_national)
 VALUES
@@ -93,7 +140,7 @@ VALUES
         TRUE
     );
 
--- 7) New reform scores caused by state-specific news articles
+-- 9) New reform scores caused by state-specific news articles
 INSERT INTO reform_scores (state_id, scored_at, score, grade)
 SELECT s.state_id, NOW() - INTERVAL '2 days', 62.0, 'C+'
 FROM states s
@@ -104,29 +151,59 @@ SELECT s.state_id, NOW() - INTERVAL '5 days', 68.5, 'B-'
 FROM states s
 WHERE s.abbreviation = 'AZ';
 
--- 8) Category scores for the new Wisconsin score
+-- 10) Category scores for the new Wisconsin score
 INSERT INTO category_scores (score_id, category_id, score, notes)
 SELECT rs.score_id, rc.category_id, 64.0,
-       'Court-ordered map changes improve map fairness outlook.'
+       'Court-ordered map changes improve fair representation outlook.'
 FROM reform_scores rs
 JOIN states s ON s.state_id = rs.state_id
-JOIN reform_categories rc ON rc.category = 'Map Fairness'
+JOIN reform_categories rc ON rc.category = 'Fair Representation'
 WHERE s.abbreviation = 'WI'
 ORDER BY rs.scored_at DESC
 LIMIT 1;
 
--- 9) Category scores for the new Arizona score
+-- 11) Category scores for the new Arizona score
 INSERT INTO category_scores (score_id, category_id, score, notes)
 SELECT rs.score_id, rc.category_id, 76.0,
-       'Weekend early-voting expansion improves access.'
+       'Weekend early-voting expansion improves electoral participation.'
 FROM reform_scores rs
 JOIN states s ON s.state_id = rs.state_id
-JOIN reform_categories rc ON rc.category = 'Voter Access'
+JOIN reform_categories rc ON rc.category = 'Electoral Participation'
 WHERE s.abbreviation = 'AZ'
 ORDER BY rs.scored_at DESC
 LIMIT 1;
 
--- 10) Link state-specific news articles to the new scores.
+-- 12) Variable values for new Wisconsin score
+INSERT INTO category_variable_values (value, score_id, var_id)
+SELECT v.value, rs.score_id, rcv.var_id
+FROM reform_scores rs
+JOIN states s ON s.state_id = rs.state_id
+JOIN (VALUES
+    ('partisan_fairness', 0.6400),
+    ('competitiveness', 0.6100),
+    ('compactness', 0.5900),
+    ('count_splits', 0.5200)
+) AS v(var_name, value) ON TRUE
+JOIN reform_category_variables rcv ON rcv.var_name = v.var_name
+WHERE s.abbreviation = 'WI'
+ORDER BY rs.scored_at DESC
+LIMIT 4;
+
+-- 13) Variable values for new Arizona score
+INSERT INTO category_variable_values (value, score_id, var_id)
+SELECT v.value, rs.score_id, rcv.var_id
+FROM reform_scores rs
+JOIN states s ON s.state_id = rs.state_id
+JOIN (VALUES
+    ('voter_turnout', 0.6900),
+    ('voter_registration', 0.7600)
+) AS v(var_name, value) ON TRUE
+JOIN reform_category_variables rcv ON rcv.var_name = v.var_name
+WHERE s.abbreviation = 'AZ'
+ORDER BY rs.scored_at DESC
+LIMIT 2;
+
+-- 14) Link state-specific news articles to the new scores.
 -- score_delta is calculated automatically by trigger calc_score_delta().
 INSERT INTO news_state_updates (article_id, state_id, score_id)
 SELECT na.article_id, s.state_id, rs.score_id
