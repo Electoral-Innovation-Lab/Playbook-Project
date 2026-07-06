@@ -8,7 +8,8 @@
 CREATE TABLE states (
     state_id     SERIAL PRIMARY KEY,
     name         VARCHAR(100) UNIQUE NOT NULL,
-    abbreviation CHAR(2)      UNIQUE NOT NULL
+    abbreviation CHAR(2)      UNIQUE NOT NULL,
+    electoral_votes INTEGER NOT NULL
 );
 
 -- reform scores (one composite score per state per time - allow multiple updates in one day)
@@ -27,7 +28,7 @@ CREATE TABLE reform_categories (
     category_id SERIAL PRIMARY KEY,
     category    VARCHAR(100) NOT NULL UNIQUE CHECK(category IN
                     ('Electoral Participation', 'Fair Representation', 'Political Accountability',
-                    'Campaign Finance', 'Civil Society', 'Political and Institutional Factors')),   -- e.g. 'electoral participation'
+                    'Campaign Finance', 'Civil Society', 'Political and Institutional Factors', 'Demographics')),   -- e.g. 'electoral participation'
     description TEXT, -- description of each category
     weight      NUMERIC(4,2) NOT NULL DEFAULT 1.0
 );
@@ -47,9 +48,11 @@ CREATE TABLE reform_category_variables (
     var_id SERIAL PRIMARY KEY,
     var_name VARCHAR(500) UNIQUE NOT NULL CHECK (var_name IN 
                             ('voter_turnout', 'voter_registration', 'partisan_fairness', 'competitiveness',
-                            'compactness', 'count_splits', 'elected_supreme_justice', 'retention_election_justice',
+                            'compactness', 'per_county_split', 'county_split', 'num_county', 'elected_supreme_justice', 'retention_election_justice',
                             'partisan_justice_election', 'court_curbing_bill', 'statutory_initiative', 'constitutional_initiative',
-                            'popular_referendum', 'lobbyist_money', 'campaign_finance_index', 'partisan_leaning', 'divided_government', 'divided_legislatures')),
+                            'popular_referendum', 'congressional_money', 'legislative_money', 'congressional_money_percapita', 'legislative_money_percapita',
+                            'lobbyist_money', 'campaign_finance_index', 'protest_index', 'local_news', 'free_speech', 'press_incidents', 'democratic_leaning',
+                            'divided_government', 'divided_legislatures', 'bachelor_share','minority_share')),
     description TEXT,
     category_id INTEGER NOT NULL REFERENCES reform_categories(category_id)
 );
