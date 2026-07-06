@@ -90,7 +90,10 @@
 <script src="{{ url_for('static', filename='js/usMapPath.js') }}"></script>
 
 <script>
-  function buildSvgMap() {
+
+const STICKER_BASE = "{{ url_for('static', filename='images/stickers') }}";
+
+function buildSvgMap() {
     const slot = document.getElementById("svgMapSlot");
     const mapData = window.US_MAP;
     if (!slot) {
@@ -221,7 +224,11 @@ function buildStickerMap() {
       --rot: ${rotation}deg;
       animation-delay: ${delay}s;
     `;
-    el.innerHTML = "I&nbsp;Voted";
+    const img = document.createElement("img");
+    img.src = `${STICKER_BASE}/${abbr.toLowerCase()}.webp`;
+    img.alt = `I Voted sticker for ${abbr}`;
+    img.onerror = () => { img.remove(); el.innerHTML = "I&nbsp;Voted"; };
+    el.appendChild(img);
     layer.appendChild(el);
   });
 }
