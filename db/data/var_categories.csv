@@ -1,0 +1,33 @@
+variable,category
+state,state
+electoral_college_votes,Electoral College
+voter_turnout,Electoral Participation
+voter_registration,Electoral Participation
+partisan_fairness,Fair Representation
+competitiveness,Fair Representation
+compactness,Fair Representation
+per_county_split,Fair Representation
+county_split,Fair Representation
+num_county,Fair Representation
+elected_supreme_justice,Political Accoutability
+retention_election_justice,Political Accoutability
+partisan_justice_election,Political Accoutability
+court_curbing_bill,Political Accoutability
+statutory_initiative,Political Accoutability
+constitutional_initiative,Political Accoutability
+popular_referendum,Political Accoutability
+congressional_money,Political Accoutability
+legislative_money,Political Accoutability
+congressional_money_percapita,Political Accoutability
+legislative_money_percapita,Political Accoutability
+lobbyist_money,Political Accoutability
+campaign_finance_index,Campaign Finance
+protest_index,Civil Society
+local_news,Civil Society
+free_speech,Civil Society
+press_incidents,Civil Society
+democratic_leaning,Political and Institutional Factors
+divided_government,Political and Institutional Factors
+divided_legislatures,Political and Institutional Factors
+bachelor_share,Demographics
+minority_share,Demographics
