@@ -6,9 +6,9 @@
 
 -- states
 CREATE TABLE states (
-    state_id     SERIAL PRIMARY KEY,
-    name         VARCHAR(100) UNIQUE NOT NULL,
-    abbreviation CHAR(2)      UNIQUE NOT NULL,
+    state_id SERIAL PRIMARY KEY,
+    state_name VARCHAR(100) UNIQUE NOT NULL,
+    abbreviation CHAR(2) UNIQUE NOT NULL,
     electoral_votes INTEGER NOT NULL
 );
 
@@ -29,8 +29,8 @@ CREATE TABLE reform_categories (
     category    VARCHAR(100) NOT NULL UNIQUE CHECK(category IN
                     ('Electoral Participation', 'Fair Representation', 'Political Accountability',
                     'Campaign Finance', 'Civil Society', 'Political and Institutional Factors', 'Demographics')),   -- e.g. 'electoral participation'
-    description TEXT, -- description of each category
-    weight      NUMERIC(4,2) NOT NULL DEFAULT 1.0
+    cat_description TEXT, -- description of each category
+    cat_weight      NUMERIC(4,2) NOT NULL DEFAULT 1.0
 );
 
 -- per-category scores that roll up into a composite reform_score
@@ -53,14 +53,14 @@ CREATE TABLE reform_category_variables (
                             'popular_referendum', 'congressional_money', 'legislative_money', 'congressional_money_percapita', 'legislative_money_percapita',
                             'lobbyist_money', 'campaign_finance_index', 'protest_index', 'local_news', 'free_speech', 'press_incidents', 'democratic_leaning',
                             'divided_government', 'divided_legislatures', 'bachelor_share','minority_share')),
-    description TEXT,
+    var_description TEXT,
     category_id INTEGER NOT NULL REFERENCES reform_categories(category_id)
 );
 
 -- values of the reform specific vars
 CREATE TABLE category_variable_values (
     value_id SERIAL PRIMARY KEY,
-    value NUMERIC(7,4),
+    var_value NUMERIC(7,4),
     score_id INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
     var_id INTEGER NOT NULL REFERENCES reform_category_variables(var_id) ON DELETE CASCADE
 );
@@ -71,8 +71,8 @@ CREATE TABLE action_pathways (
     state_id    INTEGER NOT NULL REFERENCES states(state_id),
     category_id INTEGER REFERENCES reform_categories(category_id),
     title       VARCHAR(200) NOT NULL,          -- e.g. 'Ranked-choice voting'
-    description TEXT,
-    status      VARCHAR(20)  NOT NULL DEFAULT 'active'
+    path_description TEXT,
+    path_status      VARCHAR(20)  NOT NULL DEFAULT 'active'
                     CHECK (status IN ('active','pending','passed','failed')),
     started_at  DATE,
     resolved_at DATE,

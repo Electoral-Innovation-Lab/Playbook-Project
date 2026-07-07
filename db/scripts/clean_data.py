@@ -13,6 +13,7 @@
 # 4. make schema match new updates in the data - done
 # 5. structure: final result should look like top row has var names and state
 # 6. make separate df to track variables and corresponding categories
+# 7. calc reform score (temporarily do simple average until policy research gives direction)
 
 import pandas as pd
 import numpy as np
@@ -36,6 +37,9 @@ df_categories.loc[0, "category"] = "state"
 df_categories.loc[1, "variable"] = "electoral_college_votes"
 df_categories.loc[1, "category"] = "Electoral College"
 
+# write changes to csv
+df_categories.to_csv("db/data/var_categories.csv", index=False)
+
 # Clean main data
 # 3. and 5. clean up column row structure, rename where necessary and drop empty cols and rows
 df = pd.read_csv(raw_path, header = 1)
@@ -50,8 +54,26 @@ df = df.replace({
     ",": ""
 }, regex=True)
 
- # write changes to clean csv 
+# add reform score temp calculation
+exclude_cols = ["state", "electoral_college_votes"]
+score_cols = df.columns.difference(exclude_cols)
+df[score_cols] = df[score_cols].apply(pd.to_numeric, errors="coerce")
+df["reform_score"] = df[score_cols].mean(axis=1).round().astype("Int64")
+
+# write changes to csv 
 df.to_csv("db/data/clean_state_scores.csv", index=False)
-df_categories.to_csv("db/data/var_categories.csv", index=False)
 
+# save separate csv for only reform_scores
+df_reform_scores = df[["state", "reform_score"]]
+df_reform_scores.to_csv("db/data/reform_scores.csv", index=False)
 
+# save separate csv for variable values
+id_cols = ["state"]
+
+df_values = df.melt(
+    id_vars=id_cols,
+    var_name="variable",
+    value_name="value"
+)
+
+df_values.to_csv("db/data/category_variable_values.csv", index=False)

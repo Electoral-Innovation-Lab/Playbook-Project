@@ -1,0 +1,1601 @@
+state,variable,value
+Alabama,electoral_college_votes,9.0
+Alaska,electoral_college_votes,3.0
+Arizona,electoral_college_votes,11.0
+Arkansas,electoral_college_votes,6.0
+California,electoral_college_votes,55.0
+Colorado,electoral_college_votes,9.0
+Connecticut,electoral_college_votes,7.0
+Delaware,electoral_college_votes,3.0
+Florida,electoral_college_votes,29.0
+Georgia,electoral_college_votes,16.0
+Hawaii,electoral_college_votes,4.0
+Idaho,electoral_college_votes,4.0
+Illinois,electoral_college_votes,20.0
+Indiana,electoral_college_votes,11.0
+Iowa,electoral_college_votes,6.0
+Kansas,electoral_college_votes,6.0
+Kentucky,electoral_college_votes,8.0
+Louisiana,electoral_college_votes,8.0
+Maine,electoral_college_votes,4.0
+Maryland,electoral_college_votes,10.0
+Massachusetts,electoral_college_votes,11.0
+Michigan,electoral_college_votes,16.0
+Minnesota,electoral_college_votes,10.0
+Mississippi,electoral_college_votes,6.0
+Missouri,electoral_college_votes,10.0
+Montana,electoral_college_votes,3.0
+Nebraska,electoral_college_votes,5.0
+Nevada,electoral_college_votes,6.0
+New Hampshire,electoral_college_votes,4.0
+New Jersey,electoral_college_votes,14.0
+New Mexico,electoral_college_votes,5.0
+New York,electoral_college_votes,29.0
+North Carolina,electoral_college_votes,15.0
+North Dakota,electoral_college_votes,3.0
+Ohio,electoral_college_votes,18.0
+Oklahoma,electoral_college_votes,7.0
+Oregon,electoral_college_votes,7.0
+Pennsylvania,electoral_college_votes,20.0
+Rhode Island,electoral_college_votes,4.0
+South Carolina,electoral_college_votes,9.0
+South Dakota,electoral_college_votes,3.0
+Tennessee,electoral_college_votes,11.0
+Texas,electoral_college_votes,38.0
+Utah,electoral_college_votes,6.0
+Vermont,electoral_college_votes,3.0
+Virginia,electoral_college_votes,13.0
+Washington,electoral_college_votes,12.0
+West Virginia,electoral_college_votes,5.0
+Wisconsin,electoral_college_votes,10.0
+Wyoming,electoral_college_votes,3.0
+Alabama,voter_turnout,603.0
+Alaska,voter_turnout,660.0
+Arizona,voter_turnout,662.0
+Arkansas,voter_turnout,553.0
+California,voter_turnout,654.0
+Colorado,voter_turnout,755.0
+Connecticut,voter_turnout,689.0
+Delaware,voter_turnout,684.0
+Florida,voter_turnout,699.0
+Georgia,voter_turnout,681.0
+Hawaii,voter_turnout,530.0
+Idaho,voter_turnout,659.0
+Illinois,voter_turnout,648.0
+Indiana,voter_turnout,603.0
+Iowa,voter_turnout,719.0
+Kansas,voter_turnout,645.0
+Kentucky,voter_turnout,639.0
+Louisiana,voter_turnout,627.0
+Maine,voter_turnout,752.0
+Maryland,voter_turnout,697.0
+Massachusetts,voter_turnout,697.0
+Michigan,voter_turnout,742.0
+Minnesota,voter_turnout,782.0
+Mississippi,voter_turnout,591.0
+Missouri,voter_turnout,653.0
+Montana,voter_turnout,706.0
+Nebraska,voter_turnout,691.0
+Nevada,voter_turnout,661.0
+New Hampshire,voter_turnout,743.0
+New Jersey,voter_turnout,698.0
+New Mexico,voter_turnout,604.0
+New York,voter_turnout,608.0
+North Carolina,voter_turnout,717.0
+North Dakota,voter_turnout,636.0
+Ohio,voter_turnout,662.0
+Oklahoma,voter_turnout,544.0
+Oregon,voter_turnout,740.0
+Pennsylvania,voter_turnout,708.0
+Rhode Island,voter_turnout,632.0
+South Carolina,voter_turnout,641.0
+South Dakota,voter_turnout,655.0
+Tennessee,voter_turnout,588.0
+Texas,voter_turnout,588.0
+Utah,voter_turnout,670.0
+Vermont,voter_turnout,715.0
+Virginia,voter_turnout,721.0
+Washington,voter_turnout,732.0
+West Virginia,voter_turnout,564.0
+Wisconsin,voter_turnout,760.0
+Wyoming,voter_turnout,633.0
+Alabama,voter_registration,6845.0
+Alaska,voter_registration,7625.0
+Arizona,voter_registration,727.0
+Arkansas,voter_registration,6335.0
+California,voter_registration,7115.0
+Colorado,voter_registration,7255.0
+Connecticut,voter_registration,7275.0
+Delaware,voter_registration,7625.0
+Florida,voter_registration,6705.0
+Georgia,voter_registration,7075.0
+Hawaii,voter_registration,6815.0
+Idaho,voter_registration,7025.0
+Illinois,voter_registration,756.0
+Indiana,voter_registration,715.0
+Iowa,voter_registration,783.0
+Kansas,voter_registration,753.0
+Kentucky,voter_registration,782.0
+Louisiana,voter_registration,6765.0
+Maine,voter_registration,757.0
+Maryland,voter_registration,795.0
+Massachusetts,voter_registration,739.0
+Michigan,voter_registration,773.0
+Minnesota,voter_registration,8325.0
+Mississippi,voter_registration,807.0
+Missouri,voter_registration,776.0
+Montana,voter_registration,7565.0
+Nebraska,voter_registration,7235.0
+Nevada,voter_registration,6985.0
+New Hampshire,voter_registration,782.0
+New Jersey,voter_registration,8325.0
+New Mexico,voter_registration,7235.0
+New York,voter_registration,6835.0
+North Carolina,voter_registration,698.0
+North Dakota,voter_registration,7795.0
+Ohio,voter_registration,7605.0
+Oklahoma,voter_registration,689.0
+Oregon,voter_registration,8145.0
+Pennsylvania,voter_registration,76.0
+Rhode Island,voter_registration,768.0
+South Carolina,voter_registration,7165.0
+South Dakota,voter_registration,6905.0
+Tennessee,voter_registration,747.0
+Texas,voter_registration,7045.0
+Utah,voter_registration,7105.0
+Vermont,voter_registration,751.0
+Virginia,voter_registration,778.0
+Washington,voter_registration,7595.0
+West Virginia,voter_registration,7055.0
+Wisconsin,voter_registration,765.0
+Wyoming,voter_registration,693.0
+Alabama,partisan_fairness,
+Alaska,partisan_fairness,
+Arizona,partisan_fairness,
+Arkansas,partisan_fairness,
+California,partisan_fairness,
+Colorado,partisan_fairness,
+Connecticut,partisan_fairness,
+Delaware,partisan_fairness,
+Florida,partisan_fairness,
+Georgia,partisan_fairness,
+Hawaii,partisan_fairness,
+Idaho,partisan_fairness,
+Illinois,partisan_fairness,
+Indiana,partisan_fairness,
+Iowa,partisan_fairness,
+Kansas,partisan_fairness,
+Kentucky,partisan_fairness,
+Louisiana,partisan_fairness,
+Maine,partisan_fairness,
+Maryland,partisan_fairness,
+Massachusetts,partisan_fairness,
+Michigan,partisan_fairness,
+Minnesota,partisan_fairness,
+Mississippi,partisan_fairness,
+Missouri,partisan_fairness,
+Montana,partisan_fairness,
+Nebraska,partisan_fairness,
+Nevada,partisan_fairness,
+New Hampshire,partisan_fairness,
+New Jersey,partisan_fairness,
+New Mexico,partisan_fairness,
+New York,partisan_fairness,
+North Carolina,partisan_fairness,
+North Dakota,partisan_fairness,
+Ohio,partisan_fairness,
+Oklahoma,partisan_fairness,
+Oregon,partisan_fairness,
+Pennsylvania,partisan_fairness,
+Rhode Island,partisan_fairness,
+South Carolina,partisan_fairness,
+South Dakota,partisan_fairness,
+Tennessee,partisan_fairness,
+Texas,partisan_fairness,
+Utah,partisan_fairness,
+Vermont,partisan_fairness,
+Virginia,partisan_fairness,
+Washington,partisan_fairness,
+West Virginia,partisan_fairness,
+Wisconsin,partisan_fairness,
+Wyoming,partisan_fairness,
+Alabama,competitiveness,0.0
+Alaska,competitiveness,9.0
+Arizona,competitiveness,3.0
+Arkansas,competitiveness,0.0
+California,competitiveness,3.0
+Colorado,competitiveness,1.0
+Connecticut,competitiveness,0.0
+Delaware,competitiveness,
+Florida,competitiveness,3.0
+Georgia,competitiveness,0.0
+Hawaii,competitiveness,0.0
+Idaho,competitiveness,0.0
+Illinois,competitiveness,0.0
+Indiana,competitiveness,0.0
+Iowa,competitiveness,3.0
+Kansas,competitiveness,1.0
+Kentucky,competitiveness,0.0
+Louisiana,competitiveness,0.0
+Maine,competitiveness,1.0
+Maryland,competitiveness,1.0
+Massachusetts,competitiveness,0.0
+Michigan,competitiveness,5.0
+Minnesota,competitiveness,1.0
+Mississippi,competitiveness,0.0
+Missouri,competitiveness,0.0
+Montana,competitiveness,0.0
+Nebraska,competitiveness,1.0
+Nevada,competitiveness,1.0
+New Hampshire,competitiveness,2.0
+New Jersey,competitiveness,1.0
+New Mexico,competitiveness,1.0
+New York,competitiveness,6.0
+North Carolina,competitiveness,1.0
+North Dakota,competitiveness,
+Ohio,competitiveness,4.0
+Oklahoma,competitiveness,0.0
+Oregon,competitiveness,1.0
+Pennsylvania,competitiveness,4.0
+Rhode Island,competitiveness,0.0
+South Carolina,competitiveness,0.0
+South Dakota,competitiveness,
+Tennessee,competitiveness,0.0
+Texas,competitiveness,2.0
+Utah,competitiveness,0.0
+Vermont,competitiveness,
+Virginia,competitiveness,1.0
+Washington,competitiveness,2.0
+West Virginia,competitiveness,0.0
+Wisconsin,competitiveness,2.0
+Wyoming,competitiveness,
+Alabama,compactness,351.0
+Alaska,compactness,411.0
+Arizona,compactness,413.0
+Arkansas,compactness,441.0
+California,compactness,35.0
+Colorado,compactness,396.0
+Connecticut,compactness,46.0
+Delaware,compactness,
+Florida,compactness,419.0
+Georgia,compactness,443.0
+Hawaii,compactness,182.0
+Idaho,compactness,392.0
+Illinois,compactness,298.0
+Indiana,compactness,478.0
+Iowa,compactness,453.0
+Kansas,compactness,392.0
+Kentucky,compactness,385.0
+Louisiana,compactness,37.0
+Maine,compactness,249.0
+Maryland,compactness,325.0
+Massachusetts,compactness,36.0
+Michigan,compactness,417.0
+Minnesota,compactness,421.0
+Mississippi,compactness,424.0
+Missouri,compactness,456.0
+Montana,compactness,468.0
+Nebraska,compactness,417.0
+Nevada,compactness,448.0
+New Hampshire,compactness,252.0
+New Jersey,compactness,379.0
+New Mexico,compactness,403.0
+New York,compactness,419.0
+North Carolina,compactness,387.0
+North Dakota,compactness,
+Ohio,compactness,393.0
+Oklahoma,compactness,413.0
+Oregon,compactness,432.0
+Pennsylvania,compactness,454.0
+Rhode Island,compactness,29.0
+South Carolina,compactness,39.0
+South Dakota,compactness,
+Tennessee,compactness,365.0
+Texas,compactness,333.0
+Utah,compactness,437.0
+Vermont,compactness,
+Virginia,compactness,384.0
+Washington,compactness,409.0
+West Virginia,compactness,348.0
+Wisconsin,compactness,446.0
+Wyoming,compactness,
+Alabama,per_county_split,0.09
+Alaska,per_county_split,0.333
+Arizona,per_county_split,0.467
+Arkansas,per_county_split,0.027
+California,per_county_split,0.466
+Colorado,per_county_split,0.156
+Connecticut,per_county_split,0.625
+Delaware,per_county_split,0.0
+Florida,per_county_split,0.239
+Georgia,per_county_split,0.094
+Hawaii,per_county_split,0.2
+Idaho,per_county_split,0.023
+Illinois,per_county_split,0.314
+Indiana,per_county_split,0.087
+Iowa,per_county_split,0.0
+Kansas,per_county_split,0.038
+Kentucky,per_county_split,0.05
+Louisiana,per_county_split,0.234
+Maine,per_county_split,0.063
+Maryland,per_county_split,0.25
+Massachusetts,per_county_split,0.643
+Michigan,per_county_split,0.169
+Minnesota,per_county_split,0.103
+Mississippi,per_county_split,0.049
+Missouri,per_county_split,0.078
+Montana,per_county_split,0.018
+Nebraska,per_county_split,0.022
+Nevada,per_county_split,0.118
+New Hampshire,per_county_split,0.5
+New Jersey,per_county_split,0.667
+New Mexico,per_county_split,0.273
+New York,per_county_split,0.242
+North Carolina,per_county_split,0.1
+North Dakota,per_county_split,0.0
+Ohio,per_county_split,0.159
+Oklahoma,per_county_split,0.078
+Oregon,per_county_split,0.194
+Pennsylvania,per_county_split,0.209
+Rhode Island,per_county_split,0.2
+South Carolina,per_county_split,0.217
+South Dakota,per_county_split,0.0
+Tennessee,per_county_split,0.095
+Texas,per_county_split,0.118
+Utah,per_county_split,0.172
+Vermont,per_county_split,0.0
+Virginia,per_county_split,0.068
+Washington,per_county_split,0.179
+West Virginia,per_county_split,0.0
+Wisconsin,per_county_split,0.167
+Wyoming,per_county_split,0.0
+Alabama,county_split,6.0
+Alaska,county_split,10.0
+Arizona,county_split,7.0
+Arkansas,county_split,2.0
+California,county_split,27.0
+Colorado,county_split,10.0
+Connecticut,county_split,5.0
+Delaware,county_split,
+Florida,county_split,16.0
+Georgia,county_split,15.0
+Hawaii,county_split,1.0
+Idaho,county_split,1.0
+Illinois,county_split,32.0
+Indiana,county_split,8.0
+Iowa,county_split,0.0
+Kansas,county_split,4.0
+Kentucky,county_split,6.0
+Louisiana,county_split,15.0
+Maine,county_split,1.0
+Maryland,county_split,6.0
+Massachusetts,county_split,9.0
+Michigan,county_split,14.0
+Minnesota,county_split,9.0
+Mississippi,county_split,4.0
+Missouri,county_split,9.0
+Montana,county_split,1.0
+Nebraska,county_split,2.0
+Nevada,county_split,2.0
+New Hampshire,county_split,5.0
+New Jersey,county_split,14.0
+New Mexico,county_split,9.0
+New York,county_split,15.0
+North Carolina,county_split,10.0
+North Dakota,county_split,
+Ohio,county_split,14.0
+Oklahoma,county_split,6.0
+Oregon,county_split,7.0
+Pennsylvania,county_split,14.0
+Rhode Island,county_split,1.0
+South Carolina,county_split,10.0
+South Dakota,county_split,
+Tennessee,county_split,9.0
+Texas,county_split,30.0
+Utah,county_split,5.0
+Vermont,county_split,
+Virginia,county_split,9.0
+Washington,county_split,7.0
+West Virginia,county_split,0.0
+Wisconsin,county_split,12.0
+Wyoming,county_split,
+Alabama,num_county,67.0
+Alaska,num_county,30.0
+Arizona,num_county,15.0
+Arkansas,num_county,75.0
+California,num_county,58.0
+Colorado,num_county,64.0
+Connecticut,num_county,8.0
+Delaware,num_county,3.0
+Florida,num_county,67.0
+Georgia,num_county,159.0
+Hawaii,num_county,5.0
+Idaho,num_county,44.0
+Illinois,num_county,102.0
+Indiana,num_county,92.0
+Iowa,num_county,99.0
+Kansas,num_county,105.0
+Kentucky,num_county,120.0
+Louisiana,num_county,64.0
+Maine,num_county,16.0
+Maryland,num_county,24.0
+Massachusetts,num_county,14.0
+Michigan,num_county,83.0
+Minnesota,num_county,87.0
+Mississippi,num_county,82.0
+Missouri,num_county,115.0
+Montana,num_county,56.0
+Nebraska,num_county,93.0
+Nevada,num_county,17.0
+New Hampshire,num_county,10.0
+New Jersey,num_county,21.0
+New Mexico,num_county,33.0
+New York,num_county,62.0
+North Carolina,num_county,100.0
+North Dakota,num_county,53.0
+Ohio,num_county,88.0
+Oklahoma,num_county,77.0
+Oregon,num_county,36.0
+Pennsylvania,num_county,67.0
+Rhode Island,num_county,5.0
+South Carolina,num_county,46.0
+South Dakota,num_county,66.0
+Tennessee,num_county,95.0
+Texas,num_county,254.0
+Utah,num_county,29.0
+Vermont,num_county,14.0
+Virginia,num_county,133.0
+Washington,num_county,39.0
+West Virginia,num_county,55.0
+Wisconsin,num_county,72.0
+Wyoming,num_county,23.0
+Alabama,elected_supreme_justice,1.0
+Alaska,elected_supreme_justice,0.0
+Arizona,elected_supreme_justice,0.0
+Arkansas,elected_supreme_justice,1.0
+California,elected_supreme_justice,0.0
+Colorado,elected_supreme_justice,0.0
+Connecticut,elected_supreme_justice,0.0
+Delaware,elected_supreme_justice,0.0
+Florida,elected_supreme_justice,0.0
+Georgia,elected_supreme_justice,1.0
+Hawaii,elected_supreme_justice,0.0
+Idaho,elected_supreme_justice,1.0
+Illinois,elected_supreme_justice,1.0
+Indiana,elected_supreme_justice,0.0
+Iowa,elected_supreme_justice,0.0
+Kansas,elected_supreme_justice,0.0
+Kentucky,elected_supreme_justice,1.0
+Louisiana,elected_supreme_justice,1.0
+Maine,elected_supreme_justice,0.0
+Maryland,elected_supreme_justice,0.0
+Massachusetts,elected_supreme_justice,0.0
+Michigan,elected_supreme_justice,1.0
+Minnesota,elected_supreme_justice,1.0
+Mississippi,elected_supreme_justice,1.0
+Missouri,elected_supreme_justice,0.0
+Montana,elected_supreme_justice,1.0
+Nebraska,elected_supreme_justice,0.0
+Nevada,elected_supreme_justice,1.0
+New Hampshire,elected_supreme_justice,0.0
+New Jersey,elected_supreme_justice,0.0
+New Mexico,elected_supreme_justice,0.0
+New York,elected_supreme_justice,0.0
+North Carolina,elected_supreme_justice,1.0
+North Dakota,elected_supreme_justice,1.0
+Ohio,elected_supreme_justice,1.0
+Oklahoma,elected_supreme_justice,0.0
+Oregon,elected_supreme_justice,1.0
+Pennsylvania,elected_supreme_justice,1.0
+Rhode Island,elected_supreme_justice,0.0
+South Carolina,elected_supreme_justice,0.0
+South Dakota,elected_supreme_justice,0.0
+Tennessee,elected_supreme_justice,0.0
+Texas,elected_supreme_justice,1.0
+Utah,elected_supreme_justice,0.0
+Vermont,elected_supreme_justice,0.0
+Virginia,elected_supreme_justice,0.0
+Washington,elected_supreme_justice,1.0
+West Virginia,elected_supreme_justice,1.0
+Wisconsin,elected_supreme_justice,1.0
+Wyoming,elected_supreme_justice,0.0
+Alabama,retention_election_justice,1.0
+Alaska,retention_election_justice,1.0
+Arizona,retention_election_justice,1.0
+Arkansas,retention_election_justice,1.0
+California,retention_election_justice,1.0
+Colorado,retention_election_justice,1.0
+Connecticut,retention_election_justice,0.0
+Delaware,retention_election_justice,0.0
+Florida,retention_election_justice,1.0
+Georgia,retention_election_justice,1.0
+Hawaii,retention_election_justice,0.0
+Idaho,retention_election_justice,1.0
+Illinois,retention_election_justice,1.0
+Indiana,retention_election_justice,1.0
+Iowa,retention_election_justice,1.0
+Kansas,retention_election_justice,1.0
+Kentucky,retention_election_justice,1.0
+Louisiana,retention_election_justice,1.0
+Maine,retention_election_justice,0.0
+Maryland,retention_election_justice,1.0
+Massachusetts,retention_election_justice,
+Michigan,retention_election_justice,1.0
+Minnesota,retention_election_justice,1.0
+Mississippi,retention_election_justice,1.0
+Missouri,retention_election_justice,1.0
+Montana,retention_election_justice,1.0
+Nebraska,retention_election_justice,1.0
+Nevada,retention_election_justice,1.0
+New Hampshire,retention_election_justice,
+New Jersey,retention_election_justice,0.0
+New Mexico,retention_election_justice,1.0
+New York,retention_election_justice,0.0
+North Carolina,retention_election_justice,1.0
+North Dakota,retention_election_justice,1.0
+Ohio,retention_election_justice,1.0
+Oklahoma,retention_election_justice,1.0
+Oregon,retention_election_justice,1.0
+Pennsylvania,retention_election_justice,1.0
+Rhode Island,retention_election_justice,
+South Carolina,retention_election_justice,0.0
+South Dakota,retention_election_justice,1.0
+Tennessee,retention_election_justice,1.0
+Texas,retention_election_justice,1.0
+Utah,retention_election_justice,1.0
+Vermont,retention_election_justice,0.0
+Virginia,retention_election_justice,0.0
+Washington,retention_election_justice,1.0
+West Virginia,retention_election_justice,1.0
+Wisconsin,retention_election_justice,1.0
+Wyoming,retention_election_justice,1.0
+Alabama,partisan_justice_election,1.0
+Alaska,partisan_justice_election,0.0
+Arizona,partisan_justice_election,0.0
+Arkansas,partisan_justice_election,0.0
+California,partisan_justice_election,0.0
+Colorado,partisan_justice_election,0.0
+Connecticut,partisan_justice_election,0.0
+Delaware,partisan_justice_election,0.0
+Florida,partisan_justice_election,0.0
+Georgia,partisan_justice_election,0.0
+Hawaii,partisan_justice_election,0.0
+Idaho,partisan_justice_election,0.0
+Illinois,partisan_justice_election,1.0
+Indiana,partisan_justice_election,0.0
+Iowa,partisan_justice_election,0.0
+Kansas,partisan_justice_election,0.0
+Kentucky,partisan_justice_election,0.0
+Louisiana,partisan_justice_election,1.0
+Maine,partisan_justice_election,0.0
+Maryland,partisan_justice_election,0.0
+Massachusetts,partisan_justice_election,0.0
+Michigan,partisan_justice_election,0.0
+Minnesota,partisan_justice_election,0.0
+Mississippi,partisan_justice_election,0.0
+Missouri,partisan_justice_election,0.0
+Montana,partisan_justice_election,0.0
+Nebraska,partisan_justice_election,0.0
+Nevada,partisan_justice_election,0.0
+New Hampshire,partisan_justice_election,0.0
+New Jersey,partisan_justice_election,0.0
+New Mexico,partisan_justice_election,1.0
+New York,partisan_justice_election,0.0
+North Carolina,partisan_justice_election,1.0
+North Dakota,partisan_justice_election,0.0
+Ohio,partisan_justice_election,1.0
+Oklahoma,partisan_justice_election,0.0
+Oregon,partisan_justice_election,0.0
+Pennsylvania,partisan_justice_election,1.0
+Rhode Island,partisan_justice_election,0.0
+South Carolina,partisan_justice_election,0.0
+South Dakota,partisan_justice_election,0.0
+Tennessee,partisan_justice_election,0.0
+Texas,partisan_justice_election,1.0
+Utah,partisan_justice_election,0.0
+Vermont,partisan_justice_election,0.0
+Virginia,partisan_justice_election,0.0
+Washington,partisan_justice_election,0.0
+West Virginia,partisan_justice_election,0.0
+Wisconsin,partisan_justice_election,0.0
+Wyoming,partisan_justice_election,0.0
+Alabama,court_curbing_bill,
+Alaska,court_curbing_bill,
+Arizona,court_curbing_bill,
+Arkansas,court_curbing_bill,
+California,court_curbing_bill,
+Colorado,court_curbing_bill,
+Connecticut,court_curbing_bill,
+Delaware,court_curbing_bill,
+Florida,court_curbing_bill,
+Georgia,court_curbing_bill,
+Hawaii,court_curbing_bill,
+Idaho,court_curbing_bill,
+Illinois,court_curbing_bill,
+Indiana,court_curbing_bill,
+Iowa,court_curbing_bill,
+Kansas,court_curbing_bill,
+Kentucky,court_curbing_bill,
+Louisiana,court_curbing_bill,
+Maine,court_curbing_bill,
+Maryland,court_curbing_bill,
+Massachusetts,court_curbing_bill,
+Michigan,court_curbing_bill,
+Minnesota,court_curbing_bill,
+Mississippi,court_curbing_bill,
+Missouri,court_curbing_bill,
+Montana,court_curbing_bill,
+Nebraska,court_curbing_bill,
+Nevada,court_curbing_bill,
+New Hampshire,court_curbing_bill,
+New Jersey,court_curbing_bill,
+New Mexico,court_curbing_bill,
+New York,court_curbing_bill,
+North Carolina,court_curbing_bill,
+North Dakota,court_curbing_bill,
+Ohio,court_curbing_bill,
+Oklahoma,court_curbing_bill,
+Oregon,court_curbing_bill,
+Pennsylvania,court_curbing_bill,
+Rhode Island,court_curbing_bill,
+South Carolina,court_curbing_bill,
+South Dakota,court_curbing_bill,
+Tennessee,court_curbing_bill,
+Texas,court_curbing_bill,
+Utah,court_curbing_bill,
+Vermont,court_curbing_bill,
+Virginia,court_curbing_bill,
+Washington,court_curbing_bill,
+West Virginia,court_curbing_bill,
+Wisconsin,court_curbing_bill,
+Wyoming,court_curbing_bill,
+Alabama,statutory_initiative,0.0
+Alaska,statutory_initiative,1.0
+Arizona,statutory_initiative,1.0
+Arkansas,statutory_initiative,1.0
+California,statutory_initiative,1.0
+Colorado,statutory_initiative,1.0
+Connecticut,statutory_initiative,0.0
+Delaware,statutory_initiative,0.0
+Florida,statutory_initiative,0.0
+Georgia,statutory_initiative,0.0
+Hawaii,statutory_initiative,0.0
+Idaho,statutory_initiative,1.0
+Illinois,statutory_initiative,0.0
+Indiana,statutory_initiative,0.0
+Iowa,statutory_initiative,0.0
+Kansas,statutory_initiative,0.0
+Kentucky,statutory_initiative,0.0
+Louisiana,statutory_initiative,0.0
+Maine,statutory_initiative,1.0
+Maryland,statutory_initiative,0.0
+Massachusetts,statutory_initiative,1.0
+Michigan,statutory_initiative,1.0
+Minnesota,statutory_initiative,0.0
+Mississippi,statutory_initiative,0.0
+Missouri,statutory_initiative,1.0
+Montana,statutory_initiative,1.0
+Nebraska,statutory_initiative,1.0
+Nevada,statutory_initiative,1.0
+New Hampshire,statutory_initiative,0.0
+New Jersey,statutory_initiative,0.0
+New Mexico,statutory_initiative,0.0
+New York,statutory_initiative,0.0
+North Carolina,statutory_initiative,0.0
+North Dakota,statutory_initiative,1.0
+Ohio,statutory_initiative,1.0
+Oklahoma,statutory_initiative,1.0
+Oregon,statutory_initiative,1.0
+Pennsylvania,statutory_initiative,0.0
+Rhode Island,statutory_initiative,0.0
+South Carolina,statutory_initiative,0.0
+South Dakota,statutory_initiative,1.0
+Tennessee,statutory_initiative,0.0
+Texas,statutory_initiative,0.0
+Utah,statutory_initiative,1.0
+Vermont,statutory_initiative,0.0
+Virginia,statutory_initiative,0.0
+Washington,statutory_initiative,1.0
+West Virginia,statutory_initiative,0.0
+Wisconsin,statutory_initiative,0.0
+Wyoming,statutory_initiative,1.0
+Alabama,constitutional_initiative,0.0
+Alaska,constitutional_initiative,0.0
+Arizona,constitutional_initiative,1.0
+Arkansas,constitutional_initiative,1.0
+California,constitutional_initiative,1.0
+Colorado,constitutional_initiative,1.0
+Connecticut,constitutional_initiative,0.0
+Delaware,constitutional_initiative,0.0
+Florida,constitutional_initiative,1.0
+Georgia,constitutional_initiative,0.0
+Hawaii,constitutional_initiative,0.0
+Idaho,constitutional_initiative,0.0
+Illinois,constitutional_initiative,1.0
+Indiana,constitutional_initiative,0.0
+Iowa,constitutional_initiative,0.0
+Kansas,constitutional_initiative,0.0
+Kentucky,constitutional_initiative,0.0
+Louisiana,constitutional_initiative,0.0
+Maine,constitutional_initiative,0.0
+Maryland,constitutional_initiative,0.0
+Massachusetts,constitutional_initiative,1.0
+Michigan,constitutional_initiative,1.0
+Minnesota,constitutional_initiative,0.0
+Mississippi,constitutional_initiative,0.0
+Missouri,constitutional_initiative,1.0
+Montana,constitutional_initiative,1.0
+Nebraska,constitutional_initiative,1.0
+Nevada,constitutional_initiative,1.0
+New Hampshire,constitutional_initiative,0.0
+New Jersey,constitutional_initiative,0.0
+New Mexico,constitutional_initiative,0.0
+New York,constitutional_initiative,0.0
+North Carolina,constitutional_initiative,0.0
+North Dakota,constitutional_initiative,1.0
+Ohio,constitutional_initiative,1.0
+Oklahoma,constitutional_initiative,1.0
+Oregon,constitutional_initiative,1.0
+Pennsylvania,constitutional_initiative,0.0
+Rhode Island,constitutional_initiative,0.0
+South Carolina,constitutional_initiative,0.0
+South Dakota,constitutional_initiative,1.0
+Tennessee,constitutional_initiative,0.0
+Texas,constitutional_initiative,0.0
+Utah,constitutional_initiative,0.0
+Vermont,constitutional_initiative,0.0
+Virginia,constitutional_initiative,0.0
+Washington,constitutional_initiative,0.0
+West Virginia,constitutional_initiative,0.0
+Wisconsin,constitutional_initiative,0.0
+Wyoming,constitutional_initiative,0.0
+Alabama,popular_referendum,0.0
+Alaska,popular_referendum,1.0
+Arizona,popular_referendum,1.0
+Arkansas,popular_referendum,1.0
+California,popular_referendum,1.0
+Colorado,popular_referendum,1.0
+Connecticut,popular_referendum,0.0
+Delaware,popular_referendum,0.0
+Florida,popular_referendum,0.0
+Georgia,popular_referendum,0.0
+Hawaii,popular_referendum,0.0
+Idaho,popular_referendum,1.0
+Illinois,popular_referendum,0.0
+Indiana,popular_referendum,0.0
+Iowa,popular_referendum,0.0
+Kansas,popular_referendum,0.0
+Kentucky,popular_referendum,0.0
+Louisiana,popular_referendum,0.0
+Maine,popular_referendum,1.0
+Maryland,popular_referendum,1.0
+Massachusetts,popular_referendum,1.0
+Michigan,popular_referendum,1.0
+Minnesota,popular_referendum,0.0
+Mississippi,popular_referendum,0.0
+Missouri,popular_referendum,1.0
+Montana,popular_referendum,1.0
+Nebraska,popular_referendum,1.0
+Nevada,popular_referendum,1.0
+New Hampshire,popular_referendum,0.0
+New Jersey,popular_referendum,0.0
+New Mexico,popular_referendum,1.0
+New York,popular_referendum,0.0
+North Carolina,popular_referendum,0.0
+North Dakota,popular_referendum,1.0
+Ohio,popular_referendum,1.0
+Oklahoma,popular_referendum,1.0
+Oregon,popular_referendum,1.0
+Pennsylvania,popular_referendum,0.0
+Rhode Island,popular_referendum,0.0
+South Carolina,popular_referendum,0.0
+South Dakota,popular_referendum,1.0
+Tennessee,popular_referendum,0.0
+Texas,popular_referendum,0.0
+Utah,popular_referendum,1.0
+Vermont,popular_referendum,0.0
+Virginia,popular_referendum,0.0
+Washington,popular_referendum,1.0
+West Virginia,popular_referendum,0.0
+Wisconsin,popular_referendum,0.0
+Wyoming,popular_referendum,1.0
+Alabama,congressional_money,76969029.0
+Alaska,congressional_money,15957862.0
+Arizona,congressional_money,164208116.0
+Arkansas,congressional_money,57025750.0
+California,congressional_money,1039160131.0
+Colorado,congressional_money,115916169.0
+Connecticut,congressional_money,83342782.0
+Delaware,congressional_money,13771581.0
+Florida,congressional_money,468573125.0
+Georgia,congressional_money,217395115.0
+Hawaii,congressional_money,27693638.0
+Idaho,congressional_money,18294968.0
+Illinois,congressional_money,346877534.0
+Indiana,congressional_money,117321669.0
+Iowa,congressional_money,118109006.0
+Kansas,congressional_money,84845490.0
+Kentucky,congressional_money,76945294.0
+Louisiana,congressional_money,125923623.0
+Maine,congressional_money,38565793.0
+Maryland,congressional_money,146922287.0
+Massachusetts,congressional_money,141618920.0
+Michigan,congressional_money,246784131.0
+Minnesota,congressional_money,209040342.0
+Mississippi,congressional_money,35055162.0
+Missouri,congressional_money,96843326.0
+Montana,congressional_money,55199893.0
+Nebraska,congressional_money,42395598.0
+Nevada,congressional_money,71697641.0
+New Hampshire,congressional_money,53735710.0
+New Jersey,congressional_money,216195480.0
+New Mexico,congressional_money,67530898.0
+New York,congressional_money,579849156.0
+North Carolina,congressional_money,188899814.0
+North Dakota,congressional_money,16528953.0
+Ohio,congressional_money,296538293.0
+Oklahoma,congressional_money,63709934.0
+Oregon,congressional_money,79627832.0
+Pennsylvania,congressional_money,318333943.0
+Rhode Island,congressional_money,22179655.0
+South Carolina,congressional_money,106246075.0
+South Dakota,congressional_money,19482513.0
+Tennessee,congressional_money,107511941.0
+Texas,congressional_money,532270563.0
+Utah,congressional_money,62597796.0
+Vermont,congressional_money,6739890.0
+Virginia,congressional_money,229793282.0
+Washington,congressional_money,165773128.0
+West Virginia,congressional_money,46617292.0
+Wisconsin,congressional_money,149579602.0
+Wyoming,congressional_money,8954043.0
+Alabama,legislative_money,123633561.0
+Alaska,legislative_money,61543068.0
+Arizona,legislative_money,86576634.0
+Arkansas,legislative_money,70859664.0
+California,legislative_money,1360378770.0
+Colorado,legislative_money,77478781.0
+Connecticut,legislative_money,90881328.0
+Delaware,legislative_money,27447166.0
+Florida,legislative_money,418174347.0
+Georgia,legislative_money,239065037.0
+Hawaii,legislative_money,43252958.0
+Idaho,legislative_money,41835011.0
+Illinois,legislative_money,956722175.0
+Indiana,legislative_money,211815366.0
+Iowa,legislative_money,193988505.0
+Kansas,legislative_money,73428792.0
+Kentucky,legislative_money,131660156.0
+Louisiana,legislative_money,132904519.0
+Maine,legislative_money,28254458.0
+Maryland,legislative_money,137811347.0
+Massachusetts,legislative_money,191440651.0
+Michigan,legislative_money,294102573.0
+Minnesota,legislative_money,121810848.0
+Mississippi,legislative_money,45168026.0
+Missouri,legislative_money,184598919.0
+Montana,legislative_money,26906238.0
+Nebraska,legislative_money,
+Nevada,legislative_money,127173795.0
+New Hampshire,legislative_money,10485414.0
+New Jersey,legislative_money,254563649.0
+New Mexico,legislative_money,86459840.0
+New York,legislative_money,331441716.0
+North Carolina,legislative_money,314556120.0
+North Dakota,legislative_money,9222246.0
+Ohio,legislative_money,390939760.0
+Oklahoma,legislative_money,140305365.0
+Oregon,legislative_money,257050624.0
+Pennsylvania,legislative_money,611657065.0
+Rhode Island,legislative_money,39104064.0
+South Carolina,legislative_money,97931827.0
+South Dakota,legislative_money,20955575.0
+Tennessee,legislative_money,152711392.0
+Texas,legislative_money,1090150654.0
+Utah,legislative_money,56138531.0
+Vermont,legislative_money,11174749.0
+Virginia,legislative_money,501944374.0
+Washington,legislative_money,256541800.0
+West Virginia,legislative_money,64888744.0
+Wisconsin,legislative_money,157870674.0
+Wyoming,legislative_money,14993681.0
+Alabama,congressional_money_percapita,15.0
+Alaska,congressional_money_percapita,22.0
+Arizona,congressional_money_percapita,22.0
+Arkansas,congressional_money_percapita,18.0
+California,congressional_money_percapita,26.0
+Colorado,congressional_money_percapita,19.0
+Connecticut,congressional_money_percapita,23.0
+Delaware,congressional_money_percapita,13.0
+Florida,congressional_money_percapita,20.0
+Georgia,congressional_money_percapita,19.0
+Hawaii,congressional_money_percapita,19.0
+Idaho,congressional_money_percapita,9.0
+Illinois,congressional_money_percapita,27.0
+Indiana,congressional_money_percapita,17.0
+Iowa,congressional_money_percapita,37.0
+Kansas,congressional_money_percapita,29.0
+Kentucky,congressional_money_percapita,17.0
+Louisiana,congressional_money_percapita,27.0
+Maine,congressional_money_percapita,27.0
+Maryland,congressional_money_percapita,24.0
+Massachusetts,congressional_money_percapita,20.0
+Michigan,congressional_money_percapita,24.0
+Minnesota,congressional_money_percapita,36.0
+Mississippi,congressional_money_percapita,12.0
+Missouri,congressional_money_percapita,16.0
+Montana,congressional_money_percapita,49.0
+Nebraska,congressional_money_percapita,21.0
+Nevada,congressional_money_percapita,22.0
+New Hampshire,congressional_money_percapita,38.0
+New Jersey,congressional_money_percapita,23.0
+New Mexico,congressional_money_percapita,32.0
+New York,congressional_money_percapita,29.0
+North Carolina,congressional_money_percapita,17.0
+North Dakota,congressional_money_percapita,21.0
+Ohio,congressional_money_percapita,25.0
+Oklahoma,congressional_money_percapita,16.0
+Oregon,congressional_money_percapita,19.0
+Pennsylvania,congressional_money_percapita,24.0
+Rhode Island,congressional_money_percapita,20.0
+South Carolina,congressional_money_percapita,19.0
+South Dakota,congressional_money_percapita,21.0
+Tennessee,congressional_money_percapita,15.0
+Texas,congressional_money_percapita,17.0
+Utah,congressional_money_percapita,18.0
+Vermont,congressional_money_percapita,10.0
+Virginia,congressional_money_percapita,26.0
+Washington,congressional_money_percapita,21.0
+West Virginia,congressional_money_percapita,26.0
+Wisconsin,congressional_money_percapita,25.0
+Wyoming,congressional_money_percapita,15.0
+Alabama,legislative_money_percapita,24.0
+Alaska,legislative_money_percapita,84.0
+Arizona,legislative_money_percapita,11.0
+Arkansas,legislative_money_percapita,23.0
+California,legislative_money_percapita,35.0
+Colorado,legislative_money_percapita,13.0
+Connecticut,legislative_money_percapita,25.0
+Delaware,legislative_money_percapita,26.0
+Florida,legislative_money_percapita,18.0
+Georgia,legislative_money_percapita,21.0
+Hawaii,legislative_money_percapita,30.0
+Idaho,legislative_money_percapita,21.0
+Illinois,legislative_money_percapita,75.0
+Indiana,legislative_money_percapita,31.0
+Iowa,legislative_money_percapita,60.0
+Kansas,legislative_money_percapita,25.0
+Kentucky,legislative_money_percapita,29.0
+Louisiana,legislative_money_percapita,29.0
+Maine,legislative_money_percapita,20.0
+Maryland,legislative_money_percapita,22.0
+Massachusetts,legislative_money_percapita,27.0
+Michigan,legislative_money_percapita,29.0
+Minnesota,legislative_money_percapita,21.0
+Mississippi,legislative_money_percapita,15.0
+Missouri,legislative_money_percapita,30.0
+Montana,legislative_money_percapita,24.0
+Nebraska,legislative_money_percapita,0.0
+Nevada,legislative_money_percapita,39.0
+New Hampshire,legislative_money_percapita,7.0
+New Jersey,legislative_money_percapita,27.0
+New Mexico,legislative_money_percapita,41.0
+New York,legislative_money_percapita,17.0
+North Carolina,legislative_money_percapita,28.0
+North Dakota,legislative_money_percapita,12.0
+Ohio,legislative_money_percapita,33.0
+Oklahoma,legislative_money_percapita,34.0
+Oregon,legislative_money_percapita,60.0
+Pennsylvania,legislative_money_percapita,47.0
+Rhode Island,legislative_money_percapita,35.0
+South Carolina,legislative_money_percapita,18.0
+South Dakota,legislative_money_percapita,23.0
+Tennessee,legislative_money_percapita,21.0
+Texas,legislative_money_percapita,35.0
+Utah,legislative_money_percapita,16.0
+Vermont,legislative_money_percapita,17.0
+Virginia,legislative_money_percapita,57.0
+Washington,legislative_money_percapita,32.0
+West Virginia,legislative_money_percapita,37.0
+Wisconsin,legislative_money_percapita,27.0
+Wyoming,legislative_money_percapita,26.0
+Alabama,lobbyist_money,
+Alaska,lobbyist_money,
+Arizona,lobbyist_money,
+Arkansas,lobbyist_money,
+California,lobbyist_money,
+Colorado,lobbyist_money,
+Connecticut,lobbyist_money,
+Delaware,lobbyist_money,
+Florida,lobbyist_money,
+Georgia,lobbyist_money,
+Hawaii,lobbyist_money,
+Idaho,lobbyist_money,
+Illinois,lobbyist_money,
+Indiana,lobbyist_money,
+Iowa,lobbyist_money,
+Kansas,lobbyist_money,
+Kentucky,lobbyist_money,
+Louisiana,lobbyist_money,
+Maine,lobbyist_money,
+Maryland,lobbyist_money,
+Massachusetts,lobbyist_money,
+Michigan,lobbyist_money,
+Minnesota,lobbyist_money,
+Mississippi,lobbyist_money,
+Missouri,lobbyist_money,
+Montana,lobbyist_money,
+Nebraska,lobbyist_money,
+Nevada,lobbyist_money,
+New Hampshire,lobbyist_money,
+New Jersey,lobbyist_money,
+New Mexico,lobbyist_money,
+New York,lobbyist_money,
+North Carolina,lobbyist_money,
+North Dakota,lobbyist_money,
+Ohio,lobbyist_money,
+Oklahoma,lobbyist_money,
+Oregon,lobbyist_money,
+Pennsylvania,lobbyist_money,
+Rhode Island,lobbyist_money,
+South Carolina,lobbyist_money,
+South Dakota,lobbyist_money,
+Tennessee,lobbyist_money,
+Texas,lobbyist_money,
+Utah,lobbyist_money,
+Vermont,lobbyist_money,
+Virginia,lobbyist_money,
+Washington,lobbyist_money,
+West Virginia,lobbyist_money,
+Wisconsin,lobbyist_money,
+Wyoming,lobbyist_money,
+Alabama,campaign_finance_index,49.64
+Alaska,campaign_finance_index,76.79
+Arizona,campaign_finance_index,63.39
+Arkansas,campaign_finance_index,73.81
+California,campaign_finance_index,80.95
+Colorado,campaign_finance_index,71.25
+Connecticut,campaign_finance_index,79.52
+Delaware,campaign_finance_index,61.19
+Florida,campaign_finance_index,56.49
+Georgia,campaign_finance_index,57.56
+Hawaii,campaign_finance_index,75.36
+Idaho,campaign_finance_index,66.07
+Illinois,campaign_finance_index,58.81
+Indiana,campaign_finance_index,38.33
+Iowa,campaign_finance_index,69.64
+Kansas,campaign_finance_index,77.56
+Kentucky,campaign_finance_index,70.06
+Louisiana,campaign_finance_index,57.56
+Maine,campaign_finance_index,80.48
+Maryland,campaign_finance_index,78.04
+Massachusetts,campaign_finance_index,66.31
+Michigan,campaign_finance_index,62.56
+Minnesota,campaign_finance_index,73.69
+Mississippi,campaign_finance_index,57.98
+Missouri,campaign_finance_index,77.14
+Montana,campaign_finance_index,76.31
+Nebraska,campaign_finance_index,59.52
+Nevada,campaign_finance_index,52.32
+New Hampshire,campaign_finance_index,51.73
+New Jersey,campaign_finance_index,61.07
+New Mexico,campaign_finance_index,69.64
+New York,campaign_finance_index,67.32
+North Carolina,campaign_finance_index,71.73
+North Dakota,campaign_finance_index,52.74
+Ohio,campaign_finance_index,63.33
+Oklahoma,campaign_finance_index,73.87
+Oregon,campaign_finance_index,52.74
+Pennsylvania,campaign_finance_index,61.31
+Rhode Island,campaign_finance_index,71.25
+South Carolina,campaign_finance_index,67.08
+South Dakota,campaign_finance_index,45.06
+Tennessee,campaign_finance_index,72.14
+Texas,campaign_finance_index,72.56
+Utah,campaign_finance_index,45.48
+Vermont,campaign_finance_index,59.23
+Virginia,campaign_finance_index,55.48
+Washington,campaign_finance_index,83.99
+West Virginia,campaign_finance_index,60.89
+Wisconsin,campaign_finance_index,60.06
+Wyoming,campaign_finance_index,56.73
+Alabama,protest_index,
+Alaska,protest_index,
+Arizona,protest_index,
+Arkansas,protest_index,
+California,protest_index,
+Colorado,protest_index,
+Connecticut,protest_index,
+Delaware,protest_index,
+Florida,protest_index,
+Georgia,protest_index,
+Hawaii,protest_index,
+Idaho,protest_index,
+Illinois,protest_index,
+Indiana,protest_index,
+Iowa,protest_index,
+Kansas,protest_index,
+Kentucky,protest_index,
+Louisiana,protest_index,
+Maine,protest_index,
+Maryland,protest_index,
+Massachusetts,protest_index,
+Michigan,protest_index,
+Minnesota,protest_index,
+Mississippi,protest_index,
+Missouri,protest_index,
+Montana,protest_index,
+Nebraska,protest_index,
+Nevada,protest_index,
+New Hampshire,protest_index,
+New Jersey,protest_index,
+New Mexico,protest_index,
+New York,protest_index,
+North Carolina,protest_index,
+North Dakota,protest_index,
+Ohio,protest_index,
+Oklahoma,protest_index,
+Oregon,protest_index,
+Pennsylvania,protest_index,
+Rhode Island,protest_index,
+South Carolina,protest_index,
+South Dakota,protest_index,
+Tennessee,protest_index,
+Texas,protest_index,
+Utah,protest_index,
+Vermont,protest_index,
+Virginia,protest_index,
+Washington,protest_index,
+West Virginia,protest_index,
+Wisconsin,protest_index,
+Wyoming,protest_index,
+Alabama,local_news,
+Alaska,local_news,
+Arizona,local_news,
+Arkansas,local_news,
+California,local_news,
+Colorado,local_news,
+Connecticut,local_news,
+Delaware,local_news,
+Florida,local_news,
+Georgia,local_news,
+Hawaii,local_news,
+Idaho,local_news,
+Illinois,local_news,
+Indiana,local_news,
+Iowa,local_news,
+Kansas,local_news,
+Kentucky,local_news,
+Louisiana,local_news,
+Maine,local_news,
+Maryland,local_news,
+Massachusetts,local_news,
+Michigan,local_news,
+Minnesota,local_news,
+Mississippi,local_news,
+Missouri,local_news,
+Montana,local_news,
+Nebraska,local_news,
+Nevada,local_news,
+New Hampshire,local_news,
+New Jersey,local_news,
+New Mexico,local_news,
+New York,local_news,
+North Carolina,local_news,
+North Dakota,local_news,
+Ohio,local_news,
+Oklahoma,local_news,
+Oregon,local_news,
+Pennsylvania,local_news,
+Rhode Island,local_news,
+South Carolina,local_news,
+South Dakota,local_news,
+Tennessee,local_news,
+Texas,local_news,
+Utah,local_news,
+Vermont,local_news,
+Virginia,local_news,
+Washington,local_news,
+West Virginia,local_news,
+Wisconsin,local_news,
+Wyoming,local_news,
+Alabama,free_speech,
+Alaska,free_speech,
+Arizona,free_speech,
+Arkansas,free_speech,
+California,free_speech,
+Colorado,free_speech,
+Connecticut,free_speech,
+Delaware,free_speech,
+Florida,free_speech,
+Georgia,free_speech,
+Hawaii,free_speech,
+Idaho,free_speech,
+Illinois,free_speech,
+Indiana,free_speech,
+Iowa,free_speech,
+Kansas,free_speech,
+Kentucky,free_speech,
+Louisiana,free_speech,
+Maine,free_speech,
+Maryland,free_speech,
+Massachusetts,free_speech,
+Michigan,free_speech,
+Minnesota,free_speech,
+Mississippi,free_speech,
+Missouri,free_speech,
+Montana,free_speech,
+Nebraska,free_speech,
+Nevada,free_speech,
+New Hampshire,free_speech,
+New Jersey,free_speech,
+New Mexico,free_speech,
+New York,free_speech,
+North Carolina,free_speech,
+North Dakota,free_speech,
+Ohio,free_speech,
+Oklahoma,free_speech,
+Oregon,free_speech,
+Pennsylvania,free_speech,
+Rhode Island,free_speech,
+South Carolina,free_speech,
+South Dakota,free_speech,
+Tennessee,free_speech,
+Texas,free_speech,
+Utah,free_speech,
+Vermont,free_speech,
+Virginia,free_speech,
+Washington,free_speech,
+West Virginia,free_speech,
+Wisconsin,free_speech,
+Wyoming,free_speech,
+Alabama,press_incidents,
+Alaska,press_incidents,
+Arizona,press_incidents,
+Arkansas,press_incidents,
+California,press_incidents,
+Colorado,press_incidents,
+Connecticut,press_incidents,
+Delaware,press_incidents,
+Florida,press_incidents,
+Georgia,press_incidents,
+Hawaii,press_incidents,
+Idaho,press_incidents,
+Illinois,press_incidents,
+Indiana,press_incidents,
+Iowa,press_incidents,
+Kansas,press_incidents,
+Kentucky,press_incidents,
+Louisiana,press_incidents,
+Maine,press_incidents,
+Maryland,press_incidents,
+Massachusetts,press_incidents,
+Michigan,press_incidents,
+Minnesota,press_incidents,
+Mississippi,press_incidents,
+Missouri,press_incidents,
+Montana,press_incidents,
+Nebraska,press_incidents,
+Nevada,press_incidents,
+New Hampshire,press_incidents,
+New Jersey,press_incidents,
+New Mexico,press_incidents,
+New York,press_incidents,
+North Carolina,press_incidents,
+North Dakota,press_incidents,
+Ohio,press_incidents,
+Oklahoma,press_incidents,
+Oregon,press_incidents,
+Pennsylvania,press_incidents,
+Rhode Island,press_incidents,
+South Carolina,press_incidents,
+South Dakota,press_incidents,
+Tennessee,press_incidents,
+Texas,press_incidents,
+Utah,press_incidents,
+Vermont,press_incidents,
+Virginia,press_incidents,
+Washington,press_incidents,
+West Virginia,press_incidents,
+Wisconsin,press_incidents,
+Wyoming,press_incidents,
+Alabama,democratic_leaning,0.353
+Alaska,democratic_leaning,0.421
+Arizona,democratic_leaning,0.48
+Arkansas,democratic_leaning,0.342
+California,democratic_leaning,0.61
+Colorado,democratic_leaning,0.548
+Connecticut,democratic_leaning,0.578
+Delaware,democratic_leaning,0.577
+Florida,democratic_leaning,0.454
+Georgia,democratic_leaning,0.49
+Hawaii,democratic_leaning,0.622
+Idaho,democratic_leaning,0.317
+Illinois,democratic_leaning,0.56
+Indiana,democratic_leaning,0.403
+Iowa,democratic_leaning,0.437
+Kansas,democratic_leaning,0.413
+Kentucky,democratic_leaning,0.35
+Louisiana,democratic_leaning,0.39
+Maine,democratic_leaning,0.528
+Maryland,democratic_leaning,0.64
+Massachusetts,democratic_leaning,0.634
+Michigan,democratic_leaning,0.495
+Minnesota,democratic_leaning,0.517
+Mississippi,democratic_leaning,0.395
+Missouri,democratic_leaning,0.407
+Montana,democratic_leaning,0.395
+Nebraska,democratic_leaning,0.392
+Nevada,democratic_leaning,0.488
+New Hampshire,democratic_leaning,0.517
+New Jersey,democratic_leaning,0.547
+New Mexico,democratic_leaning,0.531
+New York,democratic_leaning,0.584
+North Carolina,democratic_leaning,0.481
+North Dakota,democratic_leaning,0.311
+Ohio,democratic_leaning,0.446
+Oklahoma,democratic_leaning,0.321
+Oregon,democratic_leaning,0.559
+Pennsylvania,democratic_leaning,0.493
+Rhode Island,democratic_leaning,0.575
+South Carolina,democratic_leaning,0.419
+South Dakota,democratic_leaning,0.349
+Tennessee,democratic_leaning,0.36
+Texas,democratic_leaning,0.445
+Utah,democratic_leaning,0.377
+Vermont,democratic_leaning,0.65
+Virginia,democratic_leaning,0.53
+Washington,democratic_leaning,0.576
+West Virginia,democratic_leaning,0.289
+Wisconsin,democratic_leaning,0.491
+Wyoming,democratic_leaning,0.262
+Alabama,divided_government,0.0
+Alaska,divided_government,0.0
+Arizona,divided_government,1.0
+Arkansas,divided_government,0.0
+California,divided_government,0.0
+Colorado,divided_government,0.0
+Connecticut,divided_government,0.0
+Delaware,divided_government,0.0
+Florida,divided_government,0.0
+Georgia,divided_government,0.0
+Hawaii,divided_government,0.0
+Idaho,divided_government,0.0
+Illinois,divided_government,0.0
+Indiana,divided_government,0.0
+Iowa,divided_government,0.0
+Kansas,divided_government,1.0
+Kentucky,divided_government,1.0
+Louisiana,divided_government,0.0
+Maine,divided_government,1.0
+Maryland,divided_government,0.0
+Massachusetts,divided_government,0.0
+Michigan,divided_government,1.0
+Minnesota,divided_government,1.0
+Mississippi,divided_government,0.0
+Missouri,divided_government,0.0
+Montana,divided_government,0.0
+Nebraska,divided_government,
+Nevada,divided_government,1.0
+New Hampshire,divided_government,0.0
+New Jersey,divided_government,0.0
+New Mexico,divided_government,0.0
+New York,divided_government,0.0
+North Carolina,divided_government,1.0
+North Dakota,divided_government,0.0
+Ohio,divided_government,0.0
+Oklahoma,divided_government,0.0
+Oregon,divided_government,0.0
+Pennsylvania,divided_government,1.0
+Rhode Island,divided_government,0.0
+South Carolina,divided_government,0.0
+South Dakota,divided_government,0.0
+Tennessee,divided_government,0.0
+Texas,divided_government,0.0
+Utah,divided_government,0.0
+Vermont,divided_government,1.0
+Virginia,divided_government,0.0
+Washington,divided_government,0.0
+West Virginia,divided_government,0.0
+Wisconsin,divided_government,1.0
+Wyoming,divided_government,0.0
+Alabama,divided_legislatures,0.0
+Alaska,divided_legislatures,0.0
+Arizona,divided_legislatures,0.0
+Arkansas,divided_legislatures,0.0
+California,divided_legislatures,0.0
+Colorado,divided_legislatures,0.0
+Connecticut,divided_legislatures,0.0
+Delaware,divided_legislatures,0.0
+Florida,divided_legislatures,0.0
+Georgia,divided_legislatures,0.0
+Hawaii,divided_legislatures,0.0
+Idaho,divided_legislatures,0.0
+Illinois,divided_legislatures,0.0
+Indiana,divided_legislatures,0.0
+Iowa,divided_legislatures,0.0
+Kansas,divided_legislatures,0.0
+Kentucky,divided_legislatures,0.0
+Louisiana,divided_legislatures,0.0
+Maine,divided_legislatures,1.0
+Maryland,divided_legislatures,0.0
+Massachusetts,divided_legislatures,0.0
+Michigan,divided_legislatures,1.0
+Minnesota,divided_legislatures,1.0
+Mississippi,divided_legislatures,0.0
+Missouri,divided_legislatures,0.0
+Montana,divided_legislatures,0.0
+Nebraska,divided_legislatures,
+Nevada,divided_legislatures,0.0
+New Hampshire,divided_legislatures,0.0
+New Jersey,divided_legislatures,0.0
+New Mexico,divided_legislatures,0.0
+New York,divided_legislatures,0.0
+North Carolina,divided_legislatures,0.0
+North Dakota,divided_legislatures,0.0
+Ohio,divided_legislatures,0.0
+Oklahoma,divided_legislatures,0.0
+Oregon,divided_legislatures,0.0
+Pennsylvania,divided_legislatures,1.0
+Rhode Island,divided_legislatures,0.0
+South Carolina,divided_legislatures,0.0
+South Dakota,divided_legislatures,0.0
+Tennessee,divided_legislatures,0.0
+Texas,divided_legislatures,0.0
+Utah,divided_legislatures,0.0
+Vermont,divided_legislatures,0.0
+Virginia,divided_legislatures,0.0
+Washington,divided_legislatures,0.0
+West Virginia,divided_legislatures,0.0
+Wisconsin,divided_legislatures,0.0
+Wyoming,divided_legislatures,0.0
+Alabama,bachelor_share,
+Alaska,bachelor_share,
+Arizona,bachelor_share,
+Arkansas,bachelor_share,
+California,bachelor_share,
+Colorado,bachelor_share,
+Connecticut,bachelor_share,
+Delaware,bachelor_share,
+Florida,bachelor_share,
+Georgia,bachelor_share,
+Hawaii,bachelor_share,
+Idaho,bachelor_share,
+Illinois,bachelor_share,
+Indiana,bachelor_share,
+Iowa,bachelor_share,
+Kansas,bachelor_share,
+Kentucky,bachelor_share,
+Louisiana,bachelor_share,
+Maine,bachelor_share,
+Maryland,bachelor_share,
+Massachusetts,bachelor_share,
+Michigan,bachelor_share,
+Minnesota,bachelor_share,
+Mississippi,bachelor_share,
+Missouri,bachelor_share,
+Montana,bachelor_share,
+Nebraska,bachelor_share,
+Nevada,bachelor_share,
+New Hampshire,bachelor_share,
+New Jersey,bachelor_share,
+New Mexico,bachelor_share,
+New York,bachelor_share,
+North Carolina,bachelor_share,
+North Dakota,bachelor_share,
+Ohio,bachelor_share,
+Oklahoma,bachelor_share,
+Oregon,bachelor_share,
+Pennsylvania,bachelor_share,
+Rhode Island,bachelor_share,
+South Carolina,bachelor_share,
+South Dakota,bachelor_share,
+Tennessee,bachelor_share,
+Texas,bachelor_share,
+Utah,bachelor_share,
+Vermont,bachelor_share,
+Virginia,bachelor_share,
+Washington,bachelor_share,
+West Virginia,bachelor_share,
+Wisconsin,bachelor_share,
+Wyoming,bachelor_share,
+Alabama,minority_share,
+Alaska,minority_share,
+Arizona,minority_share,
+Arkansas,minority_share,
+California,minority_share,
+Colorado,minority_share,
+Connecticut,minority_share,
+Delaware,minority_share,
+Florida,minority_share,
+Georgia,minority_share,
+Hawaii,minority_share,
+Idaho,minority_share,
+Illinois,minority_share,
+Indiana,minority_share,
+Iowa,minority_share,
+Kansas,minority_share,
+Kentucky,minority_share,
+Louisiana,minority_share,
+Maine,minority_share,
+Maryland,minority_share,
+Massachusetts,minority_share,
+Michigan,minority_share,
+Minnesota,minority_share,
+Mississippi,minority_share,
+Missouri,minority_share,
+Montana,minority_share,
+Nebraska,minority_share,
+Nevada,minority_share,
+New Hampshire,minority_share,
+New Jersey,minority_share,
+New Mexico,minority_share,
+New York,minority_share,
+North Carolina,minority_share,
+North Dakota,minority_share,
+Ohio,minority_share,
+Oklahoma,minority_share,
+Oregon,minority_share,
+Pennsylvania,minority_share,
+Rhode Island,minority_share,
+South Carolina,minority_share,
+South Dakota,minority_share,
+Tennessee,minority_share,
+Texas,minority_share,
+Utah,minority_share,
+Vermont,minority_share,
+Virginia,minority_share,
+Washington,minority_share,
+West Virginia,minority_share,
+Wisconsin,minority_share,
+Wyoming,minority_share,
+Alabama,reform_score,9552884.0
+Alaska,reform_score,3690946.0
+Arizona,reform_score,11942223.0
+Arkansas,reform_score,6090140.0
+California,reform_score,114264140.0
+Colorado,reform_score,9209692.0
+Connecticut,reform_score,8296774.0
+Delaware,reform_score,2290398.0
+Florida,reform_score,42226451.0
+Georgia,reform_score,21736601.0
+Hawaii,reform_score,3378774.0
+Idaho,reform_score,2863724.0
+Illinois,reform_score,62076272.0
+Indiana,reform_score,15673287.0
+Iowa,reform_score,14861892.0
+Kansas,reform_score,7536967.0
+Kentucky,reform_score,9933691.0
+Louisiana,reform_score,12325513.0
+Maine,reform_score,3182008.0
+Maryland,reform_score,13558839.0
+Massachusetts,reform_score,16653059.0
+Michigan,reform_score,25756612.0
+Minnesota,reform_score,15755283.0
+Mississippi,reform_score,3820247.0
+Missouri,reform_score,13402113.0
+Montana,reform_score,3910242.0
+Nebraska,reform_score,2355785.0
+Nevada,reform_score,9470460.0
+New Hampshire,reform_score,3211151.0
+New Jersey,reform_score,22417556.0
+New Mexico,reform_score,7333294.0
+New York,reform_score,43395187.0
+North Carolina,reform_score,23974189.0
+North Dakota,reform_score,1431099.0
+Ohio,reform_score,32737474.0
+Oklahoma,reform_score,9715103.0
+Oregon,reform_score,16032760.0
+Pennsylvania,reform_score,44285356.0
+Rhode Island,reform_score,3064264.0
+South Carolina,reform_score,9723138.0
+South Dakota,reform_score,2246989.0
+Tennessee,reform_score,12391678.0
+Texas,reform_score,77258552.0
+Utah,reform_score,5654507.0
+Vermont,reform_score,995345.0
+Virginia,reform_score,34844753.0
+Washington,reform_score,20110660.0
+West Virginia,reform_score,5310199.0
+Wisconsin,reform_score,14640593.0
+Wyoming,reform_score,1330510.0
