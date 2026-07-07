@@ -97,5 +97,12 @@ df_reform_scores.to_csv("db/data/reform_scores.csv", index=False)
 """
 df_cat_scores = df_scores.drop(columns = ['score_weightByVars', 'score_weightEqual'])
 df_cat_scores = df_cat_scores.replace(r'^\s*$', np.nan, regex=True)
+df_cat_scores = df_cat_scores.melt(
+                                id_vars=["State"],
+                                value_vars = df_cat_scores.columns.difference(["State"]),
+                                var_name = "category",
+                                value_name = "value"
+                                )
+
 df_cat_scores.to_csv("db/data/category_scores.csv", index=False)
 

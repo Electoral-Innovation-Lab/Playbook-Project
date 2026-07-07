@@ -19,13 +19,13 @@ CREATE TEMP TABLE staging_reform_scores (
 );
 CREATE TEMP TABLE staging_category_scores (
     state text,
-    electoral_participation NUMERIC(5,3),
-    fair_representation NUMERIC(5,3),
-    political_accountability NUMERIC(5,3),
-    campaign_finance NUMERIC(5,3),
-    civil_society NUMERIC(5,3),
-    political_and_institutional_factors NUMERIC(5,3),
-    demographics NUMERIC(5,3)
+    category text,
+    value NUMERIC(5,3)
+);
+CREATE TEMP TABLE staging_var_scores (
+    state text,
+    variable text,
+    value NUMERIC(5,3)
 );
 
 \COPY staging_abbrevs FROM 'db/data/state-abbrevs.csv' WITH (FORMAT csv, HEADER true, NULL '');
@@ -33,6 +33,7 @@ CREATE TEMP TABLE staging_category_scores (
 \COPY staging_cats FROM 'db/data/var_categories.csv' WITH (FORMAT csv, HEADER true);
 \COPY staging_reform_scores FROM 'db/data/reform_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
 \COPY staging_category_scores FROM 'db/data/category_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
+\COPY staging_var_scores FROM 'db/data/clean_state_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
 
 /*STATES relation 
         id auto generated.
@@ -103,16 +104,7 @@ SELECT
 FROM staging_category_scores cs
 JOIN states s ON states.state_name = cs.state
 JOIN reform_scores x ON x.state_id = s.state_id
-CROSS JOIN LATERAL (
-    VALUES
-        ('Electoral Participation', cs.electoral_participation),
-        ('Fair Representation', cs.fair_representation),
-        ('Political Accountability', cs.political_accountability),
-        ('Campaign Finance', cs.campaign_finance),
-        ('Civil Society', cs.civil_society),
-        ('Political and Institutional Factors', cs.political_and_institutional_factors),
-        ('Demographics', cs.demographics)
-) AS z(category,score)
+
 JOIN reform_categories rc ON rc.category = z.category;
 
 
