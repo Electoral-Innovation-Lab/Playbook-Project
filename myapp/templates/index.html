@@ -111,13 +111,28 @@ function buildSvgMap() {
           data-abbr="${abbr}"
           tabindex="0"
           role="button"
-          aria-label="${abbr}">
+          aria-label="${abbr}"
+          style="cursor:pointer">
         </path>
       `;}
     slot.innerHTML = `
       <svg class="usmap" viewBox="${mapData.viewBox}" xmlns="http://www.w3.org/2000/svg">
         ${paths}
-      </svg>`;}
+      </svg>`;
+
+    const svg = slot.querySelector('svg');
+    svg.addEventListener('click', e => {
+      const path = e.target.closest('path[data-abbr]');
+      if (path) window.location.href = '/' + path.dataset.abbr;
+    });
+    svg.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const path = document.activeElement;
+        if (path && path.dataset && path.dataset.abbr)
+          window.location.href = '/' + path.dataset.abbr;
+      }
+    });
+  }
   buildSvgMap();
 
 
@@ -208,7 +223,8 @@ function buildStickerMap() {
   }
 
   nodes.forEach(({ abbr, x, y, color }) => {
-    const el = document.createElement("div");
+    const el = document.createElement("a");
+    el.href = '/' + abbr;
     el.className = "sticker";
     el.title = abbr;
 
@@ -235,5 +251,116 @@ function buildStickerMap() {
 
 buildStickerOutline();
 buildStickerMap();
+</script>
+
+<script>
+/* ---- MAP COLORING + TABLE ---- */
+
+function scoreColor(score) {
+  if (score == null) return '#e2e8f0';
+  // 0 → red (hue 0), 100 → green (hue 120)
+  return `hsl(${Math.round(score * 1.2)}, 60%, 72%)`;
+}
+
+// Grade rank: higher = better, so sort descending works consistently
+const GRADE_RANK = {
+  'F':0,'D-':1,'D':2,'D+':3,'C-':4,'C':5,'C+':6,
+  'B-':7,'B':8,'B+':9,'A-':10,'A':11,'A+':12
+};
+
+let _allStates = [];
+let _sort = { col: 'score', dir: -1 };
+let _query = '';
+
+function renderTable() {
+  const tbody = document.getElementById('stateTbody');
+  const countEl = document.getElementById('tblCount');
+  if (!tbody) return;
+
+  let rows = _allStates.filter(s =>
+    s.name.toLowerCase().includes(_query) ||
+    s.abbreviation.toLowerCase().includes(_query)
+  );
+
+  rows.sort((a, b) => {
+    const d = _sort.dir;
+    if (_sort.col === 'score') {
+      return d * ((a.score ?? -1) - (b.score ?? -1));
+    }
+    if (_sort.col === 'grade') {
+      return d * ((GRADE_RANK[a.grade] ?? -1) - (GRADE_RANK[b.grade] ?? -1));
+    }
+    if (_sort.col === 'name') {
+      return d * a.name.localeCompare(b.name);
+    }
+    if (_sort.col === 'reform') {
+      return d * (a.leading_reforms || '').localeCompare(b.leading_reforms || '');
+    }
+    return 0;
+  });
+
+  if (countEl) countEl.textContent = `${rows.length} state${rows.length !== 1 ? 's' : ''}`;
+
+  tbody.innerHTML = rows.map(s => `
+    <tr>
+      <td><a href="/${s.abbreviation}">${s.name}</a></td>
+      <td>${s.grade ? `<span class="grade-badge">${s.grade}</span>` : '—'}</td>
+      <td>${s.score != null ? s.score.toFixed(1) : '—'}</td>
+      <td>${s.leading_reforms || '—'}</td>
+    </tr>
+  `).join('');
+}
+
+function initTable(states) {
+  _allStates = states;
+
+  document.querySelectorAll('#stateTable th[data-sort]').forEach(th => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      _sort.dir = (_sort.col === col) ? _sort.dir * -1 : (col === 'name' ? 1 : -1);
+      _sort.col = col;
+      renderTable();
+    });
+  });
+
+  const search = document.getElementById('tblSearch');
+  if (search) {
+    search.addEventListener('input', e => {
+      _query = e.target.value.toLowerCase().trim();
+      renderTable();
+    });
+  }
+
+  renderTable();
+}
+
+(async function () {
+  try {
+    const res = await fetch('/api/states');
+    const states = await res.json();
+
+    // Color SVG map paths
+    const svg = document.querySelector('#svgMapSlot svg');
+    if (svg) {
+      const byAbbr = Object.fromEntries(states.map(s => [s.abbreviation, s]));
+      svg.querySelectorAll('path[data-abbr]').forEach(path => {
+        const s = byAbbr[path.dataset.abbr];
+        path.setAttribute('fill', scoreColor(s ? s.score : null));
+      });
+    }
+
+    // Set legend gradient to match score color scale
+    const legendScale = document.getElementById('legendScale');
+    if (legendScale) {
+      legendScale.style.background =
+        'linear-gradient(to right, hsl(0,60%,72%), hsl(60,60%,72%), hsl(120,60%,72%))';
+    }
+
+    initTable(states);
+  } catch (err) {
+    console.error('Failed to load state data:', err);
+  }
+})();
 </script>
 {% endblock %}
