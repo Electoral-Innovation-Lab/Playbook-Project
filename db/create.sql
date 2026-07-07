@@ -17,7 +17,7 @@ CREATE TABLE reform_scores (
     score_id  SERIAL PRIMARY KEY,
     state_id  INTEGER NOT NULL REFERENCES states(state_id),
     scored_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    score     NUMERIC(12,2) NOT NULL, -- CHECK (score BETWEEN 0 AND 100)
+    score     NUMERIC(5,3) NOT NULL, -- CHECK (score BETWEEN 0 AND 1)
     grade     CHAR(2) CHECK (grade IN
                   ('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F')),
     UNIQUE (state_id, scored_at)
@@ -28,9 +28,9 @@ CREATE TABLE reform_categories (
     category_id SERIAL PRIMARY KEY,
     category    VARCHAR(100) NOT NULL UNIQUE CHECK(category IN
                     ('Electoral Participation', 'Fair Representation', 'Political Accountability',
-                    'Campaign Finance', 'Civil Society', 'Political and Institutional Factors', 'Demographics')),   -- e.g. 'electoral participation'
-    cat_description TEXT, -- description of each category
-    cat_weight      NUMERIC(4,2) NOT NULL DEFAULT 1.0
+                    'Campaign Finance', 'Civil Society', 'Political and Institutional Factors', 'Demographics')),   
+    cat_description TEXT, -- description of each category,
+    cat_weight NUMERIC(4,2)
 );
 
 -- per-category scores that roll up into a composite reform_score
@@ -38,7 +38,7 @@ CREATE TABLE category_scores (
     cat_score_id SERIAL PRIMARY KEY,
     score_id     INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
     category_id  INTEGER NOT NULL REFERENCES reform_categories(category_id) ON DELETE CASCADE,
-    score        NUMERIC(5,2),
+    score        NUMERIC(5,3),
     notes        TEXT,
     UNIQUE (score_id, category_id)
 );
@@ -47,12 +47,13 @@ CREATE TABLE category_scores (
 CREATE TABLE reform_category_variables (
     var_id SERIAL PRIMARY KEY,
     var_name VARCHAR(500) UNIQUE NOT NULL CHECK (var_name IN 
-                            ('voter_turnout', 'voter_registration', 'partisan_fairness', 'competitiveness',
-                            'compactness', 'per_county_split', 'county_split', 'num_county', 'elected_supreme_justice', 'retention_election_justice',
-                            'partisan_justice_election', 'court_curbing_bill', 'statutory_initiative', 'constitutional_initiative',
-                            'popular_referendum', 'congressional_money', 'legislative_money', 'congressional_money_percapita', 'legislative_money_percapita',
-                            'lobbyist_money', 'campaign_finance_index', 'protest_index', 'local_news', 'free_speech', 'press_incidents', 'democratic_leaning',
-                            'divided_government', 'divided_legislatures', 'bachelor_share','minority_share')),
+                            ('voter_turnout', 'voter_registration', 'same_day_registration', 'strict_id', 'online_registration', 'no_excuse_absentee',
+                            'partisan_fairness', 'competitiveness', 'compactness', 'per_county_split', 
+                            'elected_supreme_justice', 'retention_election_justice', 'partisan_justice_election', 'court_curbing_bill', 'statutory_initiative', 'constitutional_initiative','popular_referendum',
+                            'congressional_money_percapita', 'legislative_money_percapita','campaign_finance_index', 
+                            'protest_index', 'local_news', 'free_speech', 'press_incidents',
+                            'democratic_leaning','divided_government', 'divided_legislatures', 
+                            'bachelor_share','minority_share')),
     var_description TEXT,
     category_id INTEGER NOT NULL REFERENCES reform_categories(category_id)
 );
@@ -60,7 +61,7 @@ CREATE TABLE reform_category_variables (
 -- values of the reform specific vars
 CREATE TABLE category_variable_values (
     value_id SERIAL PRIMARY KEY,
-    var_value NUMERIC(18,3),
+    var_value NUMERIC(5,3),
     score_id INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
     var_id INTEGER NOT NULL REFERENCES reform_category_variables(var_id) ON DELETE CASCADE
 );
@@ -97,7 +98,7 @@ CREATE TABLE news_state_updates ( --
     article_id   INTEGER NOT NULL REFERENCES news_articles(article_id) ON DELETE CASCADE,
     state_id     INTEGER REFERENCES states(state_id) ON DELETE CASCADE,  
     score_id     INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
-    score_delta  BIGINT,
+    score_delta  NUMERIC(5,3),
     PRIMARY KEY (article_id, state_id),
     UNIQUE(score_id)
 );
@@ -144,8 +145,8 @@ EXECUTE FUNCTION keep_latest_3_reform_scores();
 CREATE OR REPLACE FUNCTION calc_score_delta()
 RETURNS TRIGGER AS $$
 DECLARE 
-    new_score BIGINT;
-    old_score BIGINT;
+    new_score NUMERIC(5,3);
+    old_score NUMERIC(5,3);
 BEGIN
     -- get new score created by article
     SELECT score
