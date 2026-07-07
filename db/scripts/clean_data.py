@@ -8,7 +8,6 @@
     
 # TO DO
 # 1. empty cells become NA
-# 2. remove special characters are gone ($ and ,)
 # 3. ignore first 3 rows (category, variable, +/-)
 # 4. make schema match new updates in the data - done
 # 5. structure: final result should look like top row has var names and state
@@ -18,12 +17,14 @@
 import pandas as pd
 import numpy as np
 
-raw_path = "db/data/state_stress_test - raw.csv"
+raw_path = "db/data/state_stress_test - normalization.csv"
 pd.set_option("future.no_silent_downcasting", True)
 
-# 6. get df of category titles and vars
+""" 
+CREATE CSV OF VARS MATCHED TO CORRESPONDING CATEGORIES
+var_categories.csv
+"""
 raw_headers = pd.read_csv(raw_path, header=None, nrows=2)
-
 categories = raw_headers.iloc[0].ffill()
 variables = raw_headers.iloc[1]
 
@@ -31,28 +32,39 @@ df_categories = pd.DataFrame({
     "variable": variables,
     "category": categories
 })
-    # rename state and electoral college and match to category
-df_categories.loc[0, "variable"] = "state"
-df_categories.loc[0, "category"] = "state"
-df_categories.loc[1, "variable"] = "electoral_college_votes"
-df_categories.loc[1, "category"] = "Electoral College"
+# remove unwanted score columns
+df_categories = df_categories[
+    ~df_categories["variable"].isin([
+        "Electoral College",
+        "EP_SCORE",
+        "FR_SCORE",
+        "PA_SCORE",
+        "CF_SCORE",
+        "CS_SCORE",
+        "PIF_SCORE",
+        "D_SCORE"
+    ])
+].reset_index(drop=True)
+df_categories = df_categories.dropna(subset=["variable"]).reset_index(drop=True)
 
 # write changes to csv
 df_categories.to_csv("db/data/var_categories.csv", index=False)
 
-# Clean main data
-# 3. and 5. clean up column row structure, rename where necessary and drop empty cols and rows
+""" CLEAN NORMALIZED CSV
+        1. make clean_state_scores.csv -- states and corresponding var scores
+        2. make reform_scores.csv -- states and reform score
+        3. make 
+
+"""
+
+# clean up column row structure, rename where necessary and drop empty cols and rows
 df = pd.read_csv(raw_path, header = 1)
 df = df.drop(df.index[0])
 df.columns.values[0] = "state"
 df.columns.values[1] = "electoral_college_votes"
 
-# 1. empty cells become NA and 2. remove special characters
-df = df.replace({
-    r"^\s*$": np.nan,
-    r"\$": "",
-    ",": ""
-}, regex=True)
+# empty cells become NA 
+df = df.replace(r"^\s*$", pd.NA, regex=True)
 
 # add reform score temp calculation
 exclude_cols = ["state", "electoral_college_votes"]
