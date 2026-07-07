@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ state_name }} — 50 States Playbook{% endblock %}
+{% block title %}{{ state.name }} — 50 States Playbook{% endblock %}
 
 {% block content %}
 <main class="state-page">
@@ -9,11 +9,79 @@
       <a href="/#map" class="back-link">← Back to map</a>
 
       <div class="sec-kick">State profile</div>
-      <h1 class="sec-title">{{ state_name }}</h1>
+      <h1 class="sec-title">{{ state.name }}</h1>
 
-      <p class="sec-lead">
-        This is a placeholder state page. State-specific data will be added later.
-      </p>
+      <!-- Score summary -->
+      <div class="state-score-row">
+        {% if state.score is not none %}
+          <div class="state-score-card">
+            <div class="score-grade">{{ state.grade }}</div>
+            <div class="score-num">{{ "%.1f"|format(state.score) }}</div>
+            <div class="score-lbl">Health score</div>
+          </div>
+        {% else %}
+          <p class="sec-lead">No score data available yet for {{ state.name }}.</p>
+        {% endif %}
+      </div>
+
+      <!-- Category breakdown -->
+      {% if state.category_scores %}
+      <div class="state-section">
+        <h2 class="state-section-title">Score breakdown</h2>
+        <div class="category-grid">
+          {% for cs in state.category_scores %}
+          <div class="category-card">
+            <div class="cat-name">{{ cs.category }}</div>
+            <div class="cat-score">{{ "%.1f"|format(cs.score) }}</div>
+            {% if cs.notes %}<div class="cat-notes">{{ cs.notes }}</div>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Action pathways -->
+      {% if state.pathways %}
+      <div class="state-section">
+        <h2 class="state-section-title">Reform pathways</h2>
+        <ul class="pathway-list">
+          {% for p in state.pathways %}
+          <li class="pathway-item">
+            <span class="pathway-status pathway-status--{{ p.status }}">{{ p.status }}</span>
+            <span class="pathway-title">{{ p.title }}</span>
+            {% if p.category %}<span class="pathway-category">{{ p.category }}</span>{% endif %}
+            {% if p.description %}<p class="pathway-desc">{{ p.description }}</p>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <!-- Recent news -->
+      {% if state.news %}
+      <div class="state-section">
+        <h2 class="state-section-title">Recent news</h2>
+        <ul class="news-list">
+          {% for article in state.news %}
+          <li class="news-item">
+            <a href="{{ article.source_url }}" class="news-headline" target="_blank" rel="noopener">
+              {{ article.headline }}
+            </a>
+            <div class="news-meta">
+              {% if article.source_name %}<span>{{ article.source_name }}</span>{% endif %}
+              <span>{{ article.published_at.strftime('%b %d, %Y') }}</span>
+              {% if article.score_delta is not none %}
+                <span class="score-delta {% if article.score_delta > 0 %}delta-pos{% elif article.score_delta < 0 %}delta-neg{% endif %}">
+                  {% if article.score_delta > 0 %}+{% endif %}{{ "%.1f"|format(article.score_delta) }} pts
+                </span>
+              {% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
     </div>
   </section>
 </main>
