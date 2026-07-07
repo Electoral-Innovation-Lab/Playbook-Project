@@ -68,12 +68,15 @@ df_reform_scores = df[["state", "reform_score"]]
 df_reform_scores.to_csv("db/data/reform_scores.csv", index=False)
 
 # save separate csv for variable values
-id_cols = ["state"]
-
 df_values = df.melt(
-    id_vars=id_cols,
+    id_vars=["state"],
+    value_vars = score_cols,
     var_name="variable",
     value_name="value"
 )
-
 df_values.to_csv("db/data/category_variable_values.csv", index=False)
+
+# save separate csv for electoral votes
+df_votes = df[["state", "electoral_college_votes"]].copy()
+df_votes["electoral_college_votes"] = df_votes["electoral_college_votes"].astype(int)
+df_votes.to_csv("db/data/electoral_votes.csv", index=False)

@@ -17,7 +17,7 @@ CREATE TABLE reform_scores (
     score_id  SERIAL PRIMARY KEY,
     state_id  INTEGER NOT NULL REFERENCES states(state_id),
     scored_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    score     NUMERIC(5,2) NOT NULL, -- CHECK (score BETWEEN 0 AND 100)
+    score     NUMERIC(12,2) NOT NULL, -- CHECK (score BETWEEN 0 AND 100)
     grade     CHAR(2) CHECK (grade IN
                   ('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F')),
     UNIQUE (state_id, scored_at)
@@ -60,7 +60,7 @@ CREATE TABLE reform_category_variables (
 -- values of the reform specific vars
 CREATE TABLE category_variable_values (
     value_id SERIAL PRIMARY KEY,
-    var_value NUMERIC(7,4),
+    var_value NUMERIC(18,3),
     score_id INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
     var_id INTEGER NOT NULL REFERENCES reform_category_variables(var_id) ON DELETE CASCADE
 );
@@ -73,7 +73,7 @@ CREATE TABLE action_pathways (
     title       VARCHAR(200) NOT NULL,          -- e.g. 'Ranked-choice voting'
     path_description TEXT,
     path_status      VARCHAR(20)  NOT NULL DEFAULT 'active'
-                    CHECK (status IN ('active','pending','passed','failed')),
+                    CHECK (path_status IN ('active','pending','passed','failed')),
     started_at  DATE,
     resolved_at DATE,
     created_at  TIMESTAMPTZ DEFAULT NOW()
@@ -97,7 +97,7 @@ CREATE TABLE news_state_updates ( --
     article_id   INTEGER NOT NULL REFERENCES news_articles(article_id) ON DELETE CASCADE,
     state_id     INTEGER REFERENCES states(state_id) ON DELETE CASCADE,  
     score_id     INTEGER NOT NULL REFERENCES reform_scores(score_id) ON DELETE CASCADE,
-    score_delta  NUMERIC(5,2),
+    score_delta  BIGINT,
     PRIMARY KEY (article_id, state_id),
     UNIQUE(score_id)
 );
@@ -144,8 +144,8 @@ EXECUTE FUNCTION keep_latest_3_reform_scores();
 CREATE OR REPLACE FUNCTION calc_score_delta()
 RETURNS TRIGGER AS $$
 DECLARE 
-    new_score NUMERIC(5,2);
-    old_score NUMERIC(5,2);
+    new_score BIGINT;
+    old_score BIGINT;
 BEGIN
     -- get new score created by article
     SELECT score
