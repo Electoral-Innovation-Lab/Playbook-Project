@@ -34,11 +34,11 @@ def create_app():
     from .about import bp as about_bp
     app.register_blueprint(about_bp)
 
-    from .state import bp as state_details_bp
-    app.register_blueprint(state_details_bp)
+    # from .state import bp as state_details_bp
+    # app.register_blueprint(state_details_bp)
 
-    from .api import bp as api_bp
-    app.register_blueprint(api_bp)
+    # from .api import bp as api_bp
+    # app.register_blueprint(api_bp)
     
     # A tiny health-check so you can confirm the server is up.
     @app.route("/api/health")

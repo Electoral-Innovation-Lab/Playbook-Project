@@ -1,5 +1,5 @@
 """
-    CLEAN THE RAW DATA. TRANSFORM INTO clean_state_scores.csv
+    CLEAN THE RAW DATA. 
     Script to clean the downloaded csv file. 
     This will create a new modified csv file, leaving the raw one untouched. 
     with data before loading into db via load.sql
@@ -11,7 +11,7 @@ import numpy as np
 
 
 """ CLEAN NORMALIZED CSV
-        1. make clean_state_scores.csv -- states and corresponding var scores
+        1. make category_variable_values.csv -- states and corresponding var scores
         2. make var_categories.csv -- match vars to categories
         3. make electoral_votes.csv -- match states to electoral vote count
 """
@@ -19,7 +19,7 @@ raw_path = "db/data/state_stress_test - normalization.csv"
 pd.set_option("future.no_silent_downcasting", True)
 
 """
-    1: MAKE CLEAN_STATE_SCORES.CSV
+    1: MAKE CATEGORY_VARIABLE_VALUES.CSV
 """
 # clean up column row structure, rename where necessary and drop empty cols and rows
 df = pd.read_csv(raw_path, header = 1)
@@ -39,7 +39,15 @@ df_clean_scores = df_clean_scores.melt(
                                 var_name = "variable",
                                 value_name = "value"
                                 )
-df_clean_scores.to_csv("db/data/clean_state_scores.csv", index=False)
+df_clean_scores["var_value"] = pd.to_numeric(df_clean_scores["value"], errors="coerce")
+df_clean_scores["no_score_reason"] = np.where(
+    df_clean_scores["var_value"].isna() & df_clean_scores["value"].notna(),
+    df_clean_scores["value"],
+    np.nan
+)
+df_clean_scores = df_clean_scores[["state", "variable", "var_value", "no_score_reason"]]
+df_clean_scores.to_csv("db/data/category_variable_values.csv", index=False)
+
 
 """ 
     2. MAKE VAR_CATEGORIES.CSV

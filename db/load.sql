@@ -22,10 +22,11 @@ CREATE TEMP TABLE staging_category_scores (
     category text,
     value NUMERIC(5,3)
 );
-CREATE TEMP TABLE staging_var_scores (
+CREATE TEMP TABLE staging_var_values (
     state text,
     variable text,
-    value NUMERIC(5,3)
+    value NUMERIC(5,3),
+    no_score_reason text
 );
 
 \COPY staging_abbrevs FROM 'db/data/state-abbrevs.csv' WITH (FORMAT csv, HEADER true, NULL '');
@@ -33,7 +34,7 @@ CREATE TEMP TABLE staging_var_scores (
 \COPY staging_cats FROM 'db/data/var_categories.csv' WITH (FORMAT csv, HEADER true);
 \COPY staging_reform_scores FROM 'db/data/reform_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
 \COPY staging_category_scores FROM 'db/data/category_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
-\COPY staging_var_scores FROM 'db/data/clean_state_scores.csv' WITH (FORMAT csv, HEADER true, NULL '');
+\COPY staging_var_values FROM 'db/data/category_variable_values.csv' WITH (FORMAT csv, HEADER true, NULL '');
 
 /*STATES relation 
         id auto generated.
@@ -78,16 +79,16 @@ JOIN reform_categories y ON x.category = y.category;
     score_id
     state_id
     scored_at
-    score - from clean_state_scores.csv
+    score 
     grade
 */
 INSERT INTO reform_scores(state_id, scored_at, score)
 SELECT 
     x.state_id,
     NOW(), 
-    y.score_weightEqual
+    y.reform_score
 FROM states x
-JOIN staging_reform_scores y ON x.state_name = y.State;
+JOIN staging_reform_scores y ON x.state_name = y.state;
     
 /* CATEGORY_SCORES relation
     cat_score_id
@@ -100,29 +101,30 @@ INSERT INTO category_scores(score_id, category_id, score)
 SELECT
     x.score_id,
     y.category_id,
-    z.score
-FROM staging_category_scores cs
-JOIN states s ON states.state_name = cs.state
+    z.value
+FROM staging_category_scores z
+JOIN states s ON s.state_name = z.state
 JOIN reform_scores x ON x.state_id = s.state_id
-
-JOIN reform_categories rc ON rc.category = z.category;
+JOIN reform_categories y ON y.category = z.category;
 
 
 /* CATEGORY_VARIABLE_VALUES relation
     value_id 
-    var_value (from csv)
+    var_value (from csv - staged temp table)
     score_id (from reform_scores)
     var_id (from reform_cat_vars)
+    no_score_reason
 */
-INSERT INTO category_variable_values(var_value, score_id, var_id)
+INSERT INTO category_variable_values(var_value, score_id, var_id, no_score_reason)
 SELECT 
     x.value,
     y.score_id,
-    z.var_id
+    z.var_id,
+    x.no_score_reason
 FROM staging_var_values x 
 JOIN states s ON x.state = s.state_name
 JOIN reform_scores y ON s.state_id = y.state_id AND y.scored_at = NOW()
-JOIN reform_category_variables z ON x.reform_variable  = z.var_name;
+JOIN reform_category_variables z ON x.variable  = z.var_name;
 
 /* ACTION_PATHWAYS relation
     pathway_id  

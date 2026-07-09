@@ -159,6 +159,7 @@
   letter-spacing: 0.14em;
   color: var(--orange-deep);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .scrollcue .arr {
@@ -670,11 +671,12 @@ tbody tr:hover {
   <nav>
     <div class="nav-logo"> <a href="{{ url_for('index.index') }}">50 States <span>Playbook</span></a></div>
     <div class="nav-actions">
-      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
+      <a href="{{ url_for('index.index') }}#home" class="btn btn-pill">Home</a>
       <a href="{{ url_for('index.index') }}#map" class="btn btn-pill">Map</a>
       <a href="{{ url_for('index.index') }}#table" class="btn btn-pill">Table</a>
       <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">News</a>
-      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data →</a>
+      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
+     <!-- <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data →</a> -->
     </div>
   </nav>
   

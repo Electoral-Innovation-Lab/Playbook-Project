@@ -5,22 +5,36 @@
 {% block content %}
 
 <main id="view-home" class="view active">
-  <section class="hero wrap">
+  <section class="hero wrap" id="home">
     <div class="sticker-map" id="stickerMap">
         <div id="stickerMapOutline"></div>
         <div class="sticker-layer" id="stickerLayer"></div>
       <div class="hero-center">
         <div class="eyebrow">A field guide to fixing the rules</div>
-        <h1 class="hero-title">Democracy<br> <em>Playbook</em>.</h1>
+        <h1 class="hero-title">Democracy<br> <em>Playbook</em></h1>
         <div class="counters">
-          <div class="counter"><div class="num" data-count="50">0</div><div class="lbl">States graded</div></div>
-          <div class="counter"><div class="num" data-count="487">0</div><div class="lbl">Reforms tracked</div></div>
-          <div class="counter"><div class="num" data-count="66" data-suffix="">0</div><div class="lbl">Avg health score</div></div>
+          <div class="counter">
+            <div class="num">{{ states_with_grade }}</div>
+            <div class="lbl">States graded</div>
+          </div>
+        
+          <div class="counter">
+            <div class="num">{{ num_dem_indicators }}</div>
+            <div class="lbl">Democratic indicators</div>
+          </div>
+        
+          <div class="counter">
+            <div class="num">{{ "%.1f"|format(avg_reform_score) }}</div>
+            <div class="lbl">Avg reform score</div>
+          </div>
         </div>
       </div>
     </div>
     <p class="hero-sub">Find out where your state stands in the landscape of democratic reform and what you can do about it.</p>
-    <div class="scrollcue">Scroll to the map ↓<div class="arr"></div></div>
+    <a class="scrollcue" href="#map">
+      Scroll to the map ↓
+      <div class="arr"></div>
+    </a>
   </section>
 
 <!-- MAP -->
@@ -35,7 +49,7 @@
 
       <p class="sec-lead">
         Hover a state for a snapshot. Click to open its full reform profile.
-        Color shows democratic-health score.
+        Color shows democratic reform score.
       </p>
     </div>
 
@@ -75,10 +89,19 @@
           <thead><tr>
             <th data-sort="name">State <span class="ar">↕</span></th>
             <th data-sort="grade">Grade <span class="ar">↕</span></th>
-            <th data-sort="score">Health score <span class="ar">↕</span></th>
+            <th data-sort="score">Reform score <span class="ar">↕</span></th>
             <th data-sort="reform">Leading reforms <span class="ar">↕</span></th>
           </tr></thead>
-          <tbody id="stateTbody"></tbody>
+          <tbody id="stateTbody">
+            {% for state in states_minimal %}
+            <tr data-name="{{ state.state_name|lower }}" data-grade="{{ state.grade }}" data-score="{{ state.reform_score }}">
+              <td><a href="/state/{{ state.state_id }}">{{ state.state_name }}</a></td>
+              <td>{{ state.grade }}</td>
+              <td>{{ state.reform_score }}</td>
+              <td>{{ state.top_category }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
     </div>

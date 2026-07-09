@@ -1,8 +1,4 @@
 from flask import current_app as app
-from sqlalchemy import text, bindparam
-import traceback
-# from myapp.db import get_connection
-
 
 class News_Headline:
     def __init__(self, article_id, headline, summary, source_name,
@@ -41,20 +37,20 @@ class News_Headline:
         articles = {}
         for row in rows:
             if row.article_id not in articles:
-                articles[row.article_id] = News_Headline(
-                    row.article_id,
-                    row.headline,
-                    row.summary,
-                    row.source_name,
-                    row.source_url,
-                    row.published_at,
-                    row.is_national,
-                    row.created_at
+                articles[row['article_id']] = News_Headline(
+                    row['article_id'],
+                    row['headline'],
+                    row['summary'],
+                    row['source_name'],
+                    row['source_url'],
+                    row['published_at'],
+                    row['is_national'],
+                    row['created_at']
                 )
-            if row.state_id is not None:
-                articles[row.article_id].states.append({
-                    'state_id': row.state_id,
-                    'abbreviation': row.abbreviation,
-                    'score_delta': row.score_delta
+            if row['state_id'] is not None:
+                articles[row['article_id']].states.append({
+                    'state_id': row['state_id'],
+                    'abbreviation': row['abbreviation'],
+                    'score_delta': row['score_delta']
                 })
         return list(articles.values())
