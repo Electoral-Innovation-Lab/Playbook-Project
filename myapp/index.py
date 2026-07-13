@@ -9,16 +9,19 @@ bp = Blueprint('index', __name__)
 def index():
     states_minimal = Minimal_State.get_state_table_overview() # create 50 states table
     num_dem_indicators = Minimal_State.dem_indicators()
+    cats = Minimal_State.reform_categories()
     
     # calc home page metrics: graded stages,number of vars, avg reform score
     states_with_grade = sum(1 for s in states_minimal if s.grade is not None)
     scores = [s.reform_score for s in states_minimal if s.reform_score is not None]
     avg_reform_score = sum(scores) / len(scores) if scores else None
+    # display_avg = f"{avg_reform_score:.3f}" if avg_reform_score is not None else None
     
     # Render homepage 
     return render_template('index.html', 
                            states_minimal=states_minimal,
                            states_with_grade = states_with_grade,
                            avg_reform_score = avg_reform_score,
-                           num_dem_indicators=num_dem_indicators
+                           num_dem_indicators=num_dem_indicators,
+                           cats = cats
                            ) 

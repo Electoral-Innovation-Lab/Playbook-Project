@@ -42,3 +42,12 @@ class Minimal_State:
             FROM reform_category_variables                
         """)[0]
         return row["count"]
+    
+    @staticmethod
+    def reform_categories():
+        rows = app.db.execute("""
+            SELECT category
+            FROM reform_categories
+            WHERE category IS NOT NULL
+        """)
+        return [row["category"] for row in rows]

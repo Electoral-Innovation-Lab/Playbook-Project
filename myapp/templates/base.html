@@ -139,6 +139,24 @@
   margin-top: 5px;
 }
 
+.hero-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 24px;
+  pointer-events: auto;
+}
+ 
+.hero-categories span {
+  font-family: 'Archivo';
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--orange-deep);
+}
+
 .hero-sub {
   font-family: 'Archivo';
   max-width: 800px;
@@ -676,7 +694,7 @@ tbody tr:hover {
       <a href="{{ url_for('index.index') }}#table" class="btn btn-pill">Table</a>
       <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">News</a>
       <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
-     <!-- <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data →</a> -->
+      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data</a> 
     </div>
   </nav>
   

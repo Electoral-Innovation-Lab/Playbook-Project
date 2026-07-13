@@ -6,6 +6,12 @@
 
 <main id="view-home" class="view active">
   <section class="hero wrap" id="home">
+    <div class="hero-categories">
+      <!-- {%for cat in cats%}
+        <span>{{ cat }}</span>
+      {% endfor %}
+      -->
+    </div>
     <div class="sticker-map" id="stickerMap">
         <div id="stickerMapOutline"></div>
         <div class="sticker-layer" id="stickerLayer"></div>
@@ -24,7 +30,7 @@
           </div>
         
           <div class="counter">
-            <div class="num">{{ "%.1f"|format(avg_reform_score) }}</div>
+            <div class="num">{{ "%.3f"|format(avg_reform_score) }}</div>
             <div class="lbl">Avg reform score</div>
           </div>
         </div>
@@ -61,7 +67,7 @@
       <span>Weaker</span>
       <div class="scale" id="legendScale"></div>
       <span>Stronger</span>
-      <span style="margin-left:auto" class="mono">Sample index · 0–100</span>
+      <span style="margin-left:auto" class="mono">Sample index · 0–1</span>
     </div>
 
   </div>

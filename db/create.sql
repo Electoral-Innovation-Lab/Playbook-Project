@@ -26,7 +26,7 @@ CREATE TABLE reform_scores (
 -- reform categories (the dimensions that make up a composite score)
 CREATE TABLE reform_categories (
     category_id SERIAL PRIMARY KEY,
-    category    VARCHAR(100) NOT NULL UNIQUE CHECK,   
+    category    VARCHAR(100) NOT NULL UNIQUE,   
     cat_description TEXT, -- description of each category,
     cat_weight NUMERIC(4,2)
 );
