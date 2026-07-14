@@ -13,11 +13,11 @@
 
       <!-- Score summary -->
       <div class="state-score-row">
-        {% if state.score is not none %}
+        {% if state.reform_score is not none %}
           <div class="state-score-card">
             <div class="score-grade">{{ state.grade }}</div>
-            <div class="score-num">{{ "%.1f"|format(state.score) }}</div>
-            <div class="score-lbl">Health score</div>
+            <div class="score-num">{{ "%.2f"|format(state.reform_score) }}</div>
+            <div class="score-lbl">Reform score</div>
           </div>
         {% else %}
           <p class="sec-lead">No score data available yet for {{ state.name }}.</p>
@@ -29,12 +29,15 @@
       <div class="state-section">
         <h2 class="state-section-title">Score breakdown</h2>
         <div class="category-grid">
-          {% for cs in state.category_scores %}
-          <div class="category-card">
-            <div class="cat-name">{{ cs.category }}</div>
-            <div class="cat-score">{{ "%.1f"|format(cs.score) }}</div>
-            {% if cs.notes %}<div class="cat-notes">{{ cs.notes }}</div>{% endif %}
-          </div>
+          {% for category,score in state.category_scores.items() %}
+            {% if score is not none %}
+              <div class="category-card">
+                <div class="cat-name">{{ category }}</div>
+                <div class="cat-score">{{ "%.2f"|format(score) }}</div>
+              </div>
+            {% else %}
+              <p class="sec-lead">No score data available yet for {{category}} in {{state.name}}.</p>
+            {% endif %}           
           {% endfor %}
         </div>
       </div>
@@ -47,10 +50,11 @@
         <ul class="pathway-list">
           {% for p in state.pathways %}
           <li class="pathway-item">
-            <span class="pathway-status pathway-status--{{ p.status }}">{{ p.status }}</span>
-            <span class="pathway-title">{{ p.title }}</span>
+            <span class="pathway-title">{{ p }}</span>
+            <!-- 
             {% if p.category %}<span class="pathway-category">{{ p.category }}</span>{% endif %}
             {% if p.description %}<p class="pathway-desc">{{ p.description }}</p>{% endif %}
+            -->
           </li>
           {% endfor %}
         </ul>
@@ -58,23 +62,25 @@
       {% endif %}
 
       <!-- Recent news -->
-      {% if state.news %}
+      {% if stories %}
       <div class="state-section">
         <h2 class="state-section-title">Recent news</h2>
         <ul class="news-list">
-          {% for article in state.news %}
+          {% for story in stories %}
           <li class="news-item">
-            <a href="{{ article.source_url }}" class="news-headline" target="_blank" rel="noopener">
-              {{ article.headline }}
+            <a href="{{ story.source_url }}" class="news-headline" target="_blank" rel="noopener">
+              {{ story.headline }}
             </a>
             <div class="news-meta">
-              {% if article.source_name %}<span>{{ article.source_name }}</span>{% endif %}
-              <span>{{ article.published_at.strftime('%b %d, %Y') }}</span>
-              {% if article.score_delta is not none %}
-                <span class="score-delta {% if article.score_delta > 0 %}delta-pos{% elif article.score_delta < 0 %}delta-neg{% endif %}">
-                  {% if article.score_delta > 0 %}+{% endif %}{{ "%.1f"|format(article.score_delta) }} pts
-                </span>
-              {% endif %}
+              {% if story.source_name %}<span>{{ story.source_name }}</span>{% endif %}
+              <span>{{ story.published_at.strftime('%b %d, %Y') }}</span>
+              {% for state in story.states if state.abbreviation == current_state_abbr %}
+                {% if state.score_delta is not none %}
+                  <span class="score-delta {% if state.score_delta > 0 %}delta-pos{% elif state.score_delta < 0 %}delta-neg{% endif %}">
+                    {% if state.score_delta > 0 %}+{% endif %}{{ "%.2f"|format(state.score_delta) }} pts
+                  </span>
+                {% endif %}
+              {% endfor %}
             </div>
           </li>
           {% endfor %}

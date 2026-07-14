@@ -1,51 +1,51 @@
-state,reform_score
-Alabama,9552884
-Alaska,3690946
-Arizona,11942223
-Arkansas,6090140
-California,114264140
-Colorado,9209692
-Connecticut,8296774
-Delaware,2290398
-Florida,42226451
-Georgia,21736601
-Hawaii,3378774
-Idaho,2863724
-Illinois,62076272
-Indiana,15673287
-Iowa,14861892
-Kansas,7536967
-Kentucky,9933691
-Louisiana,12325513
-Maine,3182008
-Maryland,13558839
-Massachusetts,16653059
-Michigan,25756612
-Minnesota,15755283
-Mississippi,3820247
-Missouri,13402113
-Montana,3910242
-Nebraska,2355785
-Nevada,9470460
-New Hampshire,3211151
-New Jersey,22417556
-New Mexico,7333294
-New York,43395187
-North Carolina,23974189
-North Dakota,1431099
-Ohio,32737474
-Oklahoma,9715103
-Oregon,16032760
-Pennsylvania,44285356
-Rhode Island,3064264
-South Carolina,9723138
-South Dakota,2246989
-Tennessee,12391678
-Texas,77258552
-Utah,5654507
-Vermont,995345
-Virginia,34844753
-Washington,20110660
-West Virginia,5310199
-Wisconsin,14640593
-Wyoming,1330510
+State,score_weightEqual,letter_weightEqual
+Colorado,61.9,A
+Oregon,60.699999999999996,A
+Washington,59.4,A
+California,58.3,A
+Maryland,57.599999999999994,A
+Alaska,57.099999999999994,A
+Ohio,56.89999999999999,A
+Montana,55.00000000000001,A
+Nevada,55.2,A
+Arkansas,54.7,A
+Florida,52.5,B
+Missouri,52.5,B
+Idaho,51.800000000000004,B
+Massachusetts,51.6,B
+Oklahoma,51.1,B
+New Mexico,50.4,B
+Arizona,50.4,B
+Virginia,49.6,B
+Utah,49.5,B
+Nebraska,49.2,B
+Hawaii,49.1,B
+Illinois,48.699999999999996,B
+Georgia,48.3,B
+Mississippi,47.5,B
+New York,47.9,B
+Michigan,47.099999999999994,B
+North Dakota,47.099999999999994,B
+Texas,46.800000000000004,C
+Iowa,45.2,C
+North Carolina,44.9,C
+Indiana,44.0,C
+South Dakota,43.9,C
+Tennessee,43.4,C
+Wisconsin,43.7,C
+Minnesota,42.6,C
+New Jersey,42.6,C
+Rhode Island,42.5,C
+Connecticut,41.6,C
+Wyoming,39.900000000000006,C
+Alabama,40.300000000000004,C
+Kentucky,39.2,D
+New Hampshire,38.5,D
+Kansas,38.9,D
+West Virginia,38.6,D
+Pennsylvania,36.5,D
+Maine,36.0,D
+Louisiana,34.4,D
+Vermont,34.2,D
+Delaware,33.7,D
+South Carolina,33.1,D

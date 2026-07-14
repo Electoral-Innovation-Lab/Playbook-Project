@@ -12,6 +12,6 @@ class DB:
         with self.engine.begin() as conn:
             result = conn.execute(text(sqlstr), kwargs)
             if result.returns_rows:
-                return result.fetchall()
+                return result.mappings().all()
             else:
                 return result.rowcount

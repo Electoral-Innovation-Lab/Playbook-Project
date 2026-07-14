@@ -1,8 +1,4 @@
 from flask import current_app as app
-from sqlalchemy import text, bindparam
-import traceback
-# from myapp.db import get_connection
-
 
 class News_Headline:
     def __init__(self, article_id, headline, summary, source_name,
@@ -19,7 +15,18 @@ class News_Headline:
         
     # just displaying news stories for now -- will add in state connection later
     @staticmethod
-    def get_news_stories():
+    def get_news_stories(abbr=None):
+        # validate argument passed is valid state abbreviation
+        try:
+            state_rows = app.db.execute("""SELECT abbreviation FROM states""")
+            valid_abbrs = [r["abbreviation"].upper() for r in state_rows]
+        except Exception:
+            valid_abbrs=set()
+        if abbr is not None:
+            abbr = abbr.upper()
+            if abbr not in valid_abbrs:
+                return[]
+
         rows = app.db.execute("""
             SELECT
                 na.article_id,
@@ -36,25 +43,32 @@ class News_Headline:
             FROM news_articles na
             LEFT JOIN news_state_updates nsu ON na.article_id = nsu.article_id
             LEFT JOIN states s ON nsu.state_id = s.state_id 
+            -- This subquery filters the articles but leaves the JOIN data intact:
+            WHERE CAST(:abbr AS text) IS NULL OR na.article_id IN (
+                SELECT inner_nsu.article_id 
+                FROM news_state_updates inner_nsu
+                JOIN states inner_s ON inner_nsu.state_id = inner_s.state_id
+                WHERE UPPER(inner_s.abbreviation) = UPPER(CAST(:abbr AS text))
+            )
             ORDER BY na.published_at DESC, s.abbreviation ASC, na.article_id DESC
-        """)
+        """, abbr=abbr)
         articles = {}
         for row in rows:
             if row.article_id not in articles:
-                articles[row.article_id] = News_Headline(
-                    row.article_id,
-                    row.headline,
-                    row.summary,
-                    row.source_name,
-                    row.source_url,
-                    row.published_at,
-                    row.is_national,
-                    row.created_at
+                articles[row['article_id']] = News_Headline(
+                    row['article_id'],
+                    row['headline'],
+                    row['summary'],
+                    row['source_name'],
+                    row['source_url'],
+                    row['published_at'],
+                    row['is_national'],
+                    row['created_at']
                 )
-            if row.state_id is not None:
-                articles[row.article_id].states.append({
-                    'state_id': row.state_id,
-                    'abbreviation': row.abbreviation,
-                    'score_delta': row.score_delta
+            if row['state_id'] is not None:
+                articles[row['article_id']].states.append({
+                    'state_id': row['state_id'],
+                    'abbreviation': row['abbreviation'],
+                    'score_delta': row['score_delta']
                 })
         return list(articles.values())

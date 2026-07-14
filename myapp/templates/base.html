@@ -139,6 +139,24 @@
   margin-top: 5px;
 }
 
+.hero-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 24px;
+  pointer-events: auto;
+}
+ 
+.hero-categories span {
+  font-family: 'Archivo';
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--orange-deep);
+}
+
 .hero-sub {
   font-family: 'Archivo';
   max-width: 800px;
@@ -159,6 +177,7 @@
   letter-spacing: 0.14em;
   color: var(--orange-deep);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .scrollcue .arr {
@@ -382,22 +401,57 @@
     transition: opacity 0.12s;
     background: var(--black);
     color: white;
-    border-radius: 10px;
-    padding: 10px 13px;
-    max-width: 240px;
+    border-radius: 14px;
+    padding: 16px 18px;
+    max-width: 260px;
     transform: translate(-50%, -120%);
     font-size: 0.85rem;
   }
 
+  .maptip.visible {
+    opacity: 1;
+  }
+
+  .maptip-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
   .maptip h4 {
     margin: 0 0 4px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Archivo';
+  }
+
+  .maptip .grade-pill {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
   }
 
   .maptip p {
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .maptip .maptip-link {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
   }
 
   .legend {
@@ -670,11 +724,12 @@ tbody tr:hover {
   <nav>
     <div class="nav-logo"> <a href="{{ url_for('index.index') }}">50 States <span>Playbook</span></a></div>
     <div class="nav-actions">
-      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
+      <a href="{{ url_for('index.index') }}#home" class="btn btn-pill">Home</a>
       <a href="{{ url_for('index.index') }}#map" class="btn btn-pill">Map</a>
       <a href="{{ url_for('index.index') }}#table" class="btn btn-pill">Table</a>
       <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">News</a>
-      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data →</a>
+      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
+      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data</a> 
     </div>
   </nav>
   
