@@ -1,51 +1,51 @@
-State,score_weightEqual
-Colorado,0.619
-Oregon,0.607
-Washington,0.593
-California,0.583
-Maryland,0.575
-Alaska,0.572
-Ohio,0.569
-Montana,0.55
-Nevada,0.551
-Arkansas,0.548
-Florida,0.525
-Missouri,0.526
-Idaho,0.517
-Massachusetts,0.516
-Oklahoma,0.511
-New Mexico,0.503
-Arizona,0.503
-Virginia,0.495
-Utah,0.494
-Nebraska,0.492
-Hawaii,0.49
-Illinois,0.487
-Georgia,0.482
-Mississippi,0.475
-New York,0.478
-Michigan,0.471
-North Dakota,0.469
-Texas,0.468
-Iowa,0.452
-North Carolina,0.447
-Indiana,0.439
-South Dakota,0.438
-Tennessee,0.435
-Wisconsin,0.436
-Minnesota,0.424
-New Jersey,0.425
-Rhode Island,0.424
-Connecticut,0.414
-Wyoming,0.398
-Alabama,0.403
-Kentucky,0.392
-New Hampshire,0.384
-Kansas,0.388
-West Virginia,0.387
-Pennsylvania,0.365
-Maine,0.36
-Louisiana,0.344
-Vermont,0.341
-Delaware,0.337
-South Carolina,0.331
+State,score_weightEqual,letter_weightEqual
+Colorado,61.9,A
+Oregon,60.699999999999996,A
+Washington,59.4,A
+California,58.3,A
+Maryland,57.599999999999994,A
+Alaska,57.099999999999994,A
+Ohio,56.89999999999999,A
+Montana,55.00000000000001,A
+Nevada,55.2,A
+Arkansas,54.7,A
+Florida,52.5,B
+Missouri,52.5,B
+Idaho,51.800000000000004,B
+Massachusetts,51.6,B
+Oklahoma,51.1,B
+New Mexico,50.4,B
+Arizona,50.4,B
+Virginia,49.6,B
+Utah,49.5,B
+Nebraska,49.2,B
+Hawaii,49.1,B
+Illinois,48.699999999999996,B
+Georgia,48.3,B
+Mississippi,47.5,B
+New York,47.9,B
+Michigan,47.099999999999994,B
+North Dakota,47.099999999999994,B
+Texas,46.800000000000004,C
+Iowa,45.2,C
+North Carolina,44.9,C
+Indiana,44.0,C
+South Dakota,43.9,C
+Tennessee,43.4,C
+Wisconsin,43.7,C
+Minnesota,42.6,C
+New Jersey,42.6,C
+Rhode Island,42.5,C
+Connecticut,41.6,C
+Wyoming,39.900000000000006,C
+Alabama,40.300000000000004,C
+Kentucky,39.2,D
+New Hampshire,38.5,D
+Kansas,38.9,D
+West Virginia,38.6,D
+Pennsylvania,36.5,D
+Maine,36.0,D
+Louisiana,34.4,D
+Vermont,34.2,D
+Delaware,33.7,D
+South Carolina,33.1,D

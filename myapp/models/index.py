@@ -1,10 +1,11 @@
 from flask import current_app as app
 
 class Minimal_State:
-    def __init__(self, state_id, state_name, grade, reform_score, 
+    def __init__(self, state_id, state_name, abbreviation, grade, reform_score, 
                  top_category, top_category_score):
         self.state_id = state_id
         self.state_name = state_name
+        self.abbreviation = abbreviation
         self.grade = grade
         self.reform_score = reform_score
         self.top_category = top_category
@@ -17,6 +18,7 @@ class Minimal_State:
             SELECT DISTINCT ON (s.state_id)
                 s.state_id,
                 s.state_name,
+                s.abbreviation,
                 r.grade,
                 r.score AS reform_score,
                 c.category AS top_category,

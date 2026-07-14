@@ -15,17 +15,18 @@ CREATE TEMP TABLE staging_cats (
 );
 CREATE TEMP TABLE staging_reform_scores (
     state text,
-    reform_score NUMERIC(5,3)
+    reform_score NUMERIC(5,2),
+    grade VARCHAR(2)
 );
 CREATE TEMP TABLE staging_category_scores (
     state text,
     category text,
-    value NUMERIC(5,3)
+    value NUMERIC(5,2)
 );
 CREATE TEMP TABLE staging_var_values (
     state text,
     variable text,
-    value NUMERIC(5,3),
+    value NUMERIC(5,2),
     no_score_reason text
 );
 
@@ -82,11 +83,12 @@ JOIN reform_categories y ON x.category = y.category;
     score 
     grade
 */
-INSERT INTO reform_scores(state_id, scored_at, score)
+INSERT INTO reform_scores(state_id, scored_at, score, grade)
 SELECT 
     x.state_id,
     NOW(), 
-    y.reform_score
+    y.reform_score,
+    y.grade
 FROM states x
 JOIN staging_reform_scores y ON x.state_name = y.state;
     

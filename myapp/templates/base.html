@@ -401,22 +401,57 @@
     transition: opacity 0.12s;
     background: var(--black);
     color: white;
-    border-radius: 10px;
-    padding: 10px 13px;
-    max-width: 240px;
+    border-radius: 14px;
+    padding: 16px 18px;
+    max-width: 260px;
     transform: translate(-50%, -120%);
     font-size: 0.85rem;
   }
 
+  .maptip.visible {
+    opacity: 1;
+  }
+
+  .maptip-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
   .maptip h4 {
     margin: 0 0 4px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Archivo';
+  }
+
+  .maptip .grade-pill {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
   }
 
   .maptip p {
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .maptip .maptip-link {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
   }
 
   .legend {

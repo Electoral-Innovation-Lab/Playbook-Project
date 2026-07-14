@@ -39,7 +39,7 @@ df_clean_scores = df_clean_scores.melt(
                                 var_name = "variable",
                                 value_name = "value"
                                 )
-df_clean_scores["var_value"] = pd.to_numeric(df_clean_scores["value"], errors="coerce")
+df_clean_scores["var_value"] = pd.to_numeric(df_clean_scores["value"], errors="coerce") * 100
 df_clean_scores["no_score_reason"] = np.where(
     df_clean_scores["var_value"].isna() & df_clean_scores["value"].notna(),
     df_clean_scores["value"],
@@ -97,10 +97,11 @@ final_score_raw_path = "db/data/state_stress_test - final_score.csv"
     1: MAKE REFORM_SCORES.CSV
 """
 df_scores = pd.read_csv(final_score_raw_path, header = 0)
-df_reform_scores = df_scores[['State', 'score_weightEqual']] #keep state and score_weightEqual
+df_reform_scores = df_scores[['State', 'score_weightEqual', 'letter_weightEqual']].copy() #keep state and score_weightEqual
+df_reform_scores['score_weightEqual'] = df_reform_scores['score_weightEqual'] * 100
 df_reform_scores.to_csv("db/data/reform_scores.csv", index=False)
 
-"""
+""" 
     2. MAKE CATEGORY_SCORES.CSV
 """
 df_cat_scores = df_scores.drop(columns = ['score_weightByVars', 'score_weightEqual'])
@@ -111,6 +112,6 @@ df_cat_scores = df_cat_scores.melt(
                                 var_name = "category",
                                 value_name = "value"
                                 )
-
+df_cat_scores["value"] = pd.to_numeric(df_cat_scores["value"], errors="coerce") * 100
 df_cat_scores.to_csv("db/data/category_scores.csv", index=False)
 

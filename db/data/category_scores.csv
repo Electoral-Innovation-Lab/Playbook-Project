@@ -1,54 +1,54 @@
 State,category,value
-Colorado,Campaign Finance,0.697
-Oregon,Campaign Finance,0.694
-Washington,Campaign Finance,0.605
-California,Campaign Finance,0.769
-Maryland,Campaign Finance,0.786
-Alaska,Campaign Finance,0.756
-Ohio,Campaign Finance,0.754
-Montana,Campaign Finance,0.508
-Nevada,Campaign Finance,0.673
-Arkansas,Campaign Finance,0.696
-Florida,Campaign Finance,0.689
-Missouri,Campaign Finance,0.635
-Idaho,Campaign Finance,0.634
-Massachusetts,Campaign Finance,0.611
-Oklahoma,Campaign Finance,0.613
-New Mexico,Campaign Finance,0.74
-Arizona,Campaign Finance,0.644
-Virginia,Campaign Finance,0.719
-Utah,Campaign Finance,0.516
-Nebraska,Campaign Finance,0.747
-Hawaii,Campaign Finance,0.72
-Illinois,Campaign Finance,0.581
-Georgia,Campaign Finance,0.362
-Mississippi,Campaign Finance,0.675
-New York,Campaign Finance,0.424
-Michigan,Campaign Finance,0.489
-North Dakota,Campaign Finance,0.731
-Texas,Campaign Finance,0.539
-Iowa,Campaign Finance,0.598
-North Carolina,Campaign Finance,0.73
-Indiana,Campaign Finance,0.647
-South Dakota,Campaign Finance,0.726
-Tennessee,Campaign Finance,0.735
-Wisconsin,Campaign Finance,0.583
-Minnesota,Campaign Finance,0.719
-New Jersey,Campaign Finance,0.504
-Rhode Island,Campaign Finance,0.739
-Connecticut,Campaign Finance,0.778
-Wyoming,Campaign Finance,0.781
-Alabama,Campaign Finance,0.525
-Kentucky,Campaign Finance,0.711
-New Hampshire,Campaign Finance,0.539
-Kansas,Campaign Finance,0.518
-West Virginia,Campaign Finance,0.542
-Pennsylvania,Campaign Finance,0.584
-Maine,Campaign Finance,0.627
-Louisiana,Campaign Finance,0.422
-Vermont,Campaign Finance,0.771
-Delaware,Campaign Finance,0.479
-South Carolina,Campaign Finance,0.451
+Colorado,Campaign Finance,69.69999999999999
+Oregon,Campaign Finance,69.39999999999999
+Washington,Campaign Finance,60.5
+California,Campaign Finance,76.9
+Maryland,Campaign Finance,78.60000000000001
+Alaska,Campaign Finance,75.6
+Ohio,Campaign Finance,75.4
+Montana,Campaign Finance,50.8
+Nevada,Campaign Finance,67.30000000000001
+Arkansas,Campaign Finance,69.6
+Florida,Campaign Finance,68.89999999999999
+Missouri,Campaign Finance,63.5
+Idaho,Campaign Finance,63.4
+Massachusetts,Campaign Finance,61.1
+Oklahoma,Campaign Finance,61.3
+New Mexico,Campaign Finance,74.0
+Arizona,Campaign Finance,64.4
+Virginia,Campaign Finance,71.89999999999999
+Utah,Campaign Finance,51.6
+Nebraska,Campaign Finance,74.7
+Hawaii,Campaign Finance,72.0
+Illinois,Campaign Finance,58.099999999999994
+Georgia,Campaign Finance,36.199999999999996
+Mississippi,Campaign Finance,67.5
+New York,Campaign Finance,42.4
+Michigan,Campaign Finance,48.9
+North Dakota,Campaign Finance,73.1
+Texas,Campaign Finance,53.900000000000006
+Iowa,Campaign Finance,59.8
+North Carolina,Campaign Finance,73.0
+Indiana,Campaign Finance,64.7
+South Dakota,Campaign Finance,72.6
+Tennessee,Campaign Finance,73.5
+Wisconsin,Campaign Finance,58.3
+Minnesota,Campaign Finance,71.89999999999999
+New Jersey,Campaign Finance,50.4
+Rhode Island,Campaign Finance,73.9
+Connecticut,Campaign Finance,77.8
+Wyoming,Campaign Finance,78.10000000000001
+Alabama,Campaign Finance,52.5
+Kentucky,Campaign Finance,71.1
+New Hampshire,Campaign Finance,53.900000000000006
+Kansas,Campaign Finance,51.800000000000004
+West Virginia,Campaign Finance,54.2
+Pennsylvania,Campaign Finance,58.4
+Maine,Campaign Finance,62.7
+Louisiana,Campaign Finance,42.199999999999996
+Vermont,Campaign Finance,77.10000000000001
+Delaware,Campaign Finance,47.9
+South Carolina,Campaign Finance,45.1
 Colorado,Civil Society,
 Oregon,Civil Society,
 Washington,Civil Society,
@@ -99,253 +99,353 @@ Louisiana,Civil Society,
 Vermont,Civil Society,
 Delaware,Civil Society,
 South Carolina,Civil Society,
-Colorado,Demographics,0.672
-Oregon,Demographics,0.415
-Washington,Demographics,0.539
-California,Demographics,0.691
-Maryland,Demographics,0.738
-Alaska,Demographics,0.414
-Ohio,Demographics,0.271
-Montana,Demographics,0.3
-Nevada,Demographics,0.408
-Arkansas,Demographics,0.214
-Florida,Demographics,0.52
-Missouri,Demographics,0.295
-Idaho,Demographics,0.262
-Massachusetts,Demographics,0.665
-Oklahoma,Demographics,0.317
-New Mexico,Demographics,0.546
-Arizona,Demographics,0.484
-Virginia,Demographics,0.626
-Utah,Demographics,0.415
-Nebraska,Demographics,0.336
-Hawaii,Demographics,0.78
-Illinois,Demographics,0.542
-Georgia,Demographics,0.541
-Mississippi,Demographics,0.308
-New York,Demographics,0.626
-Michigan,Demographics,0.316
-North Dakota,Demographics,0.263
-Texas,Demographics,0.594
-Iowa,Demographics,0.216
-North Carolina,Demographics,0.482
-Indiana,Demographics,0.239
-South Dakota,Demographics,0.282
-Tennessee,Demographics,0.308
-Wisconsin,Demographics,0.297
-Minnesota,Demographics,0.427
-New Jersey,Demographics,0.7
-Rhode Island,Demographics,0.462
-Connecticut,Demographics,0.577
-Wyoming,Demographics,0.229
-Alabama,Demographics,0.312
-Kentucky,Demographics,0.138
-New Hampshire,Demographics,0.38
-Kansas,Demographics,0.373
-West Virginia,Demographics,0.007
-Pennsylvania,Demographics,0.373
-Maine,Demographics,0.266
-Louisiana,Demographics,0.322
-Vermont,Demographics,0.441
-Delaware,Demographics,0.473
-South Carolina,Demographics,0.391
-Colorado,Electoral Participation,0.794
-Oregon,Electoral Participation,0.635
-Washington,Electoral Participation,0.786
-California,Electoral Participation,0.724
-Maryland,Electoral Participation,0.625
-Alaska,Electoral Participation,0.572
-Ohio,Electoral Participation,0.739
-Montana,Electoral Participation,0.601
-Nevada,Electoral Participation,0.726
-Arkansas,Electoral Participation,0.308
-Florida,Electoral Participation,0.579
-Missouri,Electoral Participation,0.262
-Idaho,Electoral Participation,0.726
-Massachusetts,Electoral Participation,0.624
-Oklahoma,Electoral Participation,0.355
-New Mexico,Electoral Participation,0.694
-Arizona,Electoral Participation,0.6
-Virginia,Electoral Participation,0.641
-Utah,Electoral Participation,0.735
-Nebraska,Electoral Participation,0.584
-Hawaii,Electoral Participation,0.636
-Illinois,Electoral Participation,0.592
-Georgia,Electoral Participation,0.741
-Mississippi,Electoral Participation,0.388
-New York,Electoral Participation,0.688
-Michigan,Electoral Participation,0.654
-North Dakota,Electoral Participation,0.893
-Texas,Electoral Participation,0.346
-Iowa,Electoral Participation,0.473
-North Carolina,Electoral Participation,0.803
-Indiana,Electoral Participation,0.561
-South Dakota,Electoral Participation,0.554
-Tennessee,Electoral Participation,0.219
-Wisconsin,Electoral Participation,0.833
-Minnesota,Electoral Participation,0.833
-New Jersey,Electoral Participation,0.611
-Rhode Island,Electoral Participation,0.581
-Connecticut,Electoral Participation,0.751
-Wyoming,Electoral Participation,0.581
-Alabama,Electoral Participation,0.352
-Kentucky,Electoral Participation,0.42
-New Hampshire,Electoral Participation,0.488
-Kansas,Electoral Participation,0.59
-West Virginia,Electoral Participation,0.33
-Pennsylvania,Electoral Participation,0.451
-Maine,Electoral Participation,0.494
-Louisiana,Electoral Participation,0.366
-Vermont,Electoral Participation,0.636
-Delaware,Electoral Participation,0.421
-South Carolina,Electoral Participation,0.217
-Colorado,Fair Representation,0.565
-Oregon,Fair Representation,0.572
-Washington,Fair Representation,0.6
-California,Fair Representation,0.216
-Maryland,Fair Representation,0.465
-Alaska,Fair Representation,0.784
-Ohio,Fair Representation,0.672
-Montana,Fair Representation,0.65
-Nevada,Fair Representation,0.623
-Arkansas,Fair Representation,0.626
-Florida,Fair Representation,0.615
-Missouri,Fair Representation,0.611
-Idaho,Fair Representation,0.591
-Massachusetts,Fair Representation,0.017
-Oklahoma,Fair Representation,0.579
-New Mexico,Fair Representation,0.512
-Arizona,Fair Representation,0.496
-Virginia,Fair Representation,0.6
-Utah,Fair Representation,0.55
-Nebraska,Fair Representation,0.648
-Hawaii,Fair Representation,0.347
-Illinois,Fair Representation,0.376
-Georgia,Fair Representation,0.594
-Mississippi,Fair Representation,0.602
-New York,Fair Representation,0.724
-Michigan,Fair Representation,0.722
+Colorado,Demographics,67.2
+Oregon,Demographics,41.5
+Washington,Demographics,53.900000000000006
+California,Demographics,69.1
+Maryland,Demographics,73.8
+Alaska,Demographics,41.4
+Ohio,Demographics,27.1
+Montana,Demographics,30.0
+Nevada,Demographics,40.8
+Arkansas,Demographics,21.4
+Florida,Demographics,52.0
+Missouri,Demographics,29.5
+Idaho,Demographics,26.200000000000003
+Massachusetts,Demographics,66.5
+Oklahoma,Demographics,31.7
+New Mexico,Demographics,54.6
+Arizona,Demographics,48.4
+Virginia,Demographics,62.6
+Utah,Demographics,41.5
+Nebraska,Demographics,33.6
+Hawaii,Demographics,78.0
+Illinois,Demographics,54.2
+Georgia,Demographics,54.1
+Mississippi,Demographics,30.8
+New York,Demographics,62.6
+Michigan,Demographics,31.6
+North Dakota,Demographics,26.3
+Texas,Demographics,59.4
+Iowa,Demographics,21.6
+North Carolina,Demographics,48.199999999999996
+Indiana,Demographics,23.9
+South Dakota,Demographics,28.199999999999996
+Tennessee,Demographics,30.8
+Wisconsin,Demographics,29.7
+Minnesota,Demographics,42.699999999999996
+New Jersey,Demographics,70.0
+Rhode Island,Demographics,46.2
+Connecticut,Demographics,57.699999999999996
+Wyoming,Demographics,22.900000000000002
+Alabama,Demographics,31.2
+Kentucky,Demographics,13.8
+New Hampshire,Demographics,38.0
+Kansas,Demographics,37.3
+West Virginia,Demographics,0.7000000000000001
+Pennsylvania,Demographics,37.3
+Maine,Demographics,26.6
+Louisiana,Demographics,32.2
+Vermont,Demographics,44.1
+Delaware,Demographics,47.3
+South Carolina,Demographics,39.1
+Colorado,Electoral Participation,79.4
+Oregon,Electoral Participation,63.5
+Washington,Electoral Participation,78.60000000000001
+California,Electoral Participation,72.39999999999999
+Maryland,Electoral Participation,62.5
+Alaska,Electoral Participation,57.199999999999996
+Ohio,Electoral Participation,73.9
+Montana,Electoral Participation,60.099999999999994
+Nevada,Electoral Participation,72.6
+Arkansas,Electoral Participation,30.8
+Florida,Electoral Participation,57.9
+Missouri,Electoral Participation,26.200000000000003
+Idaho,Electoral Participation,72.6
+Massachusetts,Electoral Participation,62.4
+Oklahoma,Electoral Participation,35.5
+New Mexico,Electoral Participation,69.39999999999999
+Arizona,Electoral Participation,60.0
+Virginia,Electoral Participation,64.1
+Utah,Electoral Participation,73.5
+Nebraska,Electoral Participation,58.4
+Hawaii,Electoral Participation,63.6
+Illinois,Electoral Participation,59.199999999999996
+Georgia,Electoral Participation,74.1
+Mississippi,Electoral Participation,38.800000000000004
+New York,Electoral Participation,68.8
+Michigan,Electoral Participation,65.4
+North Dakota,Electoral Participation,89.3
+Texas,Electoral Participation,34.599999999999994
+Iowa,Electoral Participation,47.3
+North Carolina,Electoral Participation,80.30000000000001
+Indiana,Electoral Participation,56.10000000000001
+South Dakota,Electoral Participation,55.400000000000006
+Tennessee,Electoral Participation,21.9
+Wisconsin,Electoral Participation,83.3
+Minnesota,Electoral Participation,83.3
+New Jersey,Electoral Participation,61.1
+Rhode Island,Electoral Participation,58.099999999999994
+Connecticut,Electoral Participation,75.1
+Wyoming,Electoral Participation,58.099999999999994
+Alabama,Electoral Participation,35.199999999999996
+Kentucky,Electoral Participation,42.0
+New Hampshire,Electoral Participation,48.8
+Kansas,Electoral Participation,59.0
+West Virginia,Electoral Participation,33.0
+Pennsylvania,Electoral Participation,45.1
+Maine,Electoral Participation,49.4
+Louisiana,Electoral Participation,36.6
+Vermont,Electoral Participation,63.6
+Delaware,Electoral Participation,42.1
+South Carolina,Electoral Participation,21.7
+Colorado,Fair Representation,56.49999999999999
+Oregon,Fair Representation,57.199999999999996
+Washington,Fair Representation,60.0
+California,Fair Representation,21.6
+Maryland,Fair Representation,46.5
+Alaska,Fair Representation,78.4
+Ohio,Fair Representation,67.2
+Montana,Fair Representation,65.0
+Nevada,Fair Representation,62.3
+Arkansas,Fair Representation,62.6
+Florida,Fair Representation,61.5
+Missouri,Fair Representation,61.1
+Idaho,Fair Representation,59.099999999999994
+Massachusetts,Fair Representation,1.7000000000000002
+Oklahoma,Fair Representation,57.9
+New Mexico,Fair Representation,51.2
+Arizona,Fair Representation,49.6
+Virginia,Fair Representation,60.0
+Utah,Fair Representation,55.00000000000001
+Nebraska,Fair Representation,64.8
+Hawaii,Fair Representation,34.699999999999996
+Illinois,Fair Representation,37.6
+Georgia,Fair Representation,59.4
+Mississippi,Fair Representation,60.199999999999996
+New York,Fair Representation,72.39999999999999
+Michigan,Fair Representation,72.2
 North Dakota,Fair Representation,
-Texas,Fair Representation,0.574
-Iowa,Fair Representation,0.759
-North Carolina,Fair Representation,0.586
-Indiana,Fair Representation,0.623
+Texas,Fair Representation,57.4
+Iowa,Fair Representation,75.9
+North Carolina,Fair Representation,58.599999999999994
+Indiana,Fair Representation,62.3
 South Dakota,Fair Representation,
-Tennessee,Fair Representation,0.535
-Wisconsin,Fair Representation,0.634
-Minnesota,Fair Representation,0.61
-New Jersey,Fair Representation,0.297
-Rhode Island,Fair Representation,0.233
-Connecticut,Fair Representation,0.033
+Tennessee,Fair Representation,53.5
+Wisconsin,Fair Representation,63.4
+Minnesota,Fair Representation,61.0
+New Jersey,Fair Representation,29.7
+Rhode Island,Fair Representation,23.3
+Connecticut,Fair Representation,3.3000000000000003
 Wyoming,Fair Representation,
-Alabama,Fair Representation,0.528
-Kentucky,Fair Representation,0.573
-New Hampshire,Fair Representation,0.323
-Kansas,Fair Representation,0.621
-West Virginia,Fair Representation,0.57
-Pennsylvania,Fair Representation,0.693
-Maine,Fair Representation,0.502
-Louisiana,Fair Representation,0.222
+Alabama,Fair Representation,52.800000000000004
+Kentucky,Fair Representation,57.3
+New Hampshire,Fair Representation,32.300000000000004
+Kansas,Fair Representation,62.1
+West Virginia,Fair Representation,56.99999999999999
+Pennsylvania,Fair Representation,69.3
+Maine,Fair Representation,50.2
+Louisiana,Fair Representation,22.2
 Vermont,Fair Representation,
 Delaware,Fair Representation,
-South Carolina,Fair Representation,0.232
-Colorado,Political Accountability,0.833
-Oregon,Political Accountability,1.0
-Washington,Political Accountability,0.833
-California,Political Accountability,0.833
-Maryland,Political Accountability,0.5
-Alaska,Political Accountability,0.667
-Ohio,Political Accountability,0.833
-Montana,Political Accountability,1.0
-Nevada,Political Accountability,1.0
-Arkansas,Political Accountability,1.0
-Florida,Political Accountability,0.5
-Missouri,Political Accountability,0.833
-Idaho,Political Accountability,0.833
-Massachusetts,Political Accountability,0.8
-Oklahoma,Political Accountability,0.833
-New Mexico,Political Accountability,0.333
-Arizona,Political Accountability,0.833
-Virginia,Political Accountability,0.167
-Utah,Political Accountability,0.667
-Nebraska,Political Accountability,0.833
-Hawaii,Political Accountability,0.167
-Illinois,Political Accountability,0.5
-Georgia,Political Accountability,0.5
-Mississippi,Political Accountability,0.5
-New York,Political Accountability,0.167
-Michigan,Political Accountability,1.0
-North Dakota,Political Accountability,1.0
-Texas,Political Accountability,0.333
-Iowa,Political Accountability,0.333
-North Carolina,Political Accountability,0.333
-Indiana,Political Accountability,0.333
-South Dakota,Political Accountability,0.833
-Tennessee,Political Accountability,0.333
-Wisconsin,Political Accountability,0.5
-Minnesota,Political Accountability,0.5
-New Jersey,Political Accountability,0.167
-Rhode Island,Political Accountability,0.2
-Connecticut,Political Accountability,0.167
-Wyoming,Political Accountability,0.667
-Alabama,Political Accountability,0.333
-Kentucky,Political Accountability,0.5
-New Hampshire,Political Accountability,0.2
-Kansas,Political Accountability,0.333
-West Virginia,Political Accountability,0.5
-Pennsylvania,Political Accountability,0.333
-Maine,Political Accountability,0.5
-Louisiana,Political Accountability,0.333
-Vermont,Political Accountability,0.167
-Delaware,Political Accountability,0.167
-South Carolina,Political Accountability,0.167
-Colorado,Political and Institutional Factors,0.912
-Oregon,Political and Institutional Factors,0.922
-Washington,Political and Institutional Factors,0.936
-California,Political and Institutional Factors,0.966
-Maryland,Political and Institutional Factors,0.991
-Alaska,Political and Institutional Factors,0.803
-Ohio,Political and Institutional Factors,0.825
-Montana,Political and Institutional Factors,0.781
-Nevada,Political and Institutional Factors,0.527
-Arkansas,Political and Institutional Factors,0.735
-Florida,Political and Institutional Factors,0.832
-Missouri,Political and Institutional Factors,0.791
-Idaho,Political and Institutional Factors,0.714
-Massachusetts,Political and Institutional Factors,0.986
-Oklahoma,Political and Institutional Factors,0.717
-New Mexico,Political and Institutional Factors,0.898
-Arizona,Political and Institutional Factors,0.521
-Virginia,Political and Institutional Factors,0.897
-Utah,Political and Institutional Factors,0.765
-Nebraska,Political and Institutional Factors,0.335
-Hawaii,Political and Institutional Factors,0.976
-Illinois,Political and Institutional Factors,0.923
-Georgia,Political and Institutional Factors,0.863
-Mississippi,Political and Institutional Factors,0.781
-New York,Political and Institutional Factors,0.943
-Michigan,Political and Institutional Factors,0.2
-North Dakota,Political and Institutional Factors,0.709
-Texas,Political and Institutional Factors,0.824
-Iowa,Political and Institutional Factors,0.817
-North Carolina,Political and Institutional Factors,0.521
-Indiana,Political and Institutional Factors,0.788
-South Dakota,Political and Institutional Factors,0.741
-Tennessee,Political and Institutional Factors,0.751
-Wisconsin,Political and Institutional Factors,0.53
-Minnesota,Political and Institutional Factors,0.219
-New Jersey,Political and Institutional Factors,0.912
-Rhode Island,Political and Institutional Factors,0.936
-Connecticut,Political and Institutional Factors,0.938
-Wyoming,Political and Institutional Factors,0.667
-Alabama,Political and Institutional Factors,0.745
-Kentucky,Political and Institutional Factors,0.409
-New Hampshire,Political and Institutional Factors,0.886
-Kansas,Political and Institutional Factors,0.463
-West Virginia,Political and Institutional Factors,0.69
-Pennsylvania,Political and Institutional Factors,0.198
-Maine,Political and Institutional Factors,0.229
-Louisiana,Political and Institutional Factors,0.777
-Vermont,Political and Institutional Factors,0.667
-Delaware,Political and Institutional Factors,0.937
-South Carolina,Political and Institutional Factors,0.802
+South Carolina,Fair Representation,23.200000000000003
+Colorado,Political Accountability,83.3
+Oregon,Political Accountability,100.0
+Washington,Political Accountability,83.3
+California,Political Accountability,83.3
+Maryland,Political Accountability,50.0
+Alaska,Political Accountability,66.7
+Ohio,Political Accountability,83.3
+Montana,Political Accountability,100.0
+Nevada,Political Accountability,100.0
+Arkansas,Political Accountability,100.0
+Florida,Political Accountability,50.0
+Missouri,Political Accountability,83.3
+Idaho,Political Accountability,83.3
+Massachusetts,Political Accountability,80.0
+Oklahoma,Political Accountability,83.3
+New Mexico,Political Accountability,33.300000000000004
+Arizona,Political Accountability,83.3
+Virginia,Political Accountability,16.7
+Utah,Political Accountability,66.7
+Nebraska,Political Accountability,83.3
+Hawaii,Political Accountability,16.7
+Illinois,Political Accountability,50.0
+Georgia,Political Accountability,50.0
+Mississippi,Political Accountability,50.0
+New York,Political Accountability,16.7
+Michigan,Political Accountability,100.0
+North Dakota,Political Accountability,100.0
+Texas,Political Accountability,33.300000000000004
+Iowa,Political Accountability,33.300000000000004
+North Carolina,Political Accountability,33.300000000000004
+Indiana,Political Accountability,33.300000000000004
+South Dakota,Political Accountability,83.3
+Tennessee,Political Accountability,33.300000000000004
+Wisconsin,Political Accountability,50.0
+Minnesota,Political Accountability,50.0
+New Jersey,Political Accountability,16.7
+Rhode Island,Political Accountability,20.0
+Connecticut,Political Accountability,16.7
+Wyoming,Political Accountability,66.7
+Alabama,Political Accountability,33.300000000000004
+Kentucky,Political Accountability,50.0
+New Hampshire,Political Accountability,20.0
+Kansas,Political Accountability,33.300000000000004
+West Virginia,Political Accountability,50.0
+Pennsylvania,Political Accountability,33.300000000000004
+Maine,Political Accountability,50.0
+Louisiana,Political Accountability,33.300000000000004
+Vermont,Political Accountability,16.7
+Delaware,Political Accountability,16.7
+South Carolina,Political Accountability,16.7
+Colorado,Political and Institutional Factors,91.2
+Oregon,Political and Institutional Factors,92.2
+Washington,Political and Institutional Factors,93.60000000000001
+California,Political and Institutional Factors,96.6
+Maryland,Political and Institutional Factors,99.1
+Alaska,Political and Institutional Factors,80.30000000000001
+Ohio,Political and Institutional Factors,82.5
+Montana,Political and Institutional Factors,78.10000000000001
+Nevada,Political and Institutional Factors,52.7
+Arkansas,Political and Institutional Factors,73.5
+Florida,Political and Institutional Factors,83.2
+Missouri,Political and Institutional Factors,79.10000000000001
+Idaho,Political and Institutional Factors,71.39999999999999
+Massachusetts,Political and Institutional Factors,98.6
+Oklahoma,Political and Institutional Factors,71.7
+New Mexico,Political and Institutional Factors,89.8
+Arizona,Political and Institutional Factors,52.1
+Virginia,Political and Institutional Factors,89.7
+Utah,Political and Institutional Factors,76.5
+Nebraska,Political and Institutional Factors,33.5
+Hawaii,Political and Institutional Factors,97.6
+Illinois,Political and Institutional Factors,92.30000000000001
+Georgia,Political and Institutional Factors,86.3
+Mississippi,Political and Institutional Factors,78.10000000000001
+New York,Political and Institutional Factors,94.3
+Michigan,Political and Institutional Factors,20.0
+North Dakota,Political and Institutional Factors,70.89999999999999
+Texas,Political and Institutional Factors,82.39999999999999
+Iowa,Political and Institutional Factors,81.69999999999999
+North Carolina,Political and Institutional Factors,52.1
+Indiana,Political and Institutional Factors,78.8
+South Dakota,Political and Institutional Factors,74.1
+Tennessee,Political and Institutional Factors,75.1
+Wisconsin,Political and Institutional Factors,53.0
+Minnesota,Political and Institutional Factors,21.9
+New Jersey,Political and Institutional Factors,91.2
+Rhode Island,Political and Institutional Factors,93.60000000000001
+Connecticut,Political and Institutional Factors,93.8
+Wyoming,Political and Institutional Factors,66.7
+Alabama,Political and Institutional Factors,74.5
+Kentucky,Political and Institutional Factors,40.9
+New Hampshire,Political and Institutional Factors,88.6
+Kansas,Political and Institutional Factors,46.300000000000004
+West Virginia,Political and Institutional Factors,69.0
+Pennsylvania,Political and Institutional Factors,19.8
+Maine,Political and Institutional Factors,22.900000000000002
+Louisiana,Political and Institutional Factors,77.7
+Vermont,Political and Institutional Factors,66.7
+Delaware,Political and Institutional Factors,93.7
+South Carolina,Political and Institutional Factors,80.2
+Colorado,letter_weightByVars,
+Oregon,letter_weightByVars,
+Washington,letter_weightByVars,
+California,letter_weightByVars,
+Maryland,letter_weightByVars,
+Alaska,letter_weightByVars,
+Ohio,letter_weightByVars,
+Montana,letter_weightByVars,
+Nevada,letter_weightByVars,
+Arkansas,letter_weightByVars,
+Florida,letter_weightByVars,
+Missouri,letter_weightByVars,
+Idaho,letter_weightByVars,
+Massachusetts,letter_weightByVars,
+Oklahoma,letter_weightByVars,
+New Mexico,letter_weightByVars,
+Arizona,letter_weightByVars,
+Virginia,letter_weightByVars,
+Utah,letter_weightByVars,
+Nebraska,letter_weightByVars,
+Hawaii,letter_weightByVars,
+Illinois,letter_weightByVars,
+Georgia,letter_weightByVars,
+Mississippi,letter_weightByVars,
+New York,letter_weightByVars,
+Michigan,letter_weightByVars,
+North Dakota,letter_weightByVars,
+Texas,letter_weightByVars,
+Iowa,letter_weightByVars,
+North Carolina,letter_weightByVars,
+Indiana,letter_weightByVars,
+South Dakota,letter_weightByVars,
+Tennessee,letter_weightByVars,
+Wisconsin,letter_weightByVars,
+Minnesota,letter_weightByVars,
+New Jersey,letter_weightByVars,
+Rhode Island,letter_weightByVars,
+Connecticut,letter_weightByVars,
+Wyoming,letter_weightByVars,
+Alabama,letter_weightByVars,
+Kentucky,letter_weightByVars,
+New Hampshire,letter_weightByVars,
+Kansas,letter_weightByVars,
+West Virginia,letter_weightByVars,
+Pennsylvania,letter_weightByVars,
+Maine,letter_weightByVars,
+Louisiana,letter_weightByVars,
+Vermont,letter_weightByVars,
+Delaware,letter_weightByVars,
+South Carolina,letter_weightByVars,
+Colorado,letter_weightEqual,
+Oregon,letter_weightEqual,
+Washington,letter_weightEqual,
+California,letter_weightEqual,
+Maryland,letter_weightEqual,
+Alaska,letter_weightEqual,
+Ohio,letter_weightEqual,
+Montana,letter_weightEqual,
+Nevada,letter_weightEqual,
+Arkansas,letter_weightEqual,
+Florida,letter_weightEqual,
+Missouri,letter_weightEqual,
+Idaho,letter_weightEqual,
+Massachusetts,letter_weightEqual,
+Oklahoma,letter_weightEqual,
+New Mexico,letter_weightEqual,
+Arizona,letter_weightEqual,
+Virginia,letter_weightEqual,
+Utah,letter_weightEqual,
+Nebraska,letter_weightEqual,
+Hawaii,letter_weightEqual,
+Illinois,letter_weightEqual,
+Georgia,letter_weightEqual,
+Mississippi,letter_weightEqual,
+New York,letter_weightEqual,
+Michigan,letter_weightEqual,
+North Dakota,letter_weightEqual,
+Texas,letter_weightEqual,
+Iowa,letter_weightEqual,
+North Carolina,letter_weightEqual,
+Indiana,letter_weightEqual,
+South Dakota,letter_weightEqual,
+Tennessee,letter_weightEqual,
+Wisconsin,letter_weightEqual,
+Minnesota,letter_weightEqual,
+New Jersey,letter_weightEqual,
+Rhode Island,letter_weightEqual,
+Connecticut,letter_weightEqual,
+Wyoming,letter_weightEqual,
+Alabama,letter_weightEqual,
+Kentucky,letter_weightEqual,
+New Hampshire,letter_weightEqual,
+Kansas,letter_weightEqual,
+West Virginia,letter_weightEqual,
+Pennsylvania,letter_weightEqual,
+Maine,letter_weightEqual,
+Louisiana,letter_weightEqual,
+Vermont,letter_weightEqual,
+Delaware,letter_weightEqual,
+South Carolina,letter_weightEqual,

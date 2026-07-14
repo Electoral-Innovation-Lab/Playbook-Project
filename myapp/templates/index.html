@@ -30,7 +30,7 @@
           </div>
         
           <div class="counter">
-            <div class="num">{{ "%.3f"|format(avg_reform_score) }}</div>
+            <div class="num">{{ "%.2f"|format(avg_reform_score) }}</div>
             <div class="lbl">Avg reform score</div>
           </div>
         </div>
@@ -67,7 +67,7 @@
       <span>Weaker</span>
       <div class="scale" id="legendScale"></div>
       <span>Stronger</span>
-      <span style="margin-left:auto" class="mono">Sample index · 0–1</span>
+      <span style="margin-left:auto" class="mono">Reform Index · 0–100</span>
     </div>
 
   </div>
@@ -117,6 +117,10 @@
 
 {% block extra_scripts %}
 <script src="{{ url_for('static', filename='js/usMapPath.js') }}"></script>
+
+<script>
+  window.STATE_SCORES = {{ states_json | tojson }};
+</script>
 
 <script>
 
@@ -283,113 +287,186 @@ buildStickerMap();
 </script>
 
 <script>
-/* ---- MAP COLORING + TABLE ---- */
-
-function scoreColor(score) {
-  if (score == null) return '#e2e8f0';
-  // 0 → red (hue 0), 100 → green (hue 120)
-  return `hsl(${Math.round(score * 1.2)}, 60%, 72%)`;
-}
-
-// Grade rank: higher = better, so sort descending works consistently
-const GRADE_RANK = {
-  'F':0,'D-':1,'D':2,'D+':3,'C-':4,'C':5,'C+':6,
-  'B-':7,'B':8,'B+':9,'A-':10,'A':11,'A+':12
-};
-
-let _allStates = [];
-let _sort = { col: 'score', dir: -1 };
-let _query = '';
-
-function renderTable() {
-  const tbody = document.getElementById('stateTbody');
-  const countEl = document.getElementById('tblCount');
-  if (!tbody) return;
-
-  let rows = _allStates.filter(s =>
-    s.name.toLowerCase().includes(_query) ||
-    s.abbreviation.toLowerCase().includes(_query)
-  );
-
-  rows.sort((a, b) => {
-    const d = _sort.dir;
-    if (_sort.col === 'score') {
-      return d * ((a.score ?? -1) - (b.score ?? -1));
+  /* ---- MAP COLORING + TABLE ---- */
+  
+  // Assigns each unique score a percentile (0 to 1) based on its rank among valid scores
+  function computePercentileRanks(scores) {
+    const sorted = [...scores].sort((a, b) => a - b);
+    const n = sorted.length;
+    const rankMap = new Map();
+    let i = 0;
+    while (i < n) {
+      let j = i;
+      while (j < n && sorted[j] === sorted[i]) j++;
+      const avgRank = (i + j - 1) / 2;         // 0-indexed average position among ties
+      const percentile = n > 1 ? avgRank / (n - 1) : 0.5;
+      rankMap.set(sorted[i], percentile);
+      i = j;
     }
-    if (_sort.col === 'grade') {
-      return d * ((GRADE_RANK[a.grade] ?? -1) - (GRADE_RANK[b.grade] ?? -1));
-    }
-    if (_sort.col === 'name') {
-      return d * a.name.localeCompare(b.name);
-    }
-    if (_sort.col === 'reform') {
-      return d * (a.leading_reforms || '').localeCompare(b.leading_reforms || '');
-    }
-    return 0;
-  });
-
-  if (countEl) countEl.textContent = `${rows.length} state${rows.length !== 1 ? 's' : ''}`;
-
-  tbody.innerHTML = rows.map(s => `
-    <tr>
-      <td><a href="/${s.abbreviation}">${s.name}</a></td>
-      <td>${s.grade ? `<span class="grade-badge">${s.grade}</span>` : '—'}</td>
-      <td>${s.score != null ? s.score.toFixed(1) : '—'}</td>
-      <td>${s.leading_reforms || '—'}</td>
-    </tr>
-  `).join('');
-}
-
-function initTable(states) {
-  _allStates = states;
-
-  document.querySelectorAll('#stateTable th[data-sort]').forEach(th => {
-    th.style.cursor = 'pointer';
-    th.addEventListener('click', () => {
-      const col = th.dataset.sort;
-      _sort.dir = (_sort.col === col) ? _sort.dir * -1 : (col === 'name' ? 1 : -1);
-      _sort.col = col;
-      renderTable();
-    });
-  });
-
-  const search = document.getElementById('tblSearch');
-  if (search) {
-    search.addEventListener('input', e => {
-      _query = e.target.value.toLowerCase().trim();
-      renderTable();
-    });
+    return rankMap;
   }
-
-  renderTable();
-}
-
-(async function () {
-  try {
-    const res = await fetch('/api/states');
-    const states = await res.json();
-
+  
+  let _percentileMap = new Map();
+  
+  function scoreColor(score) {
+    if (score == null) return '#e2e8f0';
+    const pct = _percentileMap.has(score) ? _percentileMap.get(score) : 0.5;
+    // 0 → red (hue 0), 100 → green (hue 120), but stretched to the real distribution
+    return `hsl(${Math.round(pct * 120)}, 60%, 72%)`;
+  }
+  
+  // Grade rank: higher = better, so sort descending works consistently
+  const GRADE_RANK = {
+    'F':0,'D-':1,'D':2,'D+':3,'C-':4,'C':5,'C+':6,
+    'B-':7,'B':8,'B+':9,'A-':10,'A':11,'A+':12
+  };
+  
+  let _allStates = [];
+  let _sort = { col: 'score', dir: -1 };
+  let _query = '';
+  
+  function renderTable() {
+    const tbody = document.getElementById('stateTbody');
+    const countEl = document.getElementById('tblCount');
+    if (!tbody) return;
+  
+    let rows = _allStates.filter(s =>
+      s.name.toLowerCase().includes(_query) ||
+      s.abbreviation.toLowerCase().includes(_query)
+    );
+  
+    rows.sort((a, b) => {
+      const d = _sort.dir;
+      if (_sort.col === 'name') {
+        return d * a.name.localeCompare(b.name);
+      }
+      if (_sort.col === 'grade') {
+        const rankA = GRADE_RANK[(a.grade ?? '').trim().toUpperCase()] ?? -1;
+        const rankB = GRADE_RANK[(b.grade ?? '').trim().toUpperCase()] ?? -1;
+        if (rankA !== rankB) return d * (rankA - rankB);
+        return d * ((a.score ?? -1) - (b.score ?? -1)); // tie-break: score, not array order
+      }
+      if (_sort.col === 'score') {
+        return d * ((a.score ?? -1) - (b.score ?? -1));
+      }
+      if (_sort.col === 'reform') {
+        return d * (a.leading_reforms || '').localeCompare(b.leading_reforms || '');
+      }
+      return 0;
+    });
+  
+    if (countEl) countEl.textContent = `${rows.length} state${rows.length !== 1 ? 's' : ''}`;
+  
+    tbody.innerHTML = rows.map(s => `
+      <tr>
+        <td><a href="/${s.abbreviation}">${s.name}</a></td>
+        <td>${s.grade ? `<span class="grade-badge">${s.grade}</span>` : '—'}</td>
+        <td>${s.score != null ? s.score.toFixed(1) : '—'}</td>
+        <td>${s.leading_reforms || '—'}</td>
+      </tr>
+    `).join('');
+  }
+  
+  function initTable(states) {
+    _allStates = states;
+  
+    document.querySelectorAll('#stateTable th[data-sort]').forEach(th => {
+      th.style.cursor = 'pointer';
+      th.addEventListener('click', () => {
+        const col = th.dataset.sort;
+        _sort.dir = (_sort.col === col) ? _sort.dir * -1 : (col === 'name' ? 1 : -1);
+        _sort.col = col;
+        renderTable();
+      });
+    });
+  
+    const search = document.getElementById('tblSearch');
+    if (search) {
+      search.addEventListener('input', e => {
+        _query = e.target.value.toLowerCase().trim();
+        renderTable();
+      });
+    }
+  
+    renderTable();
+  }
+  
+  (function () {
+    const states = (window.STATE_SCORES || []).map(s => ({
+      name: s.state_name,
+      abbreviation: s.abbreviation,
+      score: s.reform_score,
+      grade: s.grade,
+      leading_reforms: s.top_category
+    }));
+  
+    // Build percentile map from the real score distribution
+    const validScores = states.map(s => s.score).filter(v => v != null);
+    _percentileMap = computePercentileRanks(validScores);
+  
     // Color SVG map paths
     const svg = document.querySelector('#svgMapSlot svg');
+    const byAbbr = Object.fromEntries(states.map(s => [s.abbreviation, s]));
+
     if (svg) {
-      const byAbbr = Object.fromEntries(states.map(s => [s.abbreviation, s]));
       svg.querySelectorAll('path[data-abbr]').forEach(path => {
         const s = byAbbr[path.dataset.abbr];
         path.setAttribute('fill', scoreColor(s ? s.score : null));
       });
     }
-
+  
     // Set legend gradient to match score color scale
     const legendScale = document.getElementById('legendScale');
     if (legendScale) {
       legendScale.style.background =
         'linear-gradient(to right, hsl(0,60%,72%), hsl(60,60%,72%), hsl(120,60%,72%))';
     }
-
-    initTable(states);
-  } catch (err) {
-    console.error('Failed to load state data:', err);
+      // ---- Hover tooltip ----
+  let mapTip = document.getElementById('mapTip');
+  if (!mapTip) {
+    mapTip = document.createElement('div');
+    mapTip.className = 'maptip';
+    mapTip.id = 'mapTip';
+    document.body.appendChild(mapTip);
   }
-})();
+
+  function showMapTip(stateData, evt) {
+    if (!stateData) return;
+    const scoreDisplay = stateData.score != null ? Math.round(stateData.score) : '—';
+    const gradeDisplay = stateData.grade || '—';
+    mapTip.innerHTML = `
+      <div class="maptip-head">
+        <h4>${stateData.name}</h4>
+        <span class="grade-pill">${gradeDisplay} · ${scoreDisplay}</span>
+      </div>
+      <p>${stateData.leading_reforms ? 'Leading category: ' + stateData.leading_reforms : 'No category data yet.'}</p>
+      <div class="maptip-link">Click for full profile</div>
+    `;
+    mapTip.classList.add('visible');
+    positionMapTip(evt);
+  }
+
+  function positionMapTip(evt) {
+    mapTip.style.left = evt.clientX + 'px';
+    mapTip.style.top = evt.clientY + 'px';
+  }
+
+  function hideMapTip() {
+    mapTip.classList.remove('visible');
+  }
+
+  if (svg) {
+    svg.querySelectorAll('path[data-abbr]').forEach(path => {
+      const s = byAbbr[path.dataset.abbr];
+      path.addEventListener('mouseenter', e => showMapTip(s, e));
+      path.addEventListener('mousemove', positionMapTip);
+      path.addEventListener('mouseleave', hideMapTip);
+      path.addEventListener('focus', e => showMapTip(s, e));
+      path.addEventListener('blur', hideMapTip);
+    });
+  }
+
+  initTable(states);
+  })();
 </script>
 {% endblock %}
