@@ -8,8 +8,8 @@ MarkupSafe==3.0.3
 numpy==2.5.1
 packaging==26.2
 pandas==2.2.3
-psycopg==3.2.3
-psycopg-binary==3.2.3
+psycopg==3.2.13
+psycopg-binary==3.2.13
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2026.2

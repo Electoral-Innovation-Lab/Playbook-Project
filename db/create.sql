@@ -105,6 +105,9 @@ CREATE INDEX idx_reform_scores_state_latest ON reform_scores(state_id, scored_at
 
 -- TRIGGERS
 -- state can have three scores at once and delete outdated (from reform_scores and category_scores due to delete cascade)
+
+-- commented out because would like to save historical records for features like comparison - etc. 
+/*
 CREATE OR REPLACE FUNCTION keep_latest_3_reform_scores()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -125,6 +128,7 @@ CREATE TRIGGER delete_old_scores
 AFTER INSERT ON reform_scores
 FOR EACH ROW 
 EXECUTE FUNCTION keep_latest_3_reform_scores();
+*/
 
 -- calculate news_articles(score_delta) using reform_scores(score)
 /* How it works:
