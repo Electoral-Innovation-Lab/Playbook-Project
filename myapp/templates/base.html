@@ -517,7 +517,7 @@
   border: 1px solid var(--orange);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: var(--orange);
+  box-shadow: 0 6px 20px -8px rgba(203, 57, 24, 0.25);
   background: #fff;
 }
 
@@ -553,18 +553,22 @@ thead th .ar {
 
 tbody td {
   padding: 13px 16px;
-  border-top: 1px solid var(--paper-2);
-  font-size: 15px;
+  border-top: 1px solid var(--orange-dim);
+  font-size: 18px;
   vertical-align: middle;
 }
 
+tbody tr:nth-child(even) {
+  background: var(--orange-bg);
+}
+
 tbody tr:hover {
-  background: #fbf9f3;
+  background: #fbf3e8;
 }
 
 .statelink {
   font-weight: 600;
-  color: var(--orange);
+  color: var(--black);
   text-decoration: none;
   border-bottom: 1.5px solid transparent;
   cursor: pointer;
@@ -585,6 +589,23 @@ tbody tr:hover {
   min-width: 34px;
   text-align: center;
 }
+
+.gpill2.grade-a { background: #2f7d5222; color: #2f7d52; }
+.gpill2.grade-b { background: #5a9b4e22; color: #5a9b4e; }
+.gpill2.grade-c { background: #caa23f22; color: #a8822f; }
+.gpill2.grade-d,
+.gpill2.grade-f { background: #c4322c22; color: #c4322c; }
+
+.score-val {
+  font-family: 'Spline Sans Mono';
+  font-weight: 600;
+}
+
+.score-val.grade-a { color: #2f7d52; }
+.score-val.grade-b { color: #5a9b4e; }
+.score-val.grade-c { color: #a8822f; }
+.score-val.grade-d,
+.score-val.grade-f { color: #c4322c; }
 
 .bar-cell {
   display: flex;
@@ -710,6 +731,188 @@ tbody tr:hover {
     font-size:12px
   }
 
+/* ---------- State Details ---------- */
+.back-link {
+  font-family: 'Spline Sans Mono';
+  font-size: 20px;
+  color: var(--black);
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.state-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.state-page .section {
+  padding-top: 0;
+  border-top: none;
+}
+
+.sec-title {
+  font-size: clamp(48px, 3.2vw, 48px);
+  letter-spacing: 0.01em;
+}
+
+.state-section-title {
+  font-family: 'Archivo';
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.state-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .state-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.state-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.state-title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.state-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.state-shape-icon {
+  width: 110px;
+  height: 110px;
+  flex: none;
+}
+
+.state-shape-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.state-shape-icon path {
+  fill: var(--orange);
+  stroke: var(--orange-deep);
+  stroke-width: 3;
+}
+
+.state-score-card {
+  background: var(--white);
+  border: 3px solid var(--orange-dim);
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.state-score-card .score-grade {
+  font-family: 'Archivo';
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--orange);
+}
+
+.state-score-card .score-num {
+  font-family: 'Spline Sans Mono';
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--black);
+  margin-top: 4px;
+}
+
+.chart-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-dim);
+  padding: 4px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.chart-tabs button {
+  font-family: 'Archivo';
+  font-weight: 600;
+  font-size: 12.5px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 7px 13px;
+  border-radius: 7px;
+  color: var(--gray);
+}
+
+.chart-tabs button.active {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.chart-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--orange-dim);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.chart-tooltip {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, -130%);
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Spline Sans Mono';
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.chart-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart-cap {
+  font-family: 'Spline Sans Mono';
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+
 /* ---------- LINKS ---------- */
   a {
   color: inherit; 
@@ -729,7 +932,6 @@ tbody tr:hover {
       <a href="{{ url_for('index.index') }}#table" class="btn btn-pill">Table</a>
       <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">News</a>
       <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
-      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data</a> 
     </div>
   </nav>
   

@@ -9,57 +9,68 @@
       <a href="/#map" class="back-link">← Back to map</a>
 
       <div class="sec-kick">State profile</div>
-      <h1 class="sec-title">{{ state.name }}</h1>
+      <div class="state-header-row">
+        <div class="state-title-group">
+          <h1 class="sec-title">{{ state.name }}</h1>
+          <div class="state-shape-icon" id="stateShapeIcon" aria-hidden="true"></div>
+        </div>
 
-      <!-- Score summary -->
-      <div class="state-score-row">
-        {% if state.reform_score is not none %}
-          <div class="state-score-card">
-            <div class="score-grade">{{ state.grade }}</div>
-            <div class="score-num">{{ "%.2f"|format(state.reform_score) }}</div>
-            <div class="score-lbl">Reform score</div>
-          </div>
-        {% else %}
-          <p class="sec-lead">No score data available yet for {{ state.name }}.</p>
-        {% endif %}
-      </div>
-
-      <!-- Category breakdown -->
-      {% if state.category_scores %}
-      <div class="state-section">
-        <h2 class="state-section-title">Score breakdown</h2>
-        <div class="category-grid">
-          {% for category,score in state.category_scores.items() %}
-            {% if score is not none %}
-              <div class="category-card">
-                <div class="cat-name">{{ category }}</div>
-                <div class="cat-score">{{ "%.2f"|format(score) }}</div>
-              </div>
-            {% else %}
-              <p class="sec-lead">No score data available yet for {{category}} in {{state.name}}.</p>
-            {% endif %}           
-          {% endfor %}
+        <!-- Score summary -->
+        <div class="state-score-row">
+          {% if state.reform_score is not none %}
+            <div class="state-score-card">
+              <div class="score-grade">{{ state.grade }}</div>
+              <div class="score-num">{{ "%.2f"|format(state.reform_score) }}/100</div>
+              <div class="score-lbl">Reform score</div>
+            </div>
+          {% else %}
+            <p class="sec-lead">No score data available yet for {{ state.name }}.</p>
+          {% endif %}
         </div>
       </div>
-      {% endif %}
 
-      <!-- Action pathways -->
-      {% if state.pathways %}
-      <div class="state-section">
-        <h2 class="state-section-title">Reform pathways</h2>
-        <ul class="pathway-list">
-          {% for p in state.pathways %}
-          <li class="pathway-item">
-            <span class="pathway-title">{{ p }}</span>
-            <!-- 
-            {% if p.category %}<span class="pathway-category">{{ p.category }}</span>{% endif %}
-            {% if p.description %}<p class="pathway-desc">{{ p.description }}</p>{% endif %}
-            -->
-          </li>
-          {% endfor %}
-        </ul>
+      <div class="state-split">
+        <!-- Action pathways -->
+        <div class="state-panel">
+          {% if state.pathways %}
+          <div class="state-section">
+            <h2 class="state-section-title">Reform pathways</h2>
+            <ul class="pathway-list">
+              {% for p in state.pathways %}
+              <li class="pathway-item">
+                <span class="pathway-title">{{ p }}</span>
+                <!--
+                {% if p.category %}<span class="pathway-category">{{ p.category }}</span>{% endif %}
+                {% if p.description %}<p class="pathway-desc">{{ p.description }}</p>{% endif %}
+                -->
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Category breakdown -->
+        <div class="state-panel">
+          {% if state.category_scores %}
+          <div class="state-section">
+            <h2 class="state-section-title">Score breakdown</h2>
+
+            {% if category_scores_json %}
+            <div class="chart-tabs" id="chartTabs">
+              <button data-c="bars" class="active">Reform by category</button>
+              <button data-c="radar">Reform profile</button>
+            </div>
+            <div class="chart-card" id="chartCard">
+              <div id="chartSlot"></div>
+              <div class="chart-cap" id="chartCap"></div>
+              <div class="chart-tooltip" id="chartTooltip"></div>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
 
       <!-- Recent news -->
       {% if stories %}
@@ -91,4 +102,179 @@
     </div>
   </section>
 </main>
+
+<script src="{{ url_for('static', filename='js/usMapPath.js') }}"></script>
+<script>
+(function(){
+  const abbr = "{{ state.abbreviation }}";
+  const mapData = window.US_MAP;
+  const d = mapData && mapData.paths[abbr];
+  const slot = document.getElementById('stateShapeIcon');
+  if (!d || !slot) return;
+
+  slot.innerHTML = `<svg viewBox="${mapData.viewBox}" xmlns="http://www.w3.org/2000/svg"><path d="${d}"></path></svg>`;
+
+  // zoom the shared US viewBox into a tight crop around just this state
+  const path = slot.querySelector('path');
+  const box = path.getBBox();
+  const pad = Math.max(box.width, box.height) * 0.08;
+  slot.querySelector('svg').setAttribute('viewBox',
+    `${box.x - pad} ${box.y - pad} ${box.width + pad * 2} ${box.height + pad * 2}`);
+})();
+</script>
+
+{% if category_scores_json %}
+<script>
+const categoryScores = {{ category_scores_json | tojson }};
+
+/* ---------- color scale: red(low) -> amber -> green(high) ---------- */
+function lerp(a,b,t){return a+(b-a)*t}
+function hex(c){return c.toString(16).padStart(2,'0')}
+function scaleColor(score){
+  let t = Math.max(0, Math.min(1, (score-42)/(86-42)));
+  const stops=[[196,50,44],[202,162,63],[47,125,82]];
+  let seg = t*2, i = Math.min(1, Math.floor(seg)), f = seg-i;
+  const a=stops[i], b=stops[i+1];
+  return '#'+hex(Math.round(lerp(a[0],b[0],f)))+hex(Math.round(lerp(a[1],b[1],f)))+hex(Math.round(lerp(a[2],b[2],f)));
+}
+
+function chartBars(scores){
+  const ent=Object.entries(scores);
+  const W=460,pl=150,pr=40,pt=14,pb=10,bh=46;
+  const H=pt+pb+bh*ent.length;
+  let out='';
+  ent.forEach(([k,v],i)=>{
+    const y=pt+i*bh, bw=(W-pl-pr)*v/100;
+    out+=`<text x="${pl-10}" y="${y+bh/2+4}" text-anchor="end" font-size="10.5" fill="#33425c" font-family="Archivo">${k}</text>
+    <rect x="${pl}" y="${y+bh*0.18}" width="${W-pl-pr}" height="${bh*0.5}" rx="5" fill="#efe9dc"/>
+    <rect class="reform-bar-fill" data-target="${bw}" x="${pl}" y="${y+bh*0.18}" width="0" height="${bh*0.5}" rx="5" fill="${scaleColor(v)}"/>
+    <text class="reform-bar-val" x="${W-8}" y="${y+bh/2+4}" text-anchor="end" font-size="10.5" fill="#33425c" font-family="Spline Sans Mono" opacity="0">${v.toFixed(1)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}">${out}</svg>`;
+}
+
+const RADAR_CX=230, RADAR_CY=123, RADAR_R=110;
+function radarAngle(i,N){ return (i/N)*Math.PI*2 - Math.PI/2; }
+
+function chartRadar(scores){
+  const ent=Object.entries(scores);
+  const cx=RADAR_CX,cy=RADAR_CY,R=RADAR_R,N=ent.length;
+  const ang=i=>radarAngle(i,N);
+  let rings='';
+  [0.25,0.5,0.75,1].forEach(r=>{
+    let p='';ent.forEach((_,i)=>{const a=ang(i);p+=`${i?'L':'M'}${cx+Math.cos(a)*R*r},${cy+Math.sin(a)*R*r} `;});
+    rings+=`<path d="${p}Z" fill="none" stroke="#e7dfce"/>`;});
+  let axes='',labels='',points='';
+  ent.forEach(([k,v],i)=>{
+    const a=ang(i);const ex=cx+Math.cos(a)*R, ey=cy+Math.sin(a)*R;
+    axes+=`<line x1="${cx}" y1="${cy}" x2="${ex}" y2="${ey}" stroke="#e7dfce"/>`;
+    const lx=cx+Math.cos(a)*(R+20), ly=cy+Math.sin(a)*(R+20);
+    const words = k.split(' ');
+labels += `<text x="${lx}" y="${ly}" text-anchor="middle"
+  font-size="9.5" fill="#33425c" font-family="Archivo">
+  ${words.map((word, j) =>
+    `<tspan x="${lx}" dy="${j === 0 ? 0 : 11}">${word}</tspan>`
+  ).join('')}
+</text>`;
+    const px=cx+Math.cos(a)*R*v/100, py=cy+Math.sin(a)*R*v/100;
+    points+=`<circle class="chart-point" data-cat="${k}" data-score="${v.toFixed(1)}"
+      cx="${px}" cy="${py}" r="10" fill="#c4322c" opacity="0" style="cursor:pointer"/>
+    <circle class="radar-dot" cx="${px}" cy="${py}" r="3.5" fill="#c4322c" stroke="#fff" stroke-width="1.5" pointer-events="none" opacity="0"/>`;
+  });
+  return `<svg viewBox="0 0 460 256">${rings}${axes}
+    <path class="radar-poly" d="M${cx},${cy} Z" fill="#c4322c22" stroke="#c4322c" stroke-width="2"/>${labels}${points}</svg>`;
+}
+
+const CHARTS={
+  bars:{f:chartBars,cap:'Strength of reform across each scored category. Longer bars indicate stronger institutional guardrails.'},
+  radar:{f:chartRadar,cap:'A balanced shape signals broad-based reform across categories. Hover a point for its exact score.'}
+};
+
+const chartCard=document.getElementById('chartCard');
+const tooltip=document.getElementById('chartTooltip');
+
+function attachTooltips(){
+  document.querySelectorAll('.chart-point').forEach(pt=>{
+    pt.addEventListener('mouseenter', ()=>{
+      tooltip.textContent=`${pt.dataset.cat}: ${pt.dataset.score}`;
+      tooltip.style.display='block';
+    });
+    pt.addEventListener('mousemove', e=>{
+      const rect=chartCard.getBoundingClientRect();
+      tooltip.style.left=(e.clientX-rect.left)+'px';
+      tooltip.style.top=(e.clientY-rect.top)+'px';
+    });
+    pt.addEventListener('mouseleave', ()=>{
+      tooltip.style.display='none';
+    });
+  });
+}
+
+function easeOutCubic(t){ return 1-Math.pow(1-t,3); }
+
+// drives a single value from 0 -> 1 over `duration` ms (after an optional
+// `delay`), calling onFrame(easedProgress) each tick via requestAnimationFrame.
+// avoids CSS transform-origin, whose SVG behavior is inconsistent across
+// browsers and produced runaway-sized bars when used here before.
+function animateValue(duration, delay, onFrame){
+  let start=null;
+  function tick(now){
+    if(start===null) start=now+delay;
+    if(now<start){ requestAnimationFrame(tick); return; }
+    const t=Math.min(1,(now-start)/duration);
+    onFrame(easeOutCubic(t));
+    if(t<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function animateChart(k){
+  const slot=document.getElementById('chartSlot');
+  if(k==='bars'){
+    slot.querySelectorAll('.reform-bar-fill').forEach((el,i)=>{
+      const target=parseFloat(el.dataset.target);
+      animateValue(650, i*70, t=>el.setAttribute('width', target*t));
+    });
+    slot.querySelectorAll('.reform-bar-val').forEach((el,i)=>{
+      animateValue(400, i*70+450, t=>el.setAttribute('opacity', t));
+    });
+  } else if(k==='radar'){
+    const ent=Object.entries(categoryScores), N=ent.length;
+    const poly=slot.querySelector('.radar-poly');
+    animateValue(750, 0, t=>{
+      let d='';
+      ent.forEach(([,v],i)=>{
+        const a=radarAngle(i,N);
+        const px=RADAR_CX+Math.cos(a)*RADAR_R*v/100*t;
+        const py=RADAR_CY+Math.sin(a)*RADAR_R*v/100*t;
+        d+=`${i?'L':'M'}${px},${py} `;
+      });
+      poly.setAttribute('d', d+'Z');
+    });
+    slot.querySelectorAll('.radar-dot').forEach(el=>{
+      animateValue(400, 550, t=>el.setAttribute('opacity', t));
+    });
+  }
+}
+
+function renderChart(k){
+  document.getElementById('chartSlot').innerHTML=CHARTS[k].f(categoryScores);
+  document.getElementById('chartCap').textContent=CHARTS[k].cap;
+  tooltip.style.display='none';
+  attachTooltips();
+  animateChart(k);
+}
+
+function switchChart(k,btn){
+  document.querySelectorAll('#chartTabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChart(k);
+}
+
+renderChart('bars');
+document.querySelectorAll('#chartTabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>switchChart(btn.dataset.c, btn));
+});
+</script>
+{% endif %}
 {% endblock %}

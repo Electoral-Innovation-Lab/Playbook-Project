@@ -101,10 +101,22 @@
           <tbody id="stateTbody">
             {% for state in states_minimal %}
             <tr data-name="{{ state.state_name|lower }}" data-grade="{{ state.grade }}" data-score="{{ state.reform_score }}">
-              <td><a href="/state/{{ state.state_id }}">{{ state.state_name }}</a></td>
-              <td>{{ state.grade }}</td>
-              <td>{{ state.reform_score }}</td>
-              <td>{{ state.top_category }}</td>
+              <td><a href="/state/{{ state.state_id }}" class="statelink">{{ state.state_name }}</a></td>
+              <td>
+                {% if state.grade %}
+                  <span class="gpill2 grade-{{ state.grade[0]|lower }}">{{ state.grade }}</span>
+                {% else %}
+                  —
+                {% endif %}
+              </td>
+              <td>
+                {% if state.reform_score is not none %}
+                  <span class="score-val {% if state.grade %}grade-{{ state.grade[0]|lower }}{% endif %}">{{ "%.1f"|format(state.reform_score) }}</span>
+                {% else %}
+                  —
+                {% endif %}
+              </td>
+              <td>{{ state.top_category or "—" }}</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -357,14 +369,17 @@ buildStickerMap();
   
     if (countEl) countEl.textContent = `${rows.length} state${rows.length !== 1 ? 's' : ''}`;
   
-    tbody.innerHTML = rows.map(s => `
+    tbody.innerHTML = rows.map(s => {
+      const gradeClass = s.grade ? `grade-${s.grade[0].toLowerCase()}` : '';
+      return `
       <tr>
-        <td><a href="/${s.abbreviation}">${s.name}</a></td>
-        <td>${s.grade ? `<span class="grade-badge">${s.grade}</span>` : '—'}</td>
-        <td>${s.score != null ? s.score.toFixed(1) : '—'}</td>
+        <td><a href="/${s.abbreviation}" class="statelink">${s.name}</a></td>
+        <td>${s.grade ? `<span class="gpill2 ${gradeClass}">${s.grade}</span>` : '—'}</td>
+        <td>${s.score != null ? `<span class="score-val ${gradeClass}">${s.score.toFixed(1)}</span>` : '—'}</td>
         <td>${s.leading_reforms || '—'}</td>
       </tr>
-    `).join('');
+    `;
+    }).join('');
   }
   
   function initTable(states) {
