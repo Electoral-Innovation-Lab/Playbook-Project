@@ -18,9 +18,12 @@
 
 4. **Create your local database and load schema + seed:**
    ```bash
+   (dropdb playbook)
    createdb playbook
-   psql playbook < create.sql (or psql playbook -e -f create.sql)
-   psql playbook < seed.sql
+
+   psql playbook -f db/create.sql
+   psql playbook -f db/load.sql
+   psql playbook -f db/seed.sql
    ```
 5. **Create your own `.env`** (this holds YOUR local secrets; it is never committed):
    ```bash

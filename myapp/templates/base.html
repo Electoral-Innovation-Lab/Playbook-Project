@@ -139,6 +139,24 @@
   margin-top: 5px;
 }
 
+.hero-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 24px;
+  pointer-events: auto;
+}
+ 
+.hero-categories span {
+  font-family: 'Archivo';
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--orange-deep);
+}
+
 .hero-sub {
   font-family: 'Archivo';
   max-width: 800px;
@@ -159,6 +177,7 @@
   letter-spacing: 0.14em;
   color: var(--orange-deep);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .scrollcue .arr {
@@ -382,22 +401,57 @@
     transition: opacity 0.12s;
     background: var(--black);
     color: white;
-    border-radius: 10px;
-    padding: 10px 13px;
-    max-width: 240px;
+    border-radius: 14px;
+    padding: 16px 18px;
+    max-width: 260px;
     transform: translate(-50%, -120%);
     font-size: 0.85rem;
   }
 
+  .maptip.visible {
+    opacity: 1;
+  }
+
+  .maptip-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
   .maptip h4 {
     margin: 0 0 4px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Archivo';
+  }
+
+  .maptip .grade-pill {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
   }
 
   .maptip p {
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.4;
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .maptip .maptip-link {
+    font-family: 'Spline Sans Mono';
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
   }
 
   .legend {
@@ -463,7 +517,7 @@
   border: 1px solid var(--orange);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: var(--orange);
+  box-shadow: 0 6px 20px -8px rgba(203, 57, 24, 0.25);
   background: #fff;
 }
 
@@ -499,18 +553,22 @@ thead th .ar {
 
 tbody td {
   padding: 13px 16px;
-  border-top: 1px solid var(--paper-2);
-  font-size: 15px;
+  border-top: 1px solid var(--orange-dim);
+  font-size: 18px;
   vertical-align: middle;
 }
 
+tbody tr:nth-child(even) {
+  background: var(--orange-bg);
+}
+
 tbody tr:hover {
-  background: #fbf9f3;
+  background: #fbf3e8;
 }
 
 .statelink {
   font-weight: 600;
-  color: var(--orange);
+  color: var(--black);
   text-decoration: none;
   border-bottom: 1.5px solid transparent;
   cursor: pointer;
@@ -531,6 +589,23 @@ tbody tr:hover {
   min-width: 34px;
   text-align: center;
 }
+
+.gpill2.grade-a { background: #2f7d5222; color: #2f7d52; }
+.gpill2.grade-b { background: #5a9b4e22; color: #5a9b4e; }
+.gpill2.grade-c { background: #caa23f22; color: #a8822f; }
+.gpill2.grade-d,
+.gpill2.grade-f { background: #c4322c22; color: #c4322c; }
+
+.score-val {
+  font-family: 'Spline Sans Mono';
+  font-weight: 600;
+}
+
+.score-val.grade-a { color: #2f7d52; }
+.score-val.grade-b { color: #5a9b4e; }
+.score-val.grade-c { color: #a8822f; }
+.score-val.grade-d,
+.score-val.grade-f { color: #c4322c; }
 
 .bar-cell {
   display: flex;
@@ -656,6 +731,188 @@ tbody tr:hover {
     font-size:12px
   }
 
+/* ---------- State Details ---------- */
+.back-link {
+  font-family: 'Spline Sans Mono';
+  font-size: 20px;
+  color: var(--black);
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.state-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.state-page .section {
+  padding-top: 0;
+  border-top: none;
+}
+
+.sec-title {
+  font-size: clamp(48px, 3.2vw, 48px);
+  letter-spacing: 0.01em;
+}
+
+.state-section-title {
+  font-family: 'Archivo';
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.state-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .state-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.state-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.state-title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.state-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.state-shape-icon {
+  width: 110px;
+  height: 110px;
+  flex: none;
+}
+
+.state-shape-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.state-shape-icon path {
+  fill: var(--orange);
+  stroke: var(--orange-deep);
+  stroke-width: 3;
+}
+
+.state-score-card {
+  background: var(--white);
+  border: 3px solid var(--orange-dim);
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.state-score-card .score-grade {
+  font-family: 'Archivo';
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--orange);
+}
+
+.state-score-card .score-num {
+  font-family: 'Spline Sans Mono';
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--black);
+  margin-top: 4px;
+}
+
+.chart-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-dim);
+  padding: 4px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.chart-tabs button {
+  font-family: 'Archivo';
+  font-weight: 600;
+  font-size: 12.5px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 7px 13px;
+  border-radius: 7px;
+  color: var(--gray);
+}
+
+.chart-tabs button.active {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.chart-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--orange-dim);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.chart-tooltip {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, -130%);
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Spline Sans Mono';
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.chart-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart-cap {
+  font-family: 'Spline Sans Mono';
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+
 /* ---------- LINKS ---------- */
   a {
   color: inherit; 
@@ -670,11 +927,11 @@ tbody tr:hover {
   <nav>
     <div class="nav-logo"> <a href="{{ url_for('index.index') }}">50 States <span>Playbook</span></a></div>
     <div class="nav-actions">
-      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
+      <a href="{{ url_for('index.index') }}#home" class="btn btn-pill">Home</a>
       <a href="{{ url_for('index.index') }}#map" class="btn btn-pill">Map</a>
       <a href="{{ url_for('index.index') }}#table" class="btn btn-pill">Table</a>
       <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">News</a>
-      <a href="{{ url_for('news.all_news') }}" class="btn btn-pill">View Data →</a>
+      <a href="{{ url_for('about.get_about') }}" class="btn btn-pill">About</a>
     </div>
   </nav>
   
