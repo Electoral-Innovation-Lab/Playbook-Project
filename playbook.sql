@@ -2,7 +2,6 @@
 -- PostgreSQL database dump for Render link
 --
 
-\restrict nYro6VNvMoKpwosz3tYkDofuhPyiOMDUPyfUqUBJ1O2dxYtY3LCWVNtkbhK4MAt
 
 -- Dumped from database version 16.14 (Homebrew)
 -- Dumped by pg_dump version 16.14 (Homebrew)
@@ -2809,5 +2808,4 @@ ALTER TABLE ONLY public.reform_scores
 -- PostgreSQL database dump complete
 --
 
-\unrestrict nYro6VNvMoKpwosz3tYkDofuhPyiOMDUPyfUqUBJ1O2dxYtY3LCWVNtkbhK4MAt
 
